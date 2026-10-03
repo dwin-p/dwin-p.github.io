@@ -1,17 +1,718 @@
 ---
-
+const featuredProjects = [
+    {
+        title: "Autonomous Chess-Playing Robot",
+        slug: "chess-robot",
+        description:
+            "Autonomous robotic chess system integrating computer vision, game intelligence, ROS 2 motion planning, and a Kinova Gen3 Lite.",
+        tags: ["Robotics", "Computer Vision", "ROS 2"],
+        image: "/images/projects/chess-robot/chess-robot.jpg",
+    },
+    {
+        title: "PEBBLE – Intelligent Study Companion",
+        slug: "pebble",
+        description:
+            "Raspberry Pi-based embedded system combining sensing, machine learning, computer vision, voice interaction, and real-time feedback.",
+        tags: ["Embedded Systems", "Python", "Machine Learning"],
+        image: "/images/projects/pebble/pebble.jpg",
+    },
+    {
+        title: "ThirdEye",
+        slug: "thirdeye",
+        description:
+            "Computer-vision system for automated eyelid measurement using semantic segmentation and a Raspberry Pi-based mobile prototype.",
+        tags: ["Computer Vision", "PyTorch", "Raspberry Pi"],
+        image: "/images/projects/thirdeye/thirdeye.jpg",
+    },
+];
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta
+			name="description"
+			content="Engineering portfolio of Daniel Winfield, Mechanical Engineering M.S. student at Duke University."
+		/>
+		<title>Daniel Winfield | Engineering Portfolio</title>
 	</head>
+
 	<body>
-		<h1>Astro</h1>
+		<header class="site-header">
+			<a class="logo" href="/">Daniel Winfield</a>
+
+			<nav>
+				<a href="#projects">Projects</a>
+				<a href="#research">Research</a>
+				<a href="#about">About</a>
+				<a href="#contact">Contact</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="hero-copy">
+					<p class="eyebrow">Mechanical Engineering M.S. @ Duke University</p>
+
+					<h1>
+						Engineering at the intersection of{" "}
+						<span>robotics, hardware, and experimentation.</span>
+					</h1>
+
+					<p class="hero-description">
+						I’m Daniel Winfield, a mechanical engineering graduate student
+						working across robotics, mechatronics, embedded systems, computer
+						vision, mechanical design, and experimental R&D.
+					</p>
+
+					<div class="hero-actions">
+						<a class="button primary" href="#projects">View Projects</a>
+						<a
+							class="button secondary"
+							href="https://github.com/dwin-p"
+							target="_blank"
+							rel="noreferrer"
+						>
+							GitHub
+						</a>
+					</div>
+				</div>
+
+				<div class="hero-visual" aria-hidden="true">
+					<div class="visual-card">
+						<div class="circle mint"></div>
+						<div class="circle coral"></div>
+
+						<div class="system-lines">
+							<span>ROBOTICS</span>
+							<span>VISION</span>
+							<span>EMBEDDED</span>
+							<span>DESIGN</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section" id="projects">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">Selected Work</p>
+						<h2>Featured Projects</h2>
+					</div>
+
+					<p>
+						Projects spanning robotics, computer vision, embedded systems,
+						mechanical design, and multidisciplinary engineering.
+					</p>
+				</div>
+
+				<div class="project-grid">
+					{
+						featuredProjects.map((project, index) => (
+							<article class="project-card">
+								<div class={`project-image project-image-${index + 1}`}>
+									{
+										project.image ? (
+											<img
+												src={project.image}
+												alt={`${project.title} project`}
+												class={`project-image ${project.title === "ThirdEye" ? "thirdeye-image" : ""}`}
+												loading="lazy"
+											/>
+										) : null
+									}
+
+									{
+										!project.image && (
+											<span>{String(index + 1).padStart(2, "0")}</span>
+										)
+									}
+								</div>
+
+								<div class="project-content">
+									<h3>{project.title}</h3>
+									<p>{project.description}</p>
+
+									<div class="tags">
+										{project.tags.map((tag) => <span>{tag}</span>)}
+									</div>
+
+									<a href={`/projects/${project.slug}`} class="project-link">
+										View project <span>→</span>
+									</a>
+								</div>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<section class="research section" id="research">
+				<div class="research-intro">
+					<p class="eyebrow">Research</p>
+					<h2>Experimental and computational engineering research.</h2>
+				</div>
+
+				<div class="research-grid">
+					<article>
+						<p class="research-number">01</p>
+						<h3>Thermal Diffusion in Architected Digital Composites</h3>
+						<p>
+							Graduate research in Duke University’s Ni Lab focused on
+							transient heat transfer and the electrical-to-thermal behavior
+							of architected liquid-metal composite structures.
+						</p>
+					</article>
+
+					<article>
+						<p class="research-number">02</p>
+						<h3>Computational Materials for Quantum Technologies</h3>
+						<p>
+							First-principles investigation of point defects in cubic BeS
+							using DFT, GW, and BSE methods to study electronic structure,
+							stability, and optical excitations.
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="about section" id="about">
+				<div>
+					<p class="eyebrow">About</p>
+					<h2>Mechanical engineer working across physical and digital systems.</h2>
+				</div>
+
+				<div class="about-copy">
+					<p>
+						My work combines mechanical design, hardware integration,
+						programming, computer vision, experimental testing, and engineering
+						analysis.
+					</p>
+
+					<p>
+						I am currently pursuing an M.S. in Mechanical Engineering and
+						Materials Science at Duke University after earning my B.S. in
+						Mechanical Engineering from Tuskegee University.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<footer id="contact">
+			<p>Daniel Winfield</p>
+
+			<div class="footer-links">
+				<a
+					href="https://github.com/dwin-p"
+					target="_blank"
+					rel="noreferrer"
+				>
+					GitHub
+				</a>
+				<a href="#top">Back to top ↑</a>
+			</div>
+		</footer>
 	</body>
 </html>
+
+<style>
+	:root {
+		--ink: #251a37;
+		--paper: #f7f6f2;
+		--white: #ffffff;
+		--muted: #68636f;
+		--line: #dcd8e0;
+		--mint: #bddfd6;
+		--coral: #e9654c;
+		--blue: #4778bd;
+		--lavender: #d1b5ef;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		background: var(--paper);
+		color: var(--ink);
+		font-family:
+			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", sans-serif;
+		line-height: 1.6;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.25rem max(5vw, 2rem);
+		background: rgba(247, 246, 242, 0.93);
+		border-bottom: 1px solid var(--line);
+		backdrop-filter: blur(12px);
+	}
+
+	.logo {
+		font-weight: 750;
+		letter-spacing: -0.02em;
+	}
+
+	nav {
+		display: flex;
+		gap: 2rem;
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+
+	nav a:hover {
+		opacity: 0.6;
+	}
+
+	main,
+	footer {
+		max-width: 1500px;
+		margin: 0 auto;
+	}
+
+	.hero {
+		min-height: 74vh;
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		align-items: center;
+		gap: 5rem;
+		padding: 6rem max(5vw, 2rem);
+	}
+
+	.eyebrow {
+		margin: 0 0 1.25rem;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--blue);
+	}
+
+	h1,
+	h2,
+	h3,
+	p {
+		margin-top: 0;
+	}
+
+	h1 {
+		max-width: 850px;
+		margin-bottom: 2rem;
+		font-size: clamp(3rem, 5vw, 5.7rem);
+		line-height: 0.98;
+		letter-spacing: -0.055em;
+	}
+
+	h1 span {
+		color: var(--blue);
+	}
+
+	.hero-description {
+		max-width: 720px;
+		margin-bottom: 2.5rem;
+		font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+		color: var(--muted);
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 145px;
+		padding: 0.85rem 1.25rem;
+		border: 1px solid var(--ink);
+		border-radius: 999px;
+		font-weight: 700;
+	}
+
+	.button.primary {
+		background: var(--ink);
+		color: var(--white);
+	}
+
+	.button.secondary:hover {
+		background: var(--ink);
+		color: var(--white);
+	}
+
+	.hero-visual {
+		display: flex;
+		justify-content: center;
+	}
+
+	.visual-card {
+		position: relative;
+		width: min(100%, 590px);
+		aspect-ratio: 4 / 5;
+		overflow: hidden;
+		background: var(--ink);
+		border-radius: 2rem;
+	}
+
+	.visual-card::before {
+		content: "";
+		position: absolute;
+		top: 12%;
+		right: -10%;
+		width: 65%;
+		height: 23%;
+		background: var(--lavender);
+		border-radius: 999px 0 0 999px;
+	}
+
+	.visual-card::after {
+		content: "";
+		position: absolute;
+		bottom: -9%;
+		left: -8%;
+		width: 45%;
+		aspect-ratio: 1;
+		background: var(--coral);
+		border-radius: 50%;
+	}
+
+	.circle {
+		position: absolute;
+		border-radius: 50%;
+	}
+
+	.circle.mint {
+		top: 8%;
+		left: 10%;
+		width: 16%;
+		aspect-ratio: 1;
+		background: var(--mint);
+	}
+
+	.circle.coral {
+		bottom: 19%;
+		right: 14%;
+		width: 7%;
+		aspect-ratio: 1;
+		background: var(--coral);
+	}
+
+	.system-lines {
+		position: absolute;
+		z-index: 3;
+		top: 39%;
+		left: 10%;
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.system-lines span {
+		width: fit-content;
+		padding: 0.7rem 1.2rem;
+		border: 1px solid rgba(255, 255, 255, 0.7);
+		border-radius: 999px;
+		color: white;
+		font-size: clamp(0.75rem, 1vw, 1rem);
+		font-weight: 800;
+		letter-spacing: 0.12em;
+	}
+
+	.section {
+		padding: 7rem max(5vw, 2rem);
+		border-top: 1px solid var(--line);
+	}
+
+	.section-heading {
+		display: grid;
+		grid-template-columns: 1fr 0.8fr;
+		gap: 4rem;
+		align-items: end;
+		margin-bottom: 3rem;
+	}
+
+	h2 {
+		margin-bottom: 0;
+		font-size: clamp(2.4rem, 4vw, 4.5rem);
+		line-height: 1.05;
+		letter-spacing: -0.04em;
+	}
+
+	.section-heading > p {
+		margin-bottom: 0.5rem;
+		color: var(--muted);
+		font-size: 1.05rem;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.project-card {
+		overflow: hidden;
+		background: var(--white);
+		border: 1px solid var(--line);
+		border-radius: 1.35rem;
+	}
+
+	.project-image {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		height: 290px;
+		overflow: hidden;
+		padding: 0;
+		font-size: 4rem;
+		font-weight: 800;
+		letter-spacing: -0.05em;
+	}
+
+	.project-image img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		object-fit: cover;
+		object-position: 58% 68%;
+		transform: scale(1.12);
+	}
+
+	.project-image > span {
+		position: absolute;
+		left: 1.5rem;
+		bottom: 1.5rem;
+		z-index: 2;
+	}
+
+	.project-image > span {
+		position: relative;
+		z-index: 2;
+	}
+
+	.project-image .image-number {
+		padding: 0.15rem 0.55rem;
+		border-radius: 0.4rem;
+		background: rgba(37, 26, 55, 0.78);
+		color: white;
+		font-size: 1.2rem;
+		letter-spacing: 0;
+	}
+
+	.project-image img.thirdeye-image {
+		object-position: center top;
+		transform: scale(1);
+	}
+
+	.project-image-1 {
+		background: var(--blue);
+		color: white;
+	}
+
+	.project-image-2 {
+		background: var(--mint);
+	}
+
+	.project-image-3 {
+		background: var(--lavender);
+	}
+
+	.project-content {
+		padding: 1.6rem;
+	}
+
+	.project-content h3 {
+		margin-bottom: 0.75rem;
+		font-size: 1.4rem;
+		line-height: 1.15;
+	}
+
+	.project-content > p {
+		color: var(--muted);
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		margin: 1.3rem 0;
+	}
+
+	.tags span {
+		padding: 0.35rem 0.7rem;
+		background: var(--paper);
+		border-radius: 999px;
+		font-size: 0.75rem;
+		font-weight: 700;
+	}
+
+	.project-link {
+		display: inline-flex;
+		gap: 0.5rem;
+		align-items: center;
+		font-weight: 750;
+	}
+
+	.project-link:hover span {
+		transform: translateX(4px);
+	}
+
+	.project-link span {
+		transition: 160ms ease;
+	}
+
+	.research {
+		background: var(--ink);
+		color: white;
+	}
+
+	.research .eyebrow {
+		color: var(--mint);
+	}
+
+	.research-intro {
+		max-width: 900px;
+		margin-bottom: 4rem;
+	}
+
+	.research-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.research-grid article {
+		padding: 2.5rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.research-grid article:first-child {
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.research-number {
+		color: var(--mint);
+		font-size: 0.8rem;
+		font-weight: 800;
+	}
+
+	.research-grid h3 {
+		font-size: 1.5rem;
+	}
+
+	.research-grid article > p:last-child {
+		color: rgba(255, 255, 255, 0.72);
+	}
+
+	.about {
+		display: grid;
+		grid-template-columns: 1fr 0.8fr;
+		gap: 6rem;
+	}
+
+	.about-copy {
+		font-size: 1.15rem;
+		color: var(--muted);
+	}
+
+	footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2rem max(5vw, 2rem);
+		border-top: 1px solid var(--line);
+		font-weight: 650;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 2rem;
+	}
+
+	@media (max-width: 900px) {
+		.site-header nav {
+			gap: 1rem;
+		}
+
+		.hero {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+			padding-top: 4rem;
+		}
+
+		.hero-visual {
+			order: -1;
+		}
+
+		.visual-card {
+			max-width: 500px;
+			aspect-ratio: 5 / 3;
+		}
+
+		.project-grid,
+		.research-grid,
+		.section-heading,
+		.about {
+			grid-template-columns: 1fr;
+		}
+
+		.research-grid article:first-child {
+			border-right: 0;
+		}
+
+		.section-heading,
+		.about {
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 650px) {
+		.site-header {
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		nav {
+			display: grid;
+			grid-template-columns: repeat(2, auto);
+			gap: 0.35rem 1rem;
+		}
+
+		.hero,
+		.section {
+			padding-left: 1.3rem;
+			padding-right: 1.3rem;
+		}
+
+		h1 {
+			font-size: 3rem;
+		}
+
+		footer {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 1rem;
+		}
+	}
+</style>
