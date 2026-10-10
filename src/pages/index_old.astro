@@ -3,25 +3,14 @@ const featuredProjects = [
     {
         title: "Autonomous Chess-Playing Robot",
         slug: "chess-robot",
-        published: true,
         description:
             "Autonomous robotic chess system integrating computer vision, game intelligence, ROS 2 motion planning, and a Kinova Gen3 Lite.",
         tags: ["Robotics", "Computer Vision", "ROS 2"],
         image: "/images/projects/chess-robot/chess-robot.jpg",
     },
     {
-        title: "JellyGrip – Biomimetic End Effector",
-        slug: "jellygrip",
-        published: true,
-        description:
-            "Senior capstone design exploring three-finger adaptive gripping through finger design, CAD integration, and theoretical analysis.",
-        tags: ["Mechanical Design", "CAD", "Biomimicry"],
-        image: "/images/projects/jellygrip/assembly.png",
-    },
-    {
         title: "PEBBLE – Intelligent Study Companion",
         slug: "pebble",
-        published: false,
         description:
             "Raspberry Pi-based embedded system combining sensing, machine learning, computer vision, voice interaction, and real-time feedback.",
         tags: ["Embedded Systems", "Python", "Machine Learning"],
@@ -30,7 +19,6 @@ const featuredProjects = [
     {
         title: "ThirdEye",
         slug: "thirdeye",
-        published: false,
         description:
             "Computer-vision system for automated eyelid measurement using semantic segmentation and a Raspberry Pi-based mobile prototype.",
         tags: ["Computer Vision", "PyTorch", "Raspberry Pi"],
@@ -51,12 +39,11 @@ const featuredProjects = [
 		<title>Daniel Winfield | Engineering Portfolio</title>
 	</head>
 
-	<body id="top">
-        <a class="skip-link" href="#main">Skip to content</a>
+	<body>
 		<header class="site-header">
 			<a class="logo" href="/">Daniel Winfield</a>
 
-			<nav aria-label="Main navigation">
+			<nav>
 				<a href="#projects">Projects</a>
 				<a href="#research">Research</a>
 				<a href="#about">About</a>
@@ -64,7 +51,7 @@ const featuredProjects = [
 			</nav>
 		</header>
 
-		<main id="main">
+		<main>
 			<section class="hero">
 				<div class="hero-copy">
 					<p class="eyebrow">Mechanical Engineering M.S. @ Duke University</p>
@@ -131,7 +118,7 @@ const featuredProjects = [
 											<img
 												src={project.image}
 												alt={`${project.title} project`}
-                                                class={`project-image ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : ""}`}
+												class={`project-image ${project.title === "ThirdEye" ? "thirdeye-image" : ""}`}
 												loading="lazy"
 											/>
 										) : null
@@ -152,13 +139,9 @@ const featuredProjects = [
 										{project.tags.map((tag) => <span>{tag}</span>)}
 									</div>
 
-                                    {project.published ? (
-                                        <a href={`/projects/${project.slug}/`} class="project-link">
-                                            View project <span aria-hidden="true">→</span>
-                                        </a>
-                                    ) : (
-                                        <p class="project-status">Case study in preparation</p>
-                                    )}
+									<a href={`/projects/${project.slug}`} class="project-link">
+										View project <span>→</span>
+									</a>
 								</div>
 							</article>
 						))
@@ -221,8 +204,6 @@ const featuredProjects = [
 			<p>Daniel Winfield</p>
 
 			<div class="footer-links">
-                <a href="mailto:dwinfield284@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a>
 				<a
 					href="https://github.com/dwin-p"
 					target="_blank"
@@ -255,7 +236,6 @@ const featuredProjects = [
 
 	html {
 		scroll-behavior: smooth;
-        scroll-padding-top: 7rem;
 	}
 
 	body {
@@ -272,11 +252,6 @@ const featuredProjects = [
 		color: inherit;
 		text-decoration: none;
 	}
-
-    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
-    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
-    .skip-link:focus { top: 1rem; }
-    .project-status { margin: 0; color: var(--muted); font-size: .85rem; }
 
 	.site-header {
 		position: sticky;
@@ -339,7 +314,6 @@ const featuredProjects = [
 	}
 
 	h1 {
-		overflow-wrap: anywhere;
 		max-width: 850px;
 		margin-bottom: 2rem;
 		font-size: clamp(3rem, 5vw, 5.7rem);
@@ -490,7 +464,7 @@ const featuredProjects = [
 
 	.project-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.5rem;
 	}
 
@@ -550,12 +524,6 @@ const featuredProjects = [
 		object-position: center top;
 		transform: scale(1);
 	}
-    .project-image img.jellygrip-image {
-        object-fit: contain;
-        object-position: center;
-        transform: none;
-        background: var(--white);
-    }
 
 	.project-image-1 {
 		background: var(--blue);
@@ -569,7 +537,6 @@ const featuredProjects = [
 	.project-image-3 {
 		background: var(--lavender);
 	}
-    .project-image-4 { background: var(--lavender); }
 
 	.project-content {
 		padding: 1.6rem;
@@ -680,7 +647,6 @@ const featuredProjects = [
 
 	.footer-links {
 		display: flex;
-        flex-wrap: wrap;
 		gap: 2rem;
 	}
 
@@ -749,5 +715,4 @@ const featuredProjects = [
 			gap: 1rem;
 		}
 	}
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>

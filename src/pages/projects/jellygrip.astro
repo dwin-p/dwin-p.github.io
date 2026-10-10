@@ -1,0 +1,231 @@
+---
+const sketches = [
+    { file: "grasp-configurations.png", title: "Grasp configurations", alt: "Hand-drawn JellyGrip finger configurations for round and rectangular objects, with hinge and inflation-pad concepts", caption: "Exploring finger articulation, opening width, and contact arrangements for different object shapes.", width: 1440, height: 1122 },
+    { file: "finger-concept.png", title: "Finger and pad geometry", alt: "Original sketches of finger segments, proposed materials, and inflatable contact pads", caption: "Separating the structural finger segments from the compliant pads and considering how the pads would fit within the fingers.", width: 1440, height: 1116 },
+    { file: "tubing-concept.png", title: "Tubing and actuation concepts", alt: "Original JellyGrip sketches comparing internal and external tube routing along a finger", caption: "Considering tubing routes and alternative actuation approaches. Valve selection and the inflation system remained unresolved.", width: 1440, height: 1112 },
+];
+const components = [
+    { file: "finger-assembly.png", title: "Finger subassembly", alt: "JellyGrip CAD showing a structural finger with rounded inflation-pad geometry", caption: "The finger structure and contact-pad geometry brought together in the CAD concept." },
+    { file: "pad-carrier.png", title: "Inflation-pad geometry", alt: "JellyGrip CAD showing three rounded pad features on a supporting surface", caption: "Modeled geometry for the proposed contact elements. Pad materials, sealing, and inflation behavior still required development." },
+    { file: "structural-frame.png", title: "Supporting frame", alt: "JellyGrip CAD showing the main supporting frame with circular plates and vertical members", caption: "The central structure used to integrate the fingers and actuation components." },
+];
+
+const contributions = [
+    "Developed the gripping-finger concept, including segment geometry, articulation, and the proposed inflatable contact elements.",
+    "Developed the finger concept from sketches into CAD and worked on its integration with the central gripper mechanism.",
+    "Documented the design, theoretical calculations, failure analysis, and proposed manufacturing approach in the capstone report.",
+];
+
+const decisions = [
+    { title: "Articulated fingers with compliant contact", text: "The finger structures provide the mechanical geometry, while proposed inflatable pads would accommodate the object's surface. The sketches explored different configurations for round and rectangular objects." },
+    { title: "Central actuation mechanism", text: "A stainless-steel lead screw, brass nut, and connecting links were modeled to coordinate finger movement. Alignment and friction were considerations for future hardware development." },
+    { title: "Material and fabrication choices", text: "PLA was considered for printed structural components in the analysis, while vinyl, rubber, and leather were proposed for the inflation elements. The final pad construction and fabrication process remained open for prototyping." },
+    { title: "Assembly and maintenance", text: "The concept used separate structural, actuation, and gripping components. This arrangement would allow individual parts to be fabricated, assembled, and revised during prototyping." },
+];
+
+const risks = [
+    { risk: "Inflatable element rupture or leakage", response: "Pressure regulation, smooth contact surfaces, reinforced seals, and pressure-decay and cycle testing." },
+    { risk: "Lead-screw friction or binding", response: "Alignment checks, lubrication, and motion testing under load." },
+    { risk: "Structural deformation or fatigue", response: "Load testing of printed components and evaluation of alternative materials." },
+];
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="JellyGrip: Daniel Winfield's senior capstone work on a biomimetic robotic end effector, including gripping-finger design, CAD integration, and theoretical analysis." />
+        <title>JellyGrip | Daniel Winfield</title>
+    </head>
+    <body id="top">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <a class="logo" href="/">Daniel Winfield</a>
+            <nav aria-label="Main navigation">
+                <a href="/#projects">Projects</a>
+                <a href="/#research">Research</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </header>
+        <main id="main">
+            <section class="project-hero">
+                <div>
+                    <p class="eyebrow">Mechanical Design · Biomimicry · Robotics</p>
+                    <h1>JellyGrip</h1>
+                    <p class="subtitle">Biomimetic Robotic End Effector</p>
+                    <p class="hero-intro">A three-finger gripper concept inspired by jellyfish tentacles, combining articulated structures with proposed inflatable pads for adaptive object handling.</p>
+                    <div class="project-meta">
+                        <span>Tuskegee University</span><span>Fall 2024</span><span>Senior Capstone</span><span>Two-person team</span>
+                    </div>
+                    <p class="status">Completed design study · CAD and theoretical analysis</p>
+                    <a class="text-link" href="#contributions">My contributions <span aria-hidden="true">↓</span></a>
+                </div>
+                <figure class="hero-media">
+                    <a class="hero-image-link" href="/images/projects/jellygrip/assembly.png" target="_blank" rel="noreferrer" aria-label="Open full JellyGrip assembly CAD image">
+                        <img src="/images/projects/jellygrip/assembly.png" alt="JellyGrip full assembly CAD with a central lead screw, supporting frame, connecting links, and three gripping fingers" width="1583" height="840" />
+                    </a>
+                    <figcaption><strong>Full assembly CAD</strong><span>Mechanical concept with proposed inflation-pad geometry</span></figcaption>
+                </figure>
+            </section>
+
+            <section class="section split" id="overview">
+                <div><p class="eyebrow">01</p><h2>The Design Challenge</h2></div>
+                <div class="copy">
+                    <p class="lead">How can a single end effector accommodate both fragile and irregularly shaped objects?</p>
+                    <p>JellyGrip explored this question for a warehouse robot end effector. The design brief included a wiffle ball, fuel funnel, foam soccer ball, and 5 lb dumbbell, requiring different contact arrangements within one gripper concept.</p>
+                    <p>The concept paired articulated finger structures with proposed inflatable pads. The work concluded with mechanical CAD and theoretical analysis, while the inflation system remained unfinished. A physical prototype was not fabricated.</p>
+                    <div class="target"><strong>Design target: handle objects up to 5 lb with a safety factor of 2.</strong><span>This was a project requirement, not a measured lifting result.</span></div>
+                </div>
+            </section>
+
+            <section class="section dark" id="contributions">
+                <div class="section-heading"><div><p class="eyebrow">02</p><h2>My Contributions</h2></div><p>My primary responsibility was the gripping-finger design and its integration with the end effector.</p></div>
+                <div class="contribution-list">
+                    {contributions.map((text, index) => <div><span>{String(index + 1).padStart(2, "0")}</span><p>{text}</p></div>)}
+                </div>
+            </section>
+
+            <section class="section" id="process">
+                <div class="section-heading"><div><p class="eyebrow">03</p><h2>From Concept to CAD</h2></div><p>The design process connected finger behavior to the requirements of the complete assembly.</p></div>
+                <div class="process-grid">
+                    <article><p class="eyebrow">Sketch</p><h3>Explore the fingers</h3><p>Develop concepts for finger segments, joint motion, and inflatable contact pads.</p></article>
+                    <article><p class="eyebrow">Model</p><h3>Define the geometry</h3><p>Translate the finger concept into CAD, considering mechanical constraints and connections to the gripper.</p></article>
+                    <article><p class="eyebrow">Integrate</p><h3>Evaluate the assembly</h3><p>Combine the finger design with the central mechanism and review the concept through calculations and failure analysis.</p></article>
+                </div>
+                <p class="media-note">Original design sketches. Select an image to inspect the full drawing.</p>
+                <div class="sketch-grid">
+                    {sketches.map((item, index) => (
+                        <figure class={index === 0 ? "main-sketch" : ""}>
+                            <a href={`/images/projects/jellygrip/${item.file}`} target="_blank" rel="noreferrer" aria-label={`Open full image: ${item.title}`}>
+                                <img src={`/images/projects/jellygrip/${item.file}`} alt={item.alt} width={item.width} height={item.height} loading="lazy" />
+                            </a>
+                            <figcaption><strong>{item.title}</strong><span>{item.caption}</span></figcaption>
+                        </figure>
+                    ))}
+                </div>
+            </section>
+
+            <section class="section" id="design">
+                <div class="section-heading"><div><p class="eyebrow">04</p><h2>Design Decisions</h2></div><p>The system concept brought together compliant contact, mechanical actuation, and a proposed fabrication approach.</p></div>
+                <div class="decision-grid">{decisions.map((item) => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+                <div class="cad-grid">
+                    {components.map((item) => (
+                        <figure>
+                            <a href={`/images/projects/jellygrip/${item.file}`} target="_blank" rel="noreferrer" aria-label={`Open full image: ${item.title}`}>
+                                <img src={`/images/projects/jellygrip/${item.file}`} alt={item.alt} width="1583" height="840" loading="lazy" />
+                            </a>
+                            <figcaption><strong>{item.title}</strong><span>{item.caption}</span></figcaption>
+                        </figure>
+                    ))}
+                </div>
+            </section>
+
+            <section class="section split" id="analysis">
+                <div><p class="eyebrow">05</p><h2>Analysis &amp; Failure Planning</h2></div>
+                <div class="copy">
+                    <p class="lead">The analysis established assumptions and identified what a future prototype would need to verify.</p>
+                    <p>The report considered gripping force, inflation pressure, lead-screw torque, assembly weight, and prototype cost. These were theoretical estimates; actual contact forces, actuator behavior, and repeated-use performance require hardware measurements.</p>
+                    <h3>Failure Mode and Effects Analysis</h3>
+                    <div class="risk-list">{risks.map((item) => <article><h4>{item.risk}</h4><p>{item.response}</p></article>)}</div>
+                </div>
+            </section>
+
+            <section class="section dark split" id="outcome">
+                <div><p class="eyebrow">06</p><h2>Outcome &amp; Next Steps</h2></div>
+                <div class="copy">
+                    <p class="lead">A documented mechanical concept with a path toward physical testing.</p>
+                    <p>The team completed the mechanical CAD design and supporting theoretical analysis. The proposed inflation elements still needed material selection, sealing, valve design, and physical evaluation.</p>
+                    <p>The next development step would be a single-finger prototype to measure joint motion, pad inflation, leakage, and contact behavior. Full assembly testing would then evaluate actuation, grasp retention, and repeated loading.</p>
+                    <h3>Engineering Takeaway</h3>
+                    <p>The finger design and its actuation mechanism must be developed together. CAD establishes geometry and integration, while physical testing is needed to determine whether the intended compliant behavior produces a reliable grasp.</p>
+                </div>
+            </section>
+            <section class="project-navigation" aria-label="More projects">
+                <a href="/projects/chess-robot/"><span>Explore another project</span><strong>Autonomous Chess Robot →</strong></a>
+                <a href="/#projects"><span>Back to</span><strong>All Projects ↑</strong></a>
+            </section>
+        </main>
+        <footer><p>Daniel Winfield</p><div><a href="mailto:dwinfield284@gmail.com">Email</a><a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/dwin-p" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+    </body>
+</html>
+
+<style>
+    :root { --ink: #251a37; --paper: #f7f6f2; --white: #fff; --muted: #68636f; --line: #dcd8e0; --mint: #bddfd6; --blue: #4778bd; --lavender: #d1b5ef; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
+    .skip-link:focus { top: 1rem; }
+    .site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247, 246, 242, .94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .logo { font-weight: 750; letter-spacing: -.02em; }
+    nav { display: flex; gap: 2rem; font-size: .95rem; font-weight: 600; }
+    nav a:hover, footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    main, footer { max-width: 1500px; margin: 0 auto; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1 { font-size: clamp(3.5rem, 7vw, 7rem); line-height: .94; letter-spacing: -.06em; margin-bottom: 1rem; }
+    h2 { font-size: clamp(2.4rem, 4vw, 4.5rem); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 0; }
+    h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -.025em; }
+    .eyebrow { margin-bottom: 1rem; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .project-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: 4rem max(5vw, 2rem) 4.5rem; }
+    .subtitle { font-size: 1.45rem; font-weight: 650; margin-bottom: 1.5rem; }
+    .hero-intro { color: var(--muted); font-size: 1.2rem; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .project-meta span { padding: .45rem .8rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .status { margin: 1.25rem 0; color: var(--muted); font-size: .9rem; }
+    .text-link { font-weight: 750; border-bottom: 1px solid var(--ink); }
+    .hero-media { margin: 0; overflow: hidden; border-radius: 1.75rem; background: var(--white); border: 1px solid var(--line); }
+    .hero-image-link { display: block; }
+    .hero-image-link:focus-visible, .sketch-grid a:focus-visible, .cad-grid a:focus-visible { outline-offset: -4px; }
+    .hero-media img { display: block; width: 100%; height: clamp(360px, 40vw, 520px); object-fit: cover; object-position: center; }
+    .hero-media figcaption { display: grid; gap: .3rem; padding: 1rem 1.25rem; font-size: .85rem; }
+    .hero-media figcaption span { color: var(--muted); }
+    .section { padding: 6rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+    .split { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; }
+    .copy { color: var(--muted); font-size: 1.08rem; min-width: 0; }
+    .copy .lead { color: var(--ink); font-size: 1.4rem; line-height: 1.4; }
+    .copy h3 { color: var(--ink); margin-top: 2rem; }
+    .target { display: grid; gap: .5rem; padding: 1.5rem; margin-top: 2rem; background: var(--mint); color: var(--ink); border-radius: 1rem; }
+    .target span { font-size: .9rem; }
+    .section-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+    .section-heading > p { color: var(--muted); margin-bottom: .25rem; font-size: 1.05rem; }
+    .dark { background: var(--ink); color: var(--white); }
+    .dark .eyebrow { color: var(--mint); }
+    .dark .copy, .dark .section-heading > p { color: rgba(255,255,255,.8); }
+    .dark .copy .lead, .dark .copy h3 { color: var(--white); }
+    .contribution-list > div { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,.25); }
+    .contribution-list span { color: var(--mint); font-weight: 750; }
+    .contribution-list p { margin: 0; max-width: 850px; font-size: 1.15rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .process-grid article { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+    .process-grid article > p:last-child { color: var(--muted); }
+    .media-note { color: var(--muted); font-size: .9rem; margin-top: 2rem; }
+    .sketch-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 1.5rem; }
+    .sketch-grid .main-sketch { grid-row: span 2; }
+    .sketch-grid figure, .cad-grid figure { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: 1.25rem; overflow: hidden; min-width: 0; }
+    .sketch-grid a, .cad-grid a { display: block; }
+    .sketch-grid img { display: block; width: 100%; height: auto; object-fit: contain; }
+    .sketch-grid figcaption, .cad-grid figcaption { display: grid; gap: .3rem; padding: 1.25rem; }
+    .sketch-grid figcaption span, .cad-grid figcaption span { font-size: .85rem; color: var(--muted); }
+    .cad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .cad-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
+    .decision-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
+    .decision-grid article { border-top: 1px solid var(--line); padding: 2rem 0; }
+    .decision-grid p { color: var(--muted); margin-bottom: 0; }
+    .risk-list article { border-top: 1px solid var(--line); padding: 1.25rem 0; }
+    .risk-list h4 { color: var(--ink); margin-bottom: .5rem; }
+    .risk-list p { margin-bottom: 0; font-size: 1rem; }
+    .project-navigation { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem max(5vw, 2rem); }
+    .project-navigation a { display: grid; gap: .5rem; }
+    .project-navigation span { font-size: .8rem; color: var(--muted); }
+    .project-navigation strong { font-size: 1.2rem; }
+    footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(5vw, 2rem); border-top: 1px solid var(--line); font-weight: 650; }
+    footer p { margin-bottom: 0; }
+    footer > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    @media (max-width: 900px) { nav { gap: 1rem; } .project-hero, .split, .section-heading { grid-template-columns: 1fr; gap: 2.5rem; } .project-hero { padding-top: 4rem; } .hero-media { max-width: 550px; width: 100%; } .process-grid { grid-template-columns: 1fr; gap: 1rem; } .sketch-grid { grid-template-columns: 1fr 1fr; } .sketch-grid .main-sketch { grid-row: auto; grid-column: span 2; } .cad-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 650px) { .site-header { align-items: flex-start; padding: 1rem 1.3rem; } nav { display: grid; grid-template-columns: repeat(2, auto); gap: .35rem 1rem; } .project-hero, .section { padding-left: 1.3rem; padding-right: 1.3rem; padding-bottom: 4rem; } .section { padding-top: 4rem; } .decision-grid, .sketch-grid, .cad-grid { grid-template-columns: 1fr; } .sketch-grid .main-sketch { grid-column: auto; } .project-navigation, footer { flex-direction: column; padding-left: 1.3rem; padding-right: 1.3rem; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
