@@ -19,6 +19,15 @@ const featuredProjects = [
         image: "/images/projects/jellygrip/assembly.png",
     },
     {
+        title: "Advanced Materials Laboratory",
+        slug: "advanced-materials",
+        published: true,
+        description:
+            "Polymer specimen fabrication and materials testing, spanning mechanical response, thermal analysis, microscopy, and experimental planning.",
+        tags: ["Materials Testing", "3D Printing", "Data Analysis"],
+        image: "/images/projects/advanced-materials/tensile-machine.jpg",
+    },
+    {
         title: "PEBBLE – Intelligent Study Companion",
         slug: "pebble",
         published: false,
@@ -117,7 +126,7 @@ const featuredProjects = [
 
 					<p>
 						Projects spanning robotics, computer vision, embedded systems,
-						mechanical design, and multidisciplinary engineering.
+						mechanical design, and materials testing.
 					</p>
 				</div>
 
@@ -131,7 +140,7 @@ const featuredProjects = [
 											<img
 												src={project.image}
 												alt={`${project.title} project`}
-                                                class={`project-image ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : ""}`}
+                                                class={`project-image ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : ""}`}
 												loading="lazy"
 											/>
 										) : null
@@ -555,6 +564,10 @@ const featuredProjects = [
         object-position: center;
         transform: none;
         background: var(--white);
+    }
+    .project-image img.materials-image {
+        object-position: center 45%;
+        transform: none;
     }
 
 	.project-image-1 {

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="Daniel Winfield's Advanced Materials Laboratory coursework: polymer specimen fabrication, mechanical testing, DMA, TGA, DSC, microscopy, XRD analysis, and experimental planning." />
+        <title>Advanced Materials Laboratory | Daniel Winfield</title>
+    </head>
+    <body id="top">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <a class="logo" href="/">Daniel Winfield</a>
+            <nav aria-label="Main navigation">
+                <a href="/#projects">Projects</a><a href="/#research">Research</a><a href="/#about">About</a><a href="/#contact">Contact</a>
+            </nav>
+        </header>
+        <main id="main">
+            <section class="project-hero">
+                <div>
+                    <p class="eyebrow">Fabrication · Testing · Materials</p>
+                    <h1>Advanced Materials Laboratory</h1>
+                    <p class="subtitle">From printed specimens to measured behavior.</p>
+                    <p class="hero-intro">A series of course experiments connecting polymer fabrication with mechanical testing, thermal analysis, and material characterization.</p>
+                    <div class="project-meta"><span>Tuskegee University</span><span>Spring 2024</span><span>MENG 0319</span></div>
+                    <p class="status">Completed laboratory coursework and individual reports</p>
+                    <a class="text-link" href="#contributions">My work <span aria-hidden="true">↓</span></a>
+                </div>
+                <figure class="hero-media">
+                    <a href="/images/projects/advanced-materials/tensile-machine.jpg" target="_blank" rel="noreferrer" aria-label="Open full photograph of the mechanical testing machine">
+                        <img src="/images/projects/advanced-materials/tensile-machine.jpg" alt="ZwickRoell mechanical testing machine with grips and a printed polymer specimen mounted for testing" width="804" height="1072" />
+                    </a>
+                    <figcaption><strong>Mechanical testing setup</strong><span>Original photograph from the tensile laboratory report</span></figcaption>
+                </figure>
+            </section>
+
+            <nav class="page-index" aria-label="On this page"><a href="#fabrication">Fabrication</a><a href="#mechanical">Mechanical tests</a><a href="#thermal">Thermal analysis</a><a href="#structure">Structure &amp; imaging</a><a href="#planning">Test planning</a></nav>
+
+            <section class="section" id="overview">
+                <div class="section-heading"><div><p class="eyebrow">01</p><h2>Connecting Process to Properties</h2></div><p>The experiments examined different materials and specimen sets: carbon-fiber-reinforced PETG, PLA, and a carbon sample for diffraction analysis.</p></div>
+                <div class="results-grid">
+                    <article><strong>13 min</strong><h3>Shorter print batch</h3><p>Three-specimen CF-PETG batch: 77 min at 100% infill and 64 min at 20% infill.</p></article>
+                    <article><strong>71.42 MPa</strong><h3>Mean flexural strength</h3><p>Three CF-PETG specimens at 80% infill, tested in three-point bending.</p></article>
+                    <article><strong>74.8 °C</strong><h3>DMA tan δ peak</h3><p>Glass-transition estimate using the tan δ peak criterion for the tested PLA sample.</p></article>
+                </div>
+                <p class="media-note">Results describe the specimens and conditions in these course experiments.</p>
+            </section>
+
+            <section class="section dark" id="contributions">
+                <div class="section-heading"><div><p class="eyebrow">02</p><h2>My Work</h2></div><p>My coursework connected specimen preparation, instrument data, and individual engineering reports.</p></div>
+                <div class="contribution-list">
+                    <div><span>01</span><p>Worked through specimen CAD in Fusion 360, slicing in PrusaSlicer, and FDM print preparation while documenting processing conditions.</p></div>
+                    <div><span>02</span><p>Analyzed mechanical and thermal test data, plotted response curves, and summarized specimen-level results in laboratory reports.</p></div>
+                    <div><span>03</span><p>Compared diffraction peaks with a reference pattern, calculated interplanar spacing, and examined PLA fibers through optical microscopy.</p></div>
+                    <div><span>04</span><p>Developed a proposed torsion experiment to compare two polymers across three infill levels.</p></div>
+                </div>
+            </section>
+
+            <section class="section" id="fabrication">
+                <div class="section-heading"><div><p class="eyebrow">03</p><h2>Fabricating the Specimens</h2></div><p>A controlled print series varied infill from 20% to 100% while holding specimen dimensions and raster angle constant.</p></div>
+                <div class="split">
+                    <div class="copy">
+                        <h3>CAD → slicing → FDM printing</h3>
+                        <p>The CF-PETG specimens measured 125 × 12.7 × 3.2 mm. The workflow used Fusion 360, PrusaSlicer, and an enclosed Hydra 21 printer, with filament drying, bed leveling, Z-offset adjustment, and first-layer monitoring.</p>
+                        <dl class="settings"><div><dt>Raster angle</dt><dd>0°</dd></div><div><dt>Nozzle / bed</dt><dd>245 / 60 °C</dd></div><div><dt>Print speed</dt><dd>30 mm/s</dd></div><div><dt>Batch size</dt><dd>3 specimens</dd></div></dl>
+                        <p>Reducing infill from 100% to 20% shortened the recorded batch time by 13 minutes, about 17%. This experiment measured print time; it did not establish an optimum infill for strength.</p>
+                    </div>
+                    <figure class="media-card chart">
+                        <a href="/images/projects/advanced-materials/infill-print-time.svg" target="_blank" rel="noreferrer" aria-label="Open full print time chart"><img src="/images/projects/advanced-materials/infill-print-time.svg" alt="Three-specimen batch print times at 20, 40, 60, 80, and 100 percent infill: 64, 67, 70, 73, and 77 minutes" loading="lazy" /></a>
+                        <figcaption><strong>Infill and batch print time</strong><span>Replotted from Lab 1 Data.xlsx. Each time represents three specimens printed together.</span></figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section" id="mechanical">
+                <div class="section-heading"><div><p class="eyebrow">04</p><h2>Mechanical Testing</h2></div><p>Three-point bending quantified the flexural response of printed CF-PETG. A separate tensile lab examined dogbone specimens.</p></div>
+                <div class="split mechanical-results">
+                    <div class="copy">
+                        <h3>Three-point bending</h3>
+                        <p>Three 80%-infill specimens were tested using a ZwickRoell 20 kN machine, a 56 mm support span, and a reported crosshead rate of 0.5 mm/min.</p>
+                        <table>
+                            <caption>CF-PETG flexural results · n = 3</caption>
+                            <thead><tr><th scope="col">Specimen</th><th scope="col">Strength<br />(MPa)</th><th scope="col">Modulus<br />(GPa)</th></tr></thead>
+                            <tbody><tr><th scope="row">1</th><td>71.78</td><td>2.621</td></tr><tr><th scope="row">2</th><td>71.30</td><td>2.507</td></tr><tr><th scope="row">3</th><td>71.17</td><td>2.612</td></tr><tr class="mean"><th scope="row">Mean</th><td>71.42</td><td>2.580</td></tr></tbody>
+                        </table>
+                        <p class="media-note">Means checked against the instrument export. The three strength values span 71.17–71.78 MPa.</p>
+                    </div>
+                    <figure class="media-card chart">
+                        <a href="/images/projects/advanced-materials/flexural-stress-strain.svg" target="_blank" rel="noreferrer" aria-label="Open full flexural stress strain chart"><img src="/images/projects/advanced-materials/flexural-stress-strain.svg" alt="Flexural stress versus strain for three CF-PETG specimens with closely grouped peaks near 71 MPa at about 4 percent strain" loading="lazy" /></a>
+                        <figcaption><strong>Flexural stress–strain response</strong><span>Three specimen traces replotted from the original Lab 2 instrument export.</span></figcaption>
+                    </figure>
+                </div>
+                <div class="specimen-grid">
+                    <figure class="media-card specimen">
+                        <a href="/images/projects/advanced-materials/flexure-specimen.jpg" target="_blank" rel="noreferrer" aria-label="Open full photograph of the flexure specimen"><img src="/images/projects/advanced-materials/flexure-specimen.jpg" alt="Rectangular black CF-PETG flexure specimen with its print settings labeled at one end" width="1431" height="1073" loading="lazy" /></a>
+                        <figcaption><strong>Flexural specimen</strong><span>Rectangular CF-PETG specimen from the bending lab.</span></figcaption>
+                    </figure>
+                    <figure class="media-card specimen">
+                        <a href="/images/projects/advanced-materials/printed-dogbones.jpg" target="_blank" rel="noreferrer" aria-label="Open full photograph of the tensile specimens"><img src="/images/projects/advanced-materials/printed-dogbones.jpg" alt="Two printed CF-PETG dogbone specimens photographed before tensile testing" width="1366" height="1822" loading="lazy" /></a>
+                        <figcaption><strong>Separate tensile experiment</strong><span>Dogbone specimens tested with a reported 57 mm gauge length and 5 mm/min crosshead rate.</span></figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section" id="thermal">
+                <div class="section-heading"><div><p class="eyebrow">05</p><h2>Thermal Analysis of PLA</h2></div><p>Three methods examined different responses: temperature-dependent stiffness, mass loss, and heat flow.</p></div>
+                <div class="thermal-layout">
+                    <article class="thermal-study dma-study">
+                        <div><p class="eyebrow">Dynamic Mechanical Analysis</p><h3>Stiffness changes with temperature</h3>
+                        <p>A TA Q800 test tracked storage modulus, loss modulus, and tan δ. The tan δ peak occurred at 74.8 °C. This is the glass-transition estimate for this test using that criterion.</p>
+                        </div>
+                        <figure class="media-card chart"><a href="/images/projects/advanced-materials/pla-dma.svg" target="_blank" rel="noreferrer" aria-label="Open full PLA DMA chart"><img src="/images/projects/advanced-materials/pla-dma.svg" alt="PLA DMA curves from 30 to 120 degrees Celsius: storage modulus drops sharply through the transition region and tan delta peaks at 74.8 degrees Celsius" loading="lazy" /></a><figcaption><strong>DMA: modulus and damping</strong><span>Replotted from the Lab 3 export, with moduli converted from MPa to GPa.</span></figcaption></figure>
+                    </article>
+                    <div class="thermal-stack">
+                        <article class="thermal-study">
+                            <p class="eyebrow">Thermogravimetric Analysis</p><h3>Mass loss during heating</h3>
+                            <p>A Q500 run heated PLA under nitrogen at a programmed 10 °C/min. The recorded trace shows about 99.6% mass loss by 584 °C, with the main decrease around 350–415 °C.</p>
+                            <figure class="media-card chart"><a href="/images/projects/advanced-materials/pla-tga.svg" target="_blank" rel="noreferrer" aria-label="Open full PLA TGA chart"><img src="/images/projects/advanced-materials/pla-tga.svg" alt="PLA mass remaining versus temperature: most mass is lost around 350 to 415 degrees Celsius, leaving 0.38 percent at 584 degrees Celsius" loading="lazy" /></a><figcaption><strong>TGA: mass remaining</strong><span>Normalized to the first recorded mass, 20.88686 mg.</span></figcaption></figure>
+                        </article>
+                        <article class="thermal-study">
+                            <p class="eyebrow">Differential Scanning Calorimetry</p><h3>Crystallization and melting features</h3>
+                            <p>The PLA heating trace showed a crystallization feature near 105 °C and a melting feature near 170 °C. These approximate temperatures describe this recorded run.</p>
+                            <figure class="media-card chart"><a href="/images/projects/advanced-materials/pla-dsc-heating.svg" target="_blank" rel="noreferrer" aria-label="Open full PLA DSC heating chart"><img src="/images/projects/advanced-materials/pla-dsc-heating.svg" alt="PLA DSC heating trace with a crystallization feature around 105 degrees Celsius and a melting feature around 170 degrees Celsius" loading="lazy" /></a><figcaption><strong>DSC: heating portion of the run</strong><span>Replotted from Neat PLA.xlsx. Heat-flow values retain the export's unspecified units.</span></figcaption></figure>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="structure">
+                <div class="section-heading"><div><p class="eyebrow">06</p><h2>Structure &amp; Imaging</h2></div><p>Microscopy and diffraction extended the work beyond bulk mechanical and thermal response.</p></div>
+                <div class="imaging-grid">
+                    <figure class="media-card"><a href="/images/projects/advanced-materials/pla-fibers.jpg" target="_blank" rel="noreferrer" aria-label="Open full optical microscopy image of PLA fibers"><img src="/images/projects/advanced-materials/pla-fibers.jpg" alt="Optical microscopy image showing overlapping PLA fibers and their visible arrangement" width="1114" height="835" loading="lazy" /></a><figcaption><strong>PLA fiber microscopy</strong><span>Examining visible fiber morphology and arrangement.</span></figcaption></figure>
+                    <figure class="media-card"><a href="/images/projects/advanced-materials/pla-fibers-low-light.jpg" target="_blank" rel="noreferrer" aria-label="Open full low illumination microscopy image"><img src="/images/projects/advanced-materials/pla-fibers-low-light.jpg" alt="Low illumination microscopy view of overlapping PLA fibers, with dark outlines against a gray background" width="1600" height="1200" loading="lazy" /></a><figcaption><strong>Low-illumination view</strong><span>A second image from the optical microscopy lab.</span></figcaption></figure>
+                </div>
+                <div class="split xrd-study">
+                    <div class="copy"><h3>X-ray diffraction analysis</h3><p>The carbon-sample diffraction pattern was compared with a graphite reference. The analysis used the reference peak positions and Bragg's law to calculate interplanar spacing.</p><p>This exercise focused on peak comparison and spacing calculations. The images alone do not establish a quantitative purity or defect concentration.</p></div>
+                    <figure class="media-card chart"><a href="/images/projects/advanced-materials/carbon-xrd.png" target="_blank" rel="noreferrer" aria-label="Open full original carbon sample diffraction plot"><img src="/images/projects/advanced-materials/carbon-xrd.png" alt="Original carbon sample X-ray diffraction plot with a prominent peak near 26 degrees two theta and smaller peaks at higher angles" width="928" height="426" loading="lazy" /></a><figcaption><strong>Original sample diffraction plot</strong><span>From the Lab 6 report. Select the image to inspect the original plot.</span></figcaption></figure>
+                </div>
+            </section>
+
+            <section class="section dark split" id="planning">
+                <div><p class="eyebrow">07</p><h2>Planning the Next Experiment</h2></div>
+                <div class="copy"><p class="lead">A proposed torsion study: two materials × three infill levels.</p><p>The design of experiments paired PLA and PETG with 20%, 60%, and 100% infill, giving six planned test conditions. The worksheet held specimen length at 165 mm and thickness at 3 mm.</p><div class="doe-grid"><div><strong>PLA</strong><span>20% · 60% · 100% infill</span></div><div><strong>PETG</strong><span>20% · 60% · 100% infill</span></div></div><p>Planned outputs included angle of twist, maximum torque, shear modulus, and torsional strength. This work stopped at the test plan; the worksheet contains no measured torsion results.</p><h3>Engineering Takeaway</h3><p>A useful material result needs a defined specimen, processing history, loading mode, and test conditions. Across these labs, I practiced connecting those details to the data and documenting the limits of each conclusion.</p></div>
+            </section>
+
+            <section class="project-navigation" aria-label="More projects"><a href="/projects/jellygrip/"><span>Explore another project</span><strong>JellyGrip →</strong></a><a href="/#projects"><span>Back to</span><strong>All Projects ↑</strong></a></section>
+        </main>
+        <footer><p>Daniel Winfield</p><div><a href="mailto:dwinfield284@gmail.com">Email</a><a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/dwin-p" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+    </body>
+</html>
+
+<style>
+    :root { --ink: #251a37; --paper: #f7f6f2; --white: #fff; --muted: #68636f; --line: #dcd8e0; --mint: #bddfd6; --blue: #4778bd; --lavender: #d1b5ef; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
+    .skip-link:focus { top: 1rem; }
+    .site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247,246,242,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .logo { font-weight: 750; letter-spacing: -.02em; }
+    .site-header nav { display: flex; gap: 2rem; font-size: .95rem; font-weight: 600; }
+    .site-header nav a:hover, footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    main, footer { max-width: 1500px; margin: 0 auto; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3rem, 5.3vw, 5.5rem); line-height: .98; letter-spacing: -.055em; margin-bottom: 1.5rem; }
+    h2 { font-size: clamp(2.4rem, 4vw, 4.5rem); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 0; }
+    h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -.025em; }
+    .eyebrow { margin-bottom: 1rem; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .project-hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 4rem; align-items: center; padding: 4rem max(5vw, 2rem) 4.5rem; }
+    .project-hero > div { min-width: 0; }
+    .subtitle { font-size: 1.4rem; font-weight: 650; margin-bottom: 1.5rem; }
+    .hero-intro { color: var(--muted); font-size: 1.2rem; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .project-meta span { padding: .45rem .8rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .status { margin: 1.25rem 0; color: var(--muted); font-size: .9rem; }
+    .text-link { font-weight: 750; border-bottom: 1px solid var(--ink); }
+    .hero-media { margin: 0; overflow: hidden; border-radius: 1.75rem; background: var(--white); border: 1px solid var(--line); }
+    .hero-media a, .media-card a { display: block; }
+    .hero-media a:focus-visible, .media-card a:focus-visible { outline-offset: -4px; }
+    .hero-media img { display: block; width: 100%; height: clamp(360px, 40vw, 520px); object-fit: cover; }
+    figcaption { display: grid; gap: .3rem; padding: 1rem 1.25rem; font-size: .85rem; }
+    figcaption span { color: var(--muted); }
+    .page-index { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding: 1.5rem max(5vw, 2rem); border-top: 1px solid var(--line); font-size: .85rem; font-weight: 700; }
+    .page-index a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    .section { padding: 6rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+    .section-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+    .section-heading > p { color: var(--muted); margin-bottom: .25rem; font-size: 1.05rem; }
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: start; }
+    .split > * { min-width: 0; }
+    .copy { color: var(--muted); font-size: 1.05rem; }
+    .copy h3, .copy .lead { color: var(--ink); }
+    .copy .lead { font-size: 1.4rem; line-height: 1.4; }
+    .copy h3 { margin-top: 0; }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .results-grid article { background: var(--white); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.75rem; min-width: 0; }
+    .results-grid strong { display: block; font-size: clamp(1.8rem, 2.6vw, 2.65rem); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 1.3rem; color: var(--blue); }
+    .results-grid h3 { font-size: 1.15rem; margin-bottom: .75rem; }
+    .results-grid p { margin-bottom: 0; font-size: .95rem; color: var(--muted); }
+    .media-note { color: var(--muted); font-size: .85rem; margin: 1rem 0 0; }
+    .dark { background: var(--ink); color: var(--white); }
+    .dark .eyebrow { color: var(--mint); }
+    .dark .copy, .dark .section-heading > p { color: rgba(255,255,255,.8); }
+    .dark .copy h3, .dark .copy .lead { color: var(--white); }
+    .contribution-list > div { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,.25); }
+    .contribution-list span { color: var(--mint); font-weight: 750; }
+    .contribution-list p { margin: 0; max-width: 900px; font-size: 1.1rem; }
+    .settings { display: grid; grid-template-columns: 1fr 1fr; margin: 1.5rem 0; gap: .75rem 1.5rem; }
+    .settings div { border-top: 1px solid var(--line); padding-top: .6rem; }
+    .settings dt { color: var(--muted); font-size: .85rem; }
+    .settings dd { margin: 0; color: var(--ink); font-weight: 650; }
+    .media-card { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--white); min-width: 0; }
+    .media-card img { display: block; width: 100%; height: auto; }
+    .chart img { object-fit: contain; }
+    .chart a { padding: .75rem; }
+    table { width: 100%; border-collapse: collapse; font-size: .95rem; margin-top: 1.5rem; color: var(--ink); }
+    caption { text-align: left; font-size: .85rem; font-weight: 700; margin-bottom: .75rem; }
+    th, td { text-align: right; padding: .75rem .65rem; border-bottom: 1px solid var(--line); }
+    th:first-child { text-align: left; }
+    thead th { font-size: .8rem; line-height: 1.4; }
+    tbody th { font-weight: 500; }
+    .mean { background: var(--mint); font-weight: 750; }
+    .mean th { font-weight: 750; }
+    .specimen-grid, .imaging-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .specimen-grid { margin-top: 2rem; }
+    .specimen img { height: 280px; object-fit: contain; background: #eeece9; }
+    .dma-study { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: start; }
+    .thermal-study { min-width: 0; }
+    .thermal-study > p:not(.eyebrow), .thermal-study > div > p:not(.eyebrow) { color: var(--muted); font-size: 1rem; }
+    .thermal-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+    .imaging-grid img { aspect-ratio: 4 / 3; object-fit: contain; }
+    .xrd-study { margin-top: 3rem; }
+    .doe-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    .doe-grid > div { display: grid; gap: .3rem; padding: 1rem; border: 1px solid rgba(255,255,255,.3); border-radius: .75rem; }
+    .doe-grid strong { color: var(--mint); }
+    .doe-grid span { font-size: .9rem; }
+    #planning h3 { margin-top: 2rem; }
+    .project-navigation { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem max(5vw, 2rem); }
+    .project-navigation a { display: grid; gap: .5rem; }
+    .project-navigation span { font-size: .8rem; color: var(--muted); }
+    .project-navigation strong { font-size: 1.2rem; }
+    footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(5vw, 2rem); border-top: 1px solid var(--line); font-weight: 650; }
+    footer p { margin-bottom: 0; }
+    footer > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    @media (max-width: 1000px) { .project-hero { gap: 2.5rem; } .section-heading, .split, .dma-study { gap: 2.5rem; } .results-grid article { padding: 1.25rem; } }
+    @media (max-width: 900px) { .site-header nav { gap: 1rem; } .project-hero, .split, .section-heading, .dma-study, .thermal-stack { grid-template-columns: 1fr; gap: 2.5rem; } .project-hero { padding-top: 4rem; } .hero-media { width: 100%; max-width: 550px; } h1 { max-width: 680px; } .results-grid { gap: 1rem; } .thermal-study { max-width: 750px; } .thermal-stack { gap: 3rem; } }
+    @media (max-width: 650px) { .site-header { align-items: flex-start; padding: 1rem 1.3rem; } .site-header nav { display: grid; grid-template-columns: repeat(2, auto); gap: .35rem 1rem; } .project-hero, .section { padding-left: 1.3rem; padding-right: 1.3rem; padding-bottom: 4rem; } .section { padding-top: 4rem; } h1 { font-size: clamp(2.75rem, 10vw, 4rem); } .page-index { padding: 1.25rem 1.3rem; gap: .65rem 1.3rem; } .results-grid, .specimen-grid, .imaging-grid, .doe-grid { grid-template-columns: 1fr; } .results-grid strong { font-size: 2.3rem; } .chart a { padding: .35rem; } .specimen img { height: 260px; } .project-navigation, footer { flex-direction: column; padding-left: 1.3rem; padding-right: 1.3rem; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
