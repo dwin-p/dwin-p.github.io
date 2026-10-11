@@ -43,7 +43,7 @@ const featuredProjects = [
         description:
             "Team-developed eyelid measurement prototype, with my work focused on DeepLabV3 segmentation and a Raspberry Pi Android testing device.",
         tags: ["Computer Vision", "PyTorch", "Raspberry Pi"],
-        image: "/images/projects/thirdeye/thirdeye.jpg",
+        image: "https://sites.duke.edu/memscapstone/files/2025/11/ThirdEye-Logo-300x165.png",
     },
 ];
 ---
@@ -140,7 +140,7 @@ const featuredProjects = [
 											<img
 												src={project.image}
 												alt={`${project.title} project`}
-                                                class={`project-image ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : project.slug === "pebble" ? "pebble-image" : ""}`}
+                                                class={`project-thumbnail ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : project.slug === "pebble" ? "pebble-image" : ""}`}
 												loading="lazy"
 											/>
 										) : null
@@ -514,7 +514,7 @@ const featuredProjects = [
 		position: relative;
 		display: flex;
 		align-items: flex-end;
-		height: 290px;
+		aspect-ratio: 16 / 10;
 		overflow: hidden;
 		padding: 0;
 		font-size: 4rem;
@@ -530,8 +530,7 @@ const featuredProjects = [
 		height: 100%;
 		display: block;
 		object-fit: cover;
-		object-position: 58% 68%;
-		transform: scale(1.12);
+		object-position: center 60%;
 	}
 
 	.project-image > span {
@@ -556,10 +555,13 @@ const featuredProjects = [
 	}
 
 	.project-image img.thirdeye-image {
+		inset: 0;
+		width: min(70%, 300px);
+		height: auto;
+		max-height: 75%;
+		margin: auto;
 		object-fit: contain;
 		object-position: center;
-		transform: none;
-        background: #eef1fc;
 	}
     .project-image img.jellygrip-image {
         object-fit: contain;
@@ -591,6 +593,7 @@ const featuredProjects = [
 		background: var(--lavender);
 	}
     .project-image-4 { background: var(--lavender); }
+    .project-image-5 { background: var(--white); }
 
 	.project-content {
 		padding: 1.6rem;

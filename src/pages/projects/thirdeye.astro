@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="ThirdEye, a Duke team project for automated eyelid measurement. Daniel Winfield developed a DeepLabV3/ResNet-101 segmentation branch and configured a Raspberry Pi Android testing device." />
+        <title>ThirdEye | Daniel Winfield</title>
+    </head>
+    <body id="top">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <a class="logo" href="/">Daniel Winfield</a>
+            <nav aria-label="Main navigation"><a href="/#projects">Projects</a><a href="/#research">Research</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav>
+        </header>
+        <main id="main">
+            <section class="project-hero">
+                <div>
+                    <p class="eyebrow">Computer Vision · PyTorch · Device Integration</p>
+                    <h1>ThirdEye</h1>
+                    <p class="subtitle">Automated Eyelid Measurement</p>
+                    <p class="hero-intro">A mobile measurement prototype that uses semantic segmentation to locate eye features and estimate eyelid distances from photographs.</p>
+                    <div class="project-meta"><span>Duke University</span><span>Fall 2025</span><span>Four-person team</span></div>
+                    <p class="status">My focus: computer vision and Raspberry Pi phone development</p>
+                    <div class="hero-actions"><a class="button primary" href="#contributions">My contributions ↓</a><a class="button" href="https://sites.duke.edu/memscapstone/2025-thirdeye/" target="_blank" rel="noreferrer">Watch team demo on Duke ↗</a></div>
+                </div>
+                <figure class="team-brand">
+                    <img src="https://sites.duke.edu/memscapstone/files/2025/11/ThirdEye-Logo-300x165.png" alt="ThirdEye eye logo designed by our project team" width="300" height="165" />
+                    <figcaption><strong>Our team identity</strong><span>The eye logo we designed for ThirdEye.</span></figcaption>
+                </figure>
+            </section>
+
+            <nav class="page-index" aria-label="On this page"><a href="#contributions">My work</a><a href="#vision">Vision &amp; measurement</a><a href="#interface">App workflow</a><a href="#prototype">Pi prototype</a><a href="#results">Results</a><a href="#resources">Resources</a></nav>
+
+            <section class="section split" id="overview">
+                <div><p class="eyebrow">01</p><h2>From Eye Features to Measurements</h2></div>
+                <div class="copy">
+                    <p class="lead">Turn a photograph into repeatable geometric outputs.</p>
+                    <p>Our team developed ThirdEye to explore automated eyelid measurements used in the evaluation of ptosis. The project combined computer vision, a mobile interface, and a Raspberry Pi testing device.</p>
+                    <p>My work connected two parts of that system: developing a segmentation model in Python/PyTorch and configuring the physical device used to test the app. Other teammates developed the mobile interface, API integration, an alternative vision model, and enclosure designs.</p>
+                    <div class="callout"><strong>Engineering focus</strong><span>Identify the relevant image features, translate them into distances, and test the workflow on real hardware.</span></div>
+                </div>
+                <figure class="planning-map"><a href="https://sites.duke.edu/memscapstone/files/2025/12/Mindmap-1024x548.png" target="_blank" rel="noreferrer" aria-label="Open the team's original design-methodology map"><img src="https://sites.duke.edu/memscapstone/files/2025/12/Mindmap-1024x548.png" alt="ThirdEye team planning map published in the design-methodology section of the Duke course write-up" loading="lazy" /></a><figcaption><strong>Team design-methodology map</strong><span>We used planning maps to organize the vision, app, physical-device, and user-experience priorities. Select the image to inspect the original.</span></figcaption></figure>
+            </section>
+
+            <section class="section dark" id="contributions">
+                <div class="section-heading"><div><p class="eyebrow">02</p><h2>My Contributions</h2></div><p>I worked on the computer-vision subsystem and the Raspberry Pi phone within a four-person project team.</p></div>
+                <div class="contribution-list">
+                    <div><span>01</span><p>Developed and evaluated the DeepLabV3 semantic-segmentation branch with a ResNet-101 backbone in Python/PyTorch to identify periocular features.</p></div>
+                    <div><span>02</span><p>Processed annotated facial-image data from the Chicago Facial Dataset and CelebAMask-HQ and evaluated segmentation using Dice-based metrics.</p></div>
+                    <div><span>03</span><p>Compared my DeepLabV3 approach with a teammate's U-Net/MobileNetV3 branch as part of the team's model-development work.</p></div>
+                    <div><span>04</span><p>Developed and configured a Raspberry Pi 4B-based Android prototype with a touchscreen and camera, including display setup, DPI adjustment, orientation, and real-device app testing.</p></div>
+                </div>
+            </section>
+
+            <section class="section" id="vision">
+                <div class="section-heading"><div><p class="eyebrow">03</p><h2>Vision &amp; Measurement</h2></div><p>The vision task was semantic segmentation: locating anatomical regions at the pixel level so their geometry could support measurement.</p></div>
+                <ol class="pipeline" aria-label="Simplified image-to-measurement workflow">
+                    <li><span class="step-number">01</span><h3>Image input</h3><p>Capture or select a photograph in the mobile app.</p></li>
+                    <li><span class="step-number">02</span><h3>Segmentation</h3><p>Predict regions such as the eyelids, iris, sclera, and brows.</p></li>
+                    <li><span class="step-number">03</span><h3>Geometry</h3><p>Locate the reference center and eyelid boundaries; convert pixels to distances.</p></li>
+                    <li><span class="step-number">04</span><h3>Results</h3><p>Return an annotated image and estimated MRD1, MRD2, and fissure height.</p></li>
+                </ol>
+                <div class="split method-detail">
+                    <div class="copy"><h3>Evaluate the masks before the distances</h3><p>I used Dice-based evaluation to assess how predicted segmentation regions overlapped the annotated masks. This supported comparison of the two model branches.</p><p>Segmentation overlap and measurement error answer different questions: a useful mask must also place the boundaries accurately enough for the distance calculation.</p></div>
+                    <div class="model-comparison"><table><caption>Model-development branches</caption><thead><tr><th scope="col">My branch</th><th scope="col">Teammate's branch</th></tr></thead><tbody><tr><td>DeepLabV3</td><td>U-Net</td></tr><tr><td>ResNet-101 backbone</td><td>MobileNetV3 backbone</td></tr><tr><td colspan="2">Compared using segmentation evaluation on annotated facial-image data</td></tr></tbody></table></div>
+                </div>
+                <div class="measurement-panel"><div><h3>The geometric reference matters</h3><p>The prototype used the iris center and an assumed 11.71 mm iris diameter to scale pixels. Evaluating the measurement requires checking that reference assumption alongside the predicted boundaries.</p></div><table><caption>Prototype distance outputs</caption><tbody><tr><th scope="row">MRD1 estimate</th><td>Reference center to upper eyelid</td></tr><tr><th scope="row">MRD2 estimate</th><td>Reference center to lower eyelid</td></tr><tr><th scope="row">Palpebral fissure height</th><td>Sum of the two distances</td></tr></tbody></table></div>
+                <figure class="output-example"><a href="https://sites.duke.edu/memscapstone/files/2025/12/Screenshot-2025-11-09-222032.png" target="_blank" rel="noreferrer" aria-label="Open the algorithm-output example on the Duke project site"><img src="https://sites.duke.edu/memscapstone/files/2025/12/Screenshot-2025-11-09-222032.png" alt="ThirdEye algorithm-output example published in the team's Duke course project write-up" loading="lazy" /></a><figcaption><strong>Team algorithm-output example</strong><span>Published course-project documentation showing the vision workflow. Select the image to inspect the original.</span></figcaption></figure>
+            </section>
+
+            <section class="section" id="interface">
+                <div class="section-heading"><div><p class="eyebrow">04</p><h2>From Model to App</h2></div><p>The interface connects test selection and image input to the returned measurements. My teammates developed the app and API integration; I configured the Pi device and tested the workflow on its hardware.</p></div>
+                <div class="interface-grid">
+                    <figure class="app-preview"><a href="/images/projects/thirdeye/thirdeye.jpg" target="_blank" rel="noreferrer" aria-label="Open the full ThirdEye prototype home-screen image"><img src="/images/projects/thirdeye/thirdeye.jpg" alt="ThirdEye course-prototype home screen with stationary eye measurements and a levator excursion menu option" width="313" height="677" loading="lazy" /></a><figcaption><strong>01 · Select the measurement</strong><span>The stationary workflow was implemented. Levator excursion, shown in the menu, was a planned extension.</span></figcaption></figure>
+                    <figure class="app-preview"><a href="https://sites.duke.edu/memscapstone/files/2025/12/Test-Setup-Page-Screenshot-Cropped.jpg" target="_blank" rel="noreferrer" aria-label="Open the team's test-setup screen from the course appendix"><img src="https://sites.duke.edu/memscapstone/files/2025/12/Test-Setup-Page-Screenshot-Cropped.jpg" alt="ThirdEye test-setup screen published in the team's Duke course appendix" loading="lazy" /></a><figcaption><strong>02 · Set up the test</strong><span>The app introduces the test and measurement reference before image collection. The course model used the iris-diameter reference.</span></figcaption></figure>
+                    <figure class="app-preview"><a href="https://sites.duke.edu/memscapstone/files/2025/12/Image-Result-Page-Screenshot-Cropped.jpg" target="_blank" rel="noreferrer" aria-label="Open the team's image-review and results screen from the course appendix"><img src="https://sites.duke.edu/memscapstone/files/2025/12/Image-Result-Page-Screenshot-Cropped.jpg" alt="ThirdEye image-review and results screen published in the team's Duke course appendix" loading="lazy" /></a><figcaption><strong>03 · Review the output</strong><span>The integrated app returns an annotated image and estimated distances for review, retaking, or saving.</span></figcaption></figure>
+                </div>
+                <details class="interface-sketch"><summary>View the team's early interface sketch</summary><figure><a href="https://sites.duke.edu/memscapstone/files/2025/12/Homepage-Layout.png" target="_blank" rel="noreferrer" aria-label="Open the team's original home-page layout sketch"><img src="https://sites.duke.edu/memscapstone/files/2025/12/Homepage-Layout.png" alt="Early ThirdEye home-page layout sketch published in the team's course appendix" loading="lazy" /></a><figcaption><strong>Plan the flow before building the screens</strong><span>The app team sketched layouts and page logic before implementing the interface in FlutterFlow.</span></figcaption></figure></details>
+            </section>
+
+            <section class="section" id="prototype">
+                <div class="section-heading"><div><p class="eyebrow">05</p><h2>Testing on a Pi Phone</h2></div><p>The physical prototype gave the team a device for checking the app, camera input, and interface outside the development computer.</p></div>
+                <div class="device-grid">
+                    <div class="copy"><h3>Configure the device for the application</h3><p>I configured the Raspberry Pi phone with Android 15, adjusted the display DPI, and rotated the screen into portrait orientation. The work combined device setup with testing how the application behaved on its touchscreen and camera hardware.</p><dl class="device-specs"><div><dt>Compute</dt><dd>Raspberry Pi 4B</dd></div><div><dt>Display</dt><dd>5-inch touchscreen</dd></div><div><dt>Camera</dt><dd>1080p</dd></div><div><dt>Operating system</dt><dd>Android 15</dd></div></dl><p>The team used a hosted model accessed through an API, so the Pi served as an app and capture device. A stable network connection remained part of the working system.</p></div>
+                    <figure class="device-photo"><a href="https://sites.duke.edu/memscapstone/files/2025/11/ThirdEye-Phone-Photo.png" target="_blank" rel="noreferrer" aria-label="Open the team's early ThirdEye phone concept"><img src="https://sites.duke.edu/memscapstone/files/2025/11/ThirdEye-Phone-Photo.png" alt="Early ThirdEye phone concept showing the team eye logo and a Measure button" loading="lazy" /></a><figcaption><strong>Early phone concept</strong><span>Team design-methodology visual showing the intended handheld experience.</span></figcaption></figure>
+                </div>
+                <div class="enclosure-grid"><div class="copy"><h3>Enclosure development</h3><p>The team explored clamp and slider case designs to house the display, camera, and Pi. The CAD view shows this part of the hardware development; component fit and retention remained unresolved at the end of the course.</p><p>My contribution was configuring and testing the Pi phone. Enclosure design was a teammate's responsibility.</p></div><figure class="enclosure-image"><a href="https://sites.duke.edu/memscapstone/files/2025/12/slide15_image1.jpeg" target="_blank" rel="noreferrer" aria-label="Open the team's enclosure CAD image"><img src="https://sites.duke.edu/memscapstone/files/2025/12/slide15_image1.jpeg" alt="ThirdEye enclosure CAD view with a rectangular housing on a dark background" loading="lazy" /></a><figcaption><strong>Team enclosure CAD</strong><span>A design-stage view from the Duke project documentation.</span></figcaption></figure></div>
+            </section>
+
+            <section class="section dark" id="results">
+                <div class="section-heading"><div><p class="eyebrow">06</p><h2>Results &amp; Lessons</h2></div><p>The team completed a functioning course prototype. These are team-reported results for the integrated application and measurement system.</p></div>
+                <div class="result-grid"><article><p class="result-value">~1–2 mm</p><h3>Reported measurement difference</h3><p>Compared with ruler-estimated measurements and reviewed by an ophthalmologist.</p></article><article><p class="result-value">~10–15 s</p><h3>Reported capture-to-result time</h3><p>With a stable network connection in the team's prototype testing.</p></article></div>
+                <p class="result-source">Results summarized from the <a href="https://sites.duke.edu/memscapstone/2025-thirdeye/" target="_blank" rel="noreferrer">public course project write-up ↗</a>. These were preliminary prototype comparisons.</p>
+                <div class="lesson-grid"><article><h3>A model is one part of the system</h3><p>My work spanned segmentation development and physical-device testing. The complete workflow also depended on the camera, display configuration, interface, API connection, and measurement assumptions.</p></article><article><h3>Device operation and enclosure fit are separate checks</h3><p>The team identified unresolved enclosure fit and component movement. A future hardware iteration would need to address retention and fit alongside interface testing.</p></article></div>
+            </section>
+
+            <section class="section resources" id="resources"><div><p class="eyebrow">Supporting material</p><h2>Explore the Project</h2><p>The public course write-up includes the team's demo video, prototype testing, and hardware development. The demo shows the integrated team system.</p></div><div class="resource-links"><a class="button primary" href="https://sites.duke.edu/memscapstone/2025-thirdeye/" target="_blank" rel="noreferrer">Duke write-up &amp; team demo ↗</a><a class="button" href="https://github.com/akaikaikai0824-dotcom/ThirdEyeAPI" target="_blank" rel="noreferrer">Team API repository ↗</a></div></section>
+            <section class="project-navigation" aria-label="More projects"><a href="/projects/pebble/"><span>Explore another project</span><strong>PEBBLE →</strong></a><a href="/#projects"><span>Back to</span><strong>All Projects ↑</strong></a></section>
+        </main>
+        <footer><p>Daniel Winfield</p><div><a href="mailto:dwinfield284@gmail.com">Email</a><a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/dwin-p" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+    </body>
+</html>
+
+<style>
+    :root { --ink: #251a37; --paper: #f7f6f2; --white: #fff; --muted: #68636f; --line: #dcd8e0; --mint: #bddfd6; --blue: #4778bd; --lavender: #d1b5ef; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
+    .skip-link:focus { top: 1rem; }
+    .site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247,246,242,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .logo { font-weight: 750; letter-spacing: -.02em; }
+    .site-header nav { display: flex; gap: 2rem; font-size: .95rem; font-weight: 600; }
+    .site-header nav a:hover, footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    main, footer { max-width: 1400px; margin: 0 auto; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3.5rem, 7vw, 7rem); line-height: .98; letter-spacing: -.06em; margin-bottom: 1rem; }
+    h2 { font-size: clamp(2.1rem, 3.6vw, 3.6rem); line-height: 1.1; letter-spacing: -.045em; margin-bottom: 0; text-wrap: balance; }
+    h3 { font-size: 1.4rem; line-height: 1.25; letter-spacing: -.025em; }
+    .eyebrow { margin-bottom: 1rem; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .project-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3rem; align-items: center; padding: 3.5rem max(5vw, 2rem) 4rem; }
+    .subtitle { font-size: 1.45rem; font-weight: 650; margin-bottom: 1.5rem; }
+    .hero-intro { color: var(--muted); font-size: 1.2rem; max-width: 48ch; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .project-meta span { padding: .45rem .8rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .status { margin: 1.25rem 0; color: var(--muted); font-size: .9rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .button { display: inline-block; padding: .8rem 1.1rem; border: 1px solid var(--line); border-radius: .65rem; background: var(--white); font-size: .9rem; font-weight: 700; text-align: center; }
+    .button:hover { border-color: var(--blue); color: var(--blue); }
+    .button.primary { background: var(--ink); border-color: var(--ink); color: var(--white); }
+    .button.primary:hover { background: var(--blue); border-color: var(--blue); }
+    figure { margin: 0; min-width: 0; }
+    figure a { display: block; }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { display: grid; gap: .3rem; padding-top: 1rem; font-size: .85rem; }
+    figcaption span { color: var(--muted); }
+    .team-brand { width: 100%; max-width: 430px; justify-self: center; padding: 2.5rem 2rem; border-radius: 1.25rem; background: var(--white); }
+    .team-brand img { width: 300px; max-width: 100%; margin: 0 auto; }
+    .team-brand figcaption { margin-top: 1.5rem; border-top: 1px solid var(--line); text-align: center; }
+    .app-preview { max-width: 313px; width: 100%; justify-self: center; }
+    .app-preview img { width: auto; max-width: 100%; max-height: 500px; margin: 0 auto; border-radius: .8rem; }
+    .app-preview figcaption { max-width: 34ch; }
+    .planning-map { grid-column: 1 / -1; width: 100%; max-width: 1024px; justify-self: center; }
+    .interface-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: start; }
+    .interface-grid figure > a { display: flex; align-items: start; justify-content: center; height: 500px; }
+    .interface-sketch { margin-top: 3rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .interface-sketch summary { padding: 1.25rem 0; cursor: pointer; font-weight: 750; }
+    .interface-sketch summary:hover { color: var(--blue); }
+    .interface-sketch figure { max-width: 650px; padding: .5rem 0 1.5rem; }
+    .interface-sketch img { width: auto; max-width: 100%; max-height: 500px; }
+    .enclosure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: start; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+    .enclosure-image img { width: auto; max-width: 100%; max-height: 360px; margin: 0 auto; border-radius: .8rem; }
+    .page-index { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding: 1.5rem max(5vw, 2rem); border-top: 1px solid var(--line); font-size: .85rem; font-weight: 700; }
+    .page-index a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    .section { padding: 4.75rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+    .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 3rem; align-items: end; margin-bottom: 2.5rem; }
+    .section-heading > p { color: var(--muted); margin-bottom: .25rem; font-size: 1.05rem; }
+    .split { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 3.5rem; align-items: start; }
+    .copy { color: var(--muted); font-size: 1.05rem; max-width: 65ch; }
+    .copy h3, .copy .lead { color: var(--ink); }
+    .copy .lead { font-size: 1.4rem; line-height: 1.4; }
+    .callout { display: grid; gap: .5rem; padding: 1.5rem; margin-top: 2rem; background: var(--mint); color: var(--ink); border-radius: 1rem; }
+    .callout span { font-size: .95rem; }
+    .dark { background: var(--ink); color: var(--white); }
+    .dark .eyebrow { color: var(--mint); }
+    .dark .section-heading > p { color: rgba(255,255,255,.8); }
+    .contribution-list > div { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; padding: 1.25rem 0; border-top: 1px solid rgba(255,255,255,.25); }
+    .contribution-list span { color: var(--mint); font-weight: 750; }
+    .contribution-list p { margin: 0; max-width: 900px; font-size: 1.1rem; }
+    .pipeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; list-style: none; padding: 0; margin: 0; }
+    .pipeline li { background: var(--white); border-radius: 1rem; padding: 1.5rem; }
+    .pipeline li:nth-child(2) { background: var(--mint); }
+    .step-number { display: inline-block; font-size: .8rem; font-weight: 800; color: var(--blue); margin-bottom: 1rem; }
+    .pipeline h3 { font-size: 1.2rem; }
+    .pipeline p { color: var(--muted); font-size: .95rem; margin-bottom: 0; }
+    .method-detail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin-top: 3rem; }
+    table { width: 100%; border-collapse: collapse; color: var(--ink); font-size: .95rem; }
+    caption { text-align: left; font-weight: 750; margin-bottom: 1rem; font-size: 1.1rem; }
+    th, td { text-align: left; padding: .85rem .6rem; border-bottom: 1px solid var(--line); }
+    thead th { font-size: .85rem; }
+    tbody th { font-weight: 650; }
+    .measurement-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; background: var(--white); padding: 2rem; margin-top: 2rem; border-radius: 1rem; align-items: start; }
+    .measurement-panel p { color: var(--muted); margin-bottom: 0; }
+    .output-example { width: 100%; max-width: 800px; margin: 3rem auto 0; }
+    .output-example img { width: auto; max-width: 100%; max-height: 600px; margin: 0 auto; }
+    .device-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: start; }
+    .device-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; padding: 1.5rem 0; margin: 0 0 1.5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .device-specs dt { font-size: .75rem; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; }
+    .device-specs dd { margin: .35rem 0 0; color: var(--ink); font-size: .95rem; font-weight: 650; }
+    .device-photo img { width: auto; max-width: 100%; max-height: 500px; margin: 0 auto; border-radius: 1rem; }
+    figcaption a { display: inline; text-decoration: underline; text-underline-offset: .2em; }
+    .result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+    .result-grid article { border-top: 1px solid rgba(255,255,255,.25); padding-top: 1.5rem; }
+    .result-value { font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 1.1; letter-spacing: -.045em; font-weight: 750; color: var(--mint); margin-bottom: 1rem; }
+    .result-grid h3 { font-size: 1.25rem; }
+    .result-grid article > p:last-child, .lesson-grid p { color: rgba(255,255,255,.8); }
+    .result-source { color: rgba(255,255,255,.75); font-size: .85rem; margin: 1rem 0 0; }
+    .result-source a { text-decoration: underline; text-underline-offset: .2em; }
+    .lesson-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin-top: 2.5rem; }
+    .lesson-grid h3 { max-width: 30ch; }
+    .lesson-grid p { margin-bottom: 0; }
+    .resources { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 3rem; align-items: center; }
+    .resources p:not(.eyebrow) { margin: 1.5rem 0 0; color: var(--muted); }
+    .resource-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .project-navigation { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+    .project-navigation a { display: grid; gap: .5rem; }
+    .project-navigation span { font-size: .8rem; color: var(--muted); }
+    .project-navigation strong { font-size: 1.2rem; }
+    footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(5vw, 2rem); border-top: 1px solid var(--line); font-weight: 650; }
+    footer p { margin-bottom: 0; }
+    footer > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    @media (max-width: 1100px) { .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 900px) { .site-header nav { gap: 1rem; } .project-hero, .split, .section-heading, .measurement-panel, .interface-grid, .device-grid, .enclosure-grid, .resources { grid-template-columns: minmax(0, 1fr); gap: 2rem; } .project-hero { padding-top: 3rem; } .team-brand { justify-self: start; } .app-preview { justify-self: start; max-width: 280px; } .interface-grid figure > a { display: block; height: auto; } .device-photo { max-width: 650px; } }
+    @media (max-width: 650px) { .site-header { align-items: flex-start; padding: 1rem 1.3rem; } .site-header nav { display: grid; grid-template-columns: repeat(2, auto); gap: .35rem 1rem; } .project-hero, .section { padding: 3rem 1.3rem; } .page-index { padding: 1.25rem 1.3rem; gap: .65rem 1.3rem; } .pipeline, .result-grid, .lesson-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } .measurement-panel { padding: 1.25rem; } .contribution-list > div { grid-template-columns: 1.75rem minmax(0, 1fr); gap: .5rem; } th, td { padding: .75rem .45rem; font-size: .85rem; } .hero-actions, .resource-links { flex-direction: column; align-items: stretch; } .project-navigation, footer { flex-direction: column; padding-left: 1.3rem; padding-right: 1.3rem; } .project-navigation strong { font-size: 1.05rem; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
