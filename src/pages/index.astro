@@ -194,21 +194,33 @@ const featuredProjects = [
 					<article>
 						<p class="research-number">01</p>
 						<h3>Thermal Diffusion in Architected Digital Composites</h3>
+						<p class="research-meta">Ni Lab, Duke University · 2026–Present · Ongoing</p>
 						<p>
-							Graduate research in Duke University’s Ni Lab focused on
-							transient heat transfer and the electrical-to-thermal behavior
-							of architected liquid-metal composite structures.
+							Developing an experimental approach to characterize transient
+							thermal behavior in liquid-metal digital composites, building on
+							my earlier motion-tracking and Python analysis work.
 						</p>
+						<a class="research-link" href="/research/thermal-diffusion/">View research <span aria-hidden="true">→</span></a>
 					</article>
 
 					<article>
 						<p class="research-number">02</p>
 						<h3>Computational Materials for Quantum Technologies</h3>
+						<p class="research-meta">Tuskegee University · 2024–2025 · APS presentation</p>
 						<p>
 							First-principles investigation of point defects in cubic BeS
 							using DFT, GW, and BSE methods to study electronic structure,
 							stability, and optical excitations.
 						</p>
+						<a class="research-link" href="/research/bes-defects/">View research <span aria-hidden="true">→</span></a>
+					</article>
+					<article>
+						<p class="research-number">03</p>
+						<h3>Hybrid Fiber-Reinforced Polymer Composites</h3>
+						<p class="research-meta">Tuskegee University · Spring 2023</p>
+						<p>Fabrication and characterization of jute, E-glass, and hybrid epoxy
+							composites through tensile, flexural, and dynamic mechanical testing.</p>
+						<a class="research-link" href="/research/hybrid-composites/">View research <span aria-hidden="true">→</span></a>
 					</article>
 				</div>
 			</section>
@@ -666,16 +678,18 @@ const featuredProjects = [
 
 	.research-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
 	.research-grid article {
-		padding: 2.5rem;
+		padding: 2rem 1.75rem;
+		display: flex;
+		flex-direction: column;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.research-grid article:first-child {
+	.research-grid article:not(:last-child) {
 		border-right: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
@@ -689,8 +703,18 @@ const featuredProjects = [
 		font-size: 1.5rem;
 	}
 
-	.research-grid article > p:last-child {
+	.research-grid article > p:not(.research-number) {
 		color: rgba(255, 255, 255, 0.72);
+	}
+	.research-grid .research-meta { font-size: .8rem; }
+	.research-link { color: var(--mint); font-weight: 750; margin-top: auto; padding-top: .8rem; }
+	.research-link:hover { text-decoration: underline; text-underline-offset: .3em; }
+	.research-link:focus-visible { outline: 3px solid var(--mint); outline-offset: 5px; }
+	@media (max-width: 1100px) {
+		.research-grid { grid-template-columns: minmax(0, 1fr); }
+		.research-grid article { padding: 2rem 0; }
+		.research-grid article:not(:last-child) { border-right: 0; }
+		.research-grid article > p { max-width: 80ch; }
 	}
 
 	.about {
