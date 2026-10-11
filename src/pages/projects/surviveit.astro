@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="Survive It, a Duke group project combining a Raspberry Pi survival game with sensors, displays, physical controls, audio, and servo flags. Daniel Winfield focused on hardware integration, assembly, and testing." />
+        <title>Survive It | Daniel Winfield</title>
+    </head>
+    <body id="top">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header"><a class="logo" href="/">Daniel Winfield</a><nav aria-label="Main navigation"><a href="/#projects">Projects</a><a href="/#research">Research</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></header>
+        <main id="main">
+            <section class="project-hero">
+                <div>
+                    <p class="eyebrow">Embedded Systems · Hardware Integration · Python</p>
+                    <h1>Survive It</h1>
+                    <p class="subtitle">Raspberry Pi Escape-Room Game</p>
+                    <p class="hero-intro">An interactive survival game that connects narrated decisions to physical controls, sensor-based startup, and visible mechanical feedback.</p>
+                    <div class="project-meta"><span>Duke University</span><span>Spring 2026</span><span>Group course project</span></div>
+                    <p class="status">My focus: hardware integration, enclosure assembly, and system testing</p>
+                    <div class="hero-actions"><a class="button primary" href="#contributions">My contributions ↓</a><a class="button" href="#interface">Explore the screen sequence ↓</a></div>
+                </div>
+                <figure class="hero-screen"><a href="#interface" aria-label="Explore the Survive It display screens"><img src="/images/projects/surviveit/home-screen.png" alt="Reconstructed Survive It welcome screen with a retro scene and press-any-button prompt" width="800" height="480" /></a><figcaption><strong>The game starts here</strong><span>Welcome-screen graphic reconstructed from the team's display code.</span></figcaption></figure>
+            </section>
+            <nav class="page-index" aria-label="On this page"><a href="#contributions">My work</a><a href="#interface">Screen sequence</a><a href="#integration">System &amp; wiring</a><a href="#enclosure">Enclosure</a><a href="#lessons">Lessons</a></nav>
+
+            <section class="section split" id="overview">
+                <div><p class="eyebrow">01</p><h2>Make Decisions Tangible</h2></div>
+                <div class="copy"><p class="lead">Connect a software game to a physical experience.</p><p>Our team built Survive It around seven selectable disaster scenarios, including fire, flood, and earthquake settings. Each game follows three decision steps, with generated situations, choices, and consequences communicated through the displays and narrated audio.</p><p>The enclosure brings together the Raspberry Pi, sensors, controls, displays, and feedback devices. My work centered on making these physical subsystems operate together and supporting their integration with the team's Python game software.</p><div class="callout"><strong>Engineering focus</strong><span>Turn player presence and button presses into a coherent sequence of display, audio, light, and actuator responses.</span></div></div>
+            </section>
+
+            <section class="section dark" id="contributions">
+                <div class="section-heading"><div><p class="eyebrow">02</p><h2>My Contributions</h2></div><p>I focused on the physical system within the group project, alongside teammates developing the game logic and software experience.</p></div>
+                <div class="contribution-list">
+                    <div><span>01</span><p>Led much of the hardware integration and wiring across the controls, sensors, displays, audio, indicators, and servo-driven outcome flags.</p></div>
+                    <div><span>02</span><p>Worked on the casing and physical assembly, bringing the electronic components together around the supplied rugged-box enclosure design.</p></div>
+                    <div><span>03</span><p>Adapted Python ultrasonic-sensing and voice-output code and helped integrate YOLOv8 person detection into the system.</p></div>
+                    <div><span>04</span><p>Supported subsystem testing and debugging as the hardware interfaces were connected to the team's game flow.</p></div>
+                </div>
+            </section>
+
+            <section class="section" id="interface">
+                <div class="section-heading"><div><p class="eyebrow">03</p><h2>From Welcome to Decisions</h2></div><p>The interface moves from an animated welcome screen to scenario selection, narrated prompts, and three-button decisions.</p></div>
+                <figure class="screen-preview"><video controls playsinline preload="none" poster="/images/projects/surviveit/home-screen.png" width="800" height="480" aria-label="Reconstructed animation of the Survive It welcome screen"><source src="/images/projects/surviveit/home-screen-animation.mp4" type="video/mp4" /><a href="/images/projects/surviveit/home-screen-animation.mp4">Download the reconstructed animation</a></video><figcaption><strong>Reconstructed welcome-screen animation</strong><span>Recreated from the supplied display drawing code at 800 × 480. Local fonts were substituted. Play the eight-second preview to see the scene animate.</span></figcaption></figure>
+                <div class="display-gallery">
+                    <figure><a href="/images/projects/surviveit/scenario-menu.png" target="_blank" rel="noreferrer" aria-label="Open the reconstructed scenario-selection screen"><img src="/images/projects/surviveit/scenario-menu.png" alt="Reconstructed scenario-selection screen showing Office Fire Escape and Prev, Select, and Surprise controls" width="800" height="480" loading="lazy" /></a><figcaption><strong>01 · Select a scenario</strong><span>Browse the seven scenarios, select the displayed one, or request a random selection.</span></figcaption></figure>
+                    <figure><a href="/images/projects/surviveit/situation-screen.png" target="_blank" rel="noreferrer" aria-label="Open the reconstructed situation-prompt screen"><img src="/images/projects/surviveit/situation-screen.png" alt="Reconstructed situation screen showing an example prompt, three-step progress dots, score, and survival meter" width="800" height="480" loading="lazy" /></a><figcaption><strong>02 · Read the prompt</strong><span>The situation appears while narration plays. Progress dots and the stats bar keep the game state visible.</span></figcaption></figure>
+                    <figure class="choice-preview"><a href="/images/projects/surviveit/choice-screen.png" target="_blank" rel="noreferrer" aria-label="Open the reconstructed decision screen"><img src="/images/projects/surviveit/choice-screen.png" alt="Reconstructed choice screen showing the prompt Danger! Choose fast and three numbered controls labeled Take cover, Push through, and Freeze up" width="800" height="480" loading="lazy" /></a><figcaption><strong>03 · Choose an action</strong><span>Three numbered touchscreen controls correspond to the physical buttons. The prompt and game-state indicators remain on screen.</span></figcaption></figure>
+                </div>
+                <p class="media-note">These screens are reconstructed from the team's display code. Prompt and choice examples use its built-in fallback text; they illustrate the interface layout. Select any screen for full resolution.</p>
+                <div class="interface-notes"><article><h3>A shared view of the game</h3><p>The touchscreen shows the scenario, choices, score, and survival meter. A smaller LCD mirrors short prompts, while physical buttons provide another input path.</p></article><article><h3>Keep the player informed</h3><p>Display updates, narration, lights, and flag motion communicate different parts of the experience. Connecting those outputs to the same game state was central to the integration work.</p></article></div>
+            </section>
+
+            <section class="section" id="integration">
+                <div class="section-heading"><div><p class="eyebrow">04</p><h2>One Game, Many Interfaces</h2></div><p>The Raspberry Pi coordinates the player inputs and output devices through a shared game state.</p></div>
+                <ol class="pipeline" aria-label="Survive It startup and gameplay sequence">
+                    <li><span>01</span><h3>Open the lid</h3><p>An ultrasonic-distance check gates startup.</p></li>
+                    <li><span>02</span><h3>Detect a player</h3><p>The camera and YOLO person detector check that someone is present.</p></li>
+                    <li><span>03</span><h3>Make choices</h3><p>Physical buttons or touch input select the scenario and game decisions.</p></li>
+                    <li><span>04</span><h3>Show the outcome</h3><p>Displays, voice, LEDs, a buzzer, and servo flags communicate the game state.</p></li>
+                </ol>
+                <div class="integration-detail">
+                    <div class="copy"><h3>Coordinate input and feedback</h3><p>Touchscreen taps and physical button presses feed into the same choice-handling path. After a choice, the game updates its score and survival meter and triggers visual and audio feedback. At the end, a green or red flag signals the outcome.</p><p>The language-model integration generates situation text, choices, and consequences within the predefined scenarios. Piper provides local speech synthesis, while the language-model service requires a network connection.</p><p>The survival meter is a game-state variable used to drive the experience.</p></div>
+                    <table><caption>Hardware interfaces</caption><tbody><tr><th scope="row">Controller</th><td>Raspberry Pi</td></tr><tr><th scope="row">Player controls</th><td>Three physical buttons and touchscreen input</td></tr><tr><th scope="row">Startup sensing</th><td>Ultrasonic sensor and Pi camera</td></tr><tr><th scope="row">Displays</th><td>5-inch, 800 × 480 DSI touchscreen and 16 × 2 I²C LCD</td></tr><tr><th scope="row">Audio</th><td>USB speaker and synthesized narration</td></tr><tr><th scope="row">Physical feedback</th><td>Three LEDs, passive buzzer, and two servo flags</td></tr></tbody></table>
+                </div>
+                <figure class="wiring-figure"><a href="/images/projects/surviveit/wiring-updated.png" target="_blank" rel="noreferrer" aria-label="Open the development wiring diagram at full resolution"><img src="/images/projects/surviveit/wiring-updated.png" alt="Survive It development wiring diagram showing the Raspberry Pi breakout, LCD, LED and button breadboard, buzzer circuit, and ultrasonic sensor" width="2048" height="1502" loading="lazy" /></a><figcaption><strong>Development wiring diagram</strong><span>The updated diagram documents the breadboard subsystem; GPIO assignments evolved during integration. Camera, DSI display, USB audio, and servo flags are additional system interfaces. Select the image for full resolution.</span></figcaption></figure>
+            </section>
+
+            <section class="section" id="enclosure">
+                <div class="section-heading"><div><p class="eyebrow">05</p><h2>Enclose the Hardware</h2></div><p>The supplied CAD separates the main box, top, and latch geometry. These views show the model used for the enclosure work.</p></div>
+                <div class="cad-gallery">
+                    <figure><a href="/images/projects/surviveit/enclosure-box.png" target="_blank" rel="noreferrer" aria-label="Open the enclosure-box render"><img src="/images/projects/surviveit/enclosure-box.png" alt="Orthographic render of the supplied Survive It main enclosure box with side perforations and internal mounting geometry" width="1600" height="1040" loading="lazy" /></a><figcaption><strong>Main box</strong><span>Lower housing and internal geometry from the supplied box STL.</span></figcaption></figure>
+                    <figure><a href="/images/projects/surviveit/enclosure-top.png" target="_blank" rel="noreferrer" aria-label="Open the enclosure-top render"><img src="/images/projects/surviveit/enclosure-top.png" alt="Orthographic render of the supplied Survive It enclosure top with its rim and attachment features" width="1600" height="1040" loading="lazy" /></a><figcaption><strong>Top</strong><span>Upper enclosure component from the supplied top STL.</span></figcaption></figure>
+                    <figure><a href="/images/projects/surviveit/enclosure-latches.png" target="_blank" rel="noreferrer" aria-label="Open the enclosure-latch render"><img src="/images/projects/surviveit/enclosure-latches.png" alt="Orthographic render of the latch geometry supplied with the Survive It enclosure models" width="1600" height="1040" loading="lazy" /></a><figcaption><strong>Latch geometry</strong><span>Separate fastening component from the supplied latch STL.</span></figcaption></figure>
+                </div>
+                <p class="media-note">CAD views are renders of the provided mesh geometry. My role was physical integration and assembly; the enclosure is presented as the supplied parametric design.</p>
+                <div class="download-links"><a class="button" href="/models/surviveit/enclosure-box.stl" download>Box STL ↓</a><a class="button" href="/models/surviveit/enclosure-top.stl" download>Top STL ↓</a><a class="button" href="/models/surviveit/enclosure-latches.stl" download>Latches STL ↓</a></div>
+            </section>
+
+            <section class="section dark" id="lessons">
+                <div class="section-heading"><div><p class="eyebrow">06</p><h2>Integration Lessons</h2></div><p>The project brought sensing, controls, audio, displays, and actuation into one course prototype.</p></div>
+                <div class="lesson-grid"><article><h3>Test the interfaces between subsystems</h3><p>My work extended beyond wiring individual components. The inputs and outputs needed to make sense together as the game moved through startup, selection, choices, and its final outcome.</p></article><article><h3>Keep hardware and software documentation aligned</h3><p>The wiring diagrams and current control code capture different development stages. Integration changes need to be reflected in the pin map, component placement, and test procedure.</p></article></div>
+            </section>
+            <section class="project-navigation" aria-label="More projects"><a href="/projects/thirdeye/"><span>Previous project</span><strong>← ThirdEye</strong></a><a href="/#projects"><span>Back to</span><strong>All Projects ↑</strong></a></section>
+        </main>
+        <footer><p>Daniel Winfield</p><div><a href="mailto:dwinfield284@gmail.com">Email</a><a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/dwin-p" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+    </body>
+</html>
+
+<style>
+    :root { --ink: #251a37; --paper: #f7f6f2; --white: #fff; --muted: #68636f; --line: #dcd8e0; --mint: #bddfd6; --blue: #4778bd; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, video:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
+    .skip-link:focus { top: 1rem; }
+    .site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247,246,242,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .logo { font-weight: 750; letter-spacing: -.02em; }
+    .site-header nav { display: flex; gap: 2rem; font-size: .95rem; font-weight: 600; }
+    .site-header nav a:hover, footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    main, footer { max-width: 1400px; margin: 0 auto; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3.5rem, 7vw, 7rem); line-height: .98; letter-spacing: -.06em; margin-bottom: 1rem; }
+    h2 { font-size: clamp(2.1rem, 3.6vw, 3.6rem); line-height: 1.1; letter-spacing: -.045em; margin-bottom: 0; text-wrap: balance; }
+    h3 { font-size: 1.4rem; line-height: 1.25; letter-spacing: -.025em; }
+    .eyebrow { margin-bottom: 1rem; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .project-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 2.5rem; align-items: center; padding: 3.5rem max(5vw, 2rem) 4rem; }
+    .subtitle { font-size: 1.45rem; font-weight: 650; margin-bottom: 1.5rem; }
+    .hero-intro { color: var(--muted); font-size: 1.2rem; max-width: 48ch; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .project-meta span { padding: .45rem .8rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .status { margin: 1.25rem 0; color: var(--muted); font-size: .9rem; }
+    .hero-actions, .download-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .button { display: inline-block; padding: .8rem 1.1rem; border: 1px solid var(--line); border-radius: .65rem; background: var(--white); font-size: .9rem; font-weight: 700; text-align: center; }
+    .button:hover { border-color: var(--blue); color: var(--blue); }
+    .button.primary { background: var(--ink); border-color: var(--ink); color: var(--white); }
+    .button.primary:hover { background: var(--blue); border-color: var(--blue); }
+    figure { margin: 0; min-width: 0; }
+    figure > a { display: block; }
+    figure img { display: block; width: 100%; height: auto; }
+    .hero-screen img, .display-gallery img { border-radius: .8rem; }
+    figcaption { display: grid; gap: .3rem; padding-top: 1rem; font-size: .85rem; }
+    figcaption span { color: var(--muted); }
+    .page-index { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding: 1.5rem max(5vw, 2rem); border-top: 1px solid var(--line); font-size: .85rem; font-weight: 700; }
+    .page-index a:hover { text-decoration: underline; text-underline-offset: .3em; }
+    .section { padding: 4.5rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+    .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 3rem; align-items: end; margin-bottom: 2.5rem; }
+    .section-heading > p { color: var(--muted); margin-bottom: .25rem; font-size: 1.05rem; }
+    .split { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 3.5rem; align-items: start; }
+    .copy { color: var(--muted); font-size: 1.05rem; max-width: 65ch; min-width: 0; }
+    .copy h3, .copy .lead { color: var(--ink); }
+    .copy .lead { font-size: 1.4rem; line-height: 1.4; }
+    .callout { display: grid; gap: .5rem; padding: 1.5rem; margin-top: 2rem; background: var(--mint); color: var(--ink); border-radius: 1rem; }
+    .callout span { font-size: .95rem; }
+    .dark { background: var(--ink); color: var(--white); }
+    .dark .eyebrow { color: var(--mint); }
+    .dark .section-heading > p { color: rgba(255,255,255,.8); }
+    .contribution-list > div { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; padding: 1.25rem 0; border-top: 1px solid rgba(255,255,255,.25); }
+    .contribution-list span { color: var(--mint); font-weight: 750; }
+    .contribution-list p { margin: 0; max-width: 900px; font-size: 1.1rem; }
+    .pipeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; list-style: none; padding: 0; margin: 0; }
+    .pipeline li { background: var(--white); border-radius: 1rem; padding: 1.5rem; }
+    .pipeline li:nth-child(2) { background: var(--mint); }
+    .pipeline li > span { display: inline-block; font-size: .8rem; font-weight: 800; color: var(--blue); margin-bottom: 1rem; }
+    .pipeline h3 { font-size: 1.2rem; }
+    .pipeline p { color: var(--muted); font-size: .95rem; margin-bottom: 0; }
+    .integration-detail, .interface-notes, .lesson-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin-top: 3rem; align-items: start; }
+    table { width: 100%; border-collapse: collapse; color: var(--ink); font-size: .95rem; }
+    caption { text-align: left; font-weight: 750; margin-bottom: 1rem; font-size: 1.1rem; }
+    th, td { text-align: left; padding: .85rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tbody th { font-weight: 650; width: 35%; }
+    .wiring-figure { max-width: 1000px; margin: 3rem auto 0; }
+    .cad-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+    .media-note { color: var(--muted); font-size: .85rem; margin: 1.5rem 0 0; max-width: 90ch; }
+    .screen-preview { width: 100%; max-width: 800px; margin: 0 auto; }
+    .screen-preview video { display: block; width: 100%; height: auto; aspect-ratio: 5 / 3; border-radius: .8rem; background: #6ba8ff; }
+    .display-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; margin-top: 3rem; }
+    .choice-preview { grid-column: 1 / -1; width: 100%; max-width: 800px; justify-self: center; }
+    .interface-notes p { color: var(--muted); margin-bottom: 0; }
+    .lesson-grid { margin-top: 0; }
+    .lesson-grid h3 { max-width: 30ch; }
+    .lesson-grid p { color: rgba(255,255,255,.8); }
+    .lesson-grid p { margin-bottom: 0; }
+    .project-navigation { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+    .project-navigation a { display: grid; gap: .5rem; }
+    .project-navigation span { font-size: .8rem; color: var(--muted); }
+    .project-navigation strong { font-size: 1.2rem; }
+    footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(5vw, 2rem); border-top: 1px solid var(--line); font-weight: 650; }
+    footer p { margin-bottom: 0; }
+    footer > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    @media (max-width: 1100px) { .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 900px) { .site-header nav { gap: 1rem; } .project-hero, .split, .section-heading, .integration-detail, .interface-notes { grid-template-columns: minmax(0, 1fr); gap: 2rem; } .project-hero { padding-top: 3rem; } .hero-screen { max-width: 800px; } .cad-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 650px) { .site-header { align-items: flex-start; padding: 1rem 1.3rem; } .site-header nav { display: grid; grid-template-columns: repeat(2, auto); gap: .35rem 1rem; } .project-hero, .section { padding: 3rem 1.3rem; } .page-index { padding: 1.25rem 1.3rem; gap: .65rem 1.3rem; } .pipeline, .cad-gallery, .display-gallery, .lesson-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } .cad-gallery img { max-height: 300px; width: auto; max-width: 100%; margin: 0 auto; } .contribution-list > div { grid-template-columns: 1.75rem minmax(0, 1fr); gap: .5rem; } th, td { padding: .75rem .45rem; font-size: .85rem; } .hero-actions { flex-direction: column; align-items: stretch; } .project-navigation, footer { flex-direction: column; padding-left: 1.3rem; padding-right: 1.3rem; } .project-navigation strong { font-size: 1.05rem; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>

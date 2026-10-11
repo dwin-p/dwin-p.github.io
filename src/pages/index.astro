@@ -45,6 +45,15 @@ const featuredProjects = [
         tags: ["Computer Vision", "PyTorch", "Raspberry Pi"],
         image: "https://sites.duke.edu/memscapstone/files/2025/11/ThirdEye-Logo-300x165.png",
     },
+    {
+        title: "Survive It – Interactive Survival Game",
+        slug: "surviveit",
+        published: true,
+        description:
+            "Group-built Raspberry Pi game combining sensors, narrated choices, displays, physical controls, and servo flags, with my work focused on hardware integration and assembly.",
+        tags: ["Embedded Systems", "Hardware Integration", "Python"],
+        image: "/images/projects/surviveit/home-screen.png",
+    },
 ];
 ---
 
@@ -140,7 +149,7 @@ const featuredProjects = [
 											<img
 												src={project.image}
 												alt={`${project.title} project`}
-                                                class={`project-thumbnail ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : project.slug === "pebble" ? "pebble-image" : ""}`}
+                                                class={`project-thumbnail ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : project.slug === "pebble" ? "pebble-image" : project.slug === "surviveit" ? "surviveit-image" : ""}`}
 												loading="lazy"
 											/>
 										) : null
@@ -594,6 +603,8 @@ const featuredProjects = [
 	}
     .project-image-4 { background: var(--lavender); }
     .project-image-5 { background: var(--white); }
+    .project-image-6 { background: var(--paper); }
+    .project-image img.surviveit-image { object-fit: contain; object-position: center; }
 
 	.project-content {
 		padding: 1.6rem;
