@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="830" viewBox="0 0 700 830" role="img" aria-labelledby="graphic-title graphic-desc">
+  <title id="graphic-title">Geometric engineering illustration</title>
+  <desc id="graphic-desc">Layered isometric forms, precision guide lines and geometric construction details representing design, building and testing.</desc>
+  <defs>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#BFE2DB"/><stop offset="1" stop-color="#7DCDD0"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9951A7"/><stop offset="1" stop-color="#7E368D"/></linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#49BFAF"/><stop offset="1" stop-color="#249A90"/></linearGradient>
+    <pattern id="fine-grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#FFFFFF" stroke-width="0.6" opacity="0.065"/></pattern>
+    <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.25" fill="#D1B5EF" opacity="0.57"/></pattern>
+    <pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M4 0V11" stroke="#E9654C" stroke-width="2.2" opacity="0.85"/></pattern>
+    <clipPath id="clip"><rect width="700" height="830"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="700" height="830" fill="#251A37"/>
+    <rect width="700" height="830" fill="url(#fine-grid)"/>
+    <!-- Keep the complete engineering composition inside the rounded frame. -->
+    <g transform="translate(35 30) scale(0.90)">
+    <rect x="26" y="42" width="132" height="128" fill="url(#dots)" opacity=".45"/>
+    <g opacity=".78" stroke="#D1B5EF" stroke-width="2">
+      <path d="M590 -15V270 M601 -15V270 M612 -15V270 M623 -15V270 M634 -15V270 M645 -15V270 M656 -15V270 M667 -15V270 M678 -15V270"/>
+    </g>
+    <!-- Rectilinear supports give the colored volumes a mechanical frame. -->
+    <path d="M124 82V318L298 420" stroke="#E9654C" stroke-width="50" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M151 67V301L321 399" stroke="#EBC58B" stroke-width="5" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M71 -30V404L291 528" fill="none" stroke="#8E479F" stroke-width="34"/>
+    <path d="M72 -30V395L283 513" fill="none" stroke="#F7F6F2" stroke-width="3.5"/>
+    <!-- Upper lifted plate -->
+    <polygon points="269,189 445,91 604,180 430,282" fill="#E8F1EE"/>
+    <polygon points="269,189 430,282 430,340 269,249" fill="#9250A0"/>
+    <polygon points="430,282 604,180 604,237 430,340" fill="#D1B5EF"/>
+    <polygon points="278,181 445,88 588,171 425,266" fill="url(#aqua)"/>
+    <path d="M278 181L425 266L588 171" fill="none" stroke="#F7F6F2" stroke-width="2" opacity=".5"/>
+    <!-- Upper receiver: semi-transparent blocks mimic schematic subassemblies -->
+    <polygon points="212,302 406,197 593,302 400,414" fill="url(#purple)"/>
+    <polygon points="212,302 400,414 400,458 212,348" fill="#663178"/>
+    <polygon points="400,414 593,302 593,353 400,458" fill="#482057"/>
+    <polygon points="245,285 406,199 550,282 389,373" fill="#A86AB5" opacity=".95"/>
+    <polygon points="273,270 409,197 531,268 396,341" fill="#BBA0D8" opacity=".42"/>
+    <path d="M215 302L402 412L590 303" fill="none" stroke="#E8D5F5" stroke-width="3" opacity=".75"/>
+    <!-- Spaced lower assembly -->
+    <polygon points="277,476 465,368 630,466 437,577" fill="url(#teal)"/>
+    <polygon points="277,476 437,577 437,649 277,547" fill="#1E817E"/>
+    <polygon points="437,577 630,466 630,535 437,649" fill="#166D6D"/>
+    <path d="M277 476L437 577L630 466" fill="none" stroke="#91E1D3" stroke-width="3"/>
+    <polygon points="368,449 455,398 532,442 445,491" fill="#66C6BF" opacity=".62"/>
+    <!-- Fastener / hexagonal forms -->
+    <polygon points="467,441 485,452 485,474 467,485 449,474 449,452" fill="#F7F6F2"/>
+    <polygon points="467,447 480,455 480,471 467,478 454,471 454,455" fill="#BBDDD4"/>
+    <polygon points="389,538 427,516 465,538 465,583 427,606 389,583" fill="#843C9A"/>
+    <path d="M389 538L427 560L465 538M427 560V606" fill="none" stroke="#A96AB8" stroke-width="2" opacity=".55"/>
+    <!-- Lower warm-colored structural element -->
+    <path d="M50 737V560L202 648V830" fill="none" stroke="#E9654C" stroke-width="42"/>
+    <path d="M77 743V606L175 661V830" fill="none" stroke="#F1C58A" stroke-width="4"/>
+    <path d="M114 700V830H284V726L193 670Z" fill="url(#hatch)" opacity=".9"/>
+    <!-- Engineering leader lines and dimension guides -->
+    <g fill="none" stroke="#F7F6F2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M30 533L273 410L527 555V287L386 204" stroke-width="3.2" opacity=".94"/>
+      <path d="M163 50L550 275L550 574L672 642" stroke-width="2.7" opacity=".8"/>
+      <path d="M97 572L313 680V830" stroke-width="3" opacity=".72"/>
+      <path d="M514 94L542 79H642" stroke-width="1.5" opacity=".8"/>
+      <path d="M514 575L563 625H671" stroke-width="1.5" opacity=".8"/>
+    </g>
+    <g stroke="#CFC0E4" fill="none" opacity=".66">
+      <circle cx="597" cy="751" r="127" stroke-width="1.8"/>
+      <circle cx="597" cy="751" r="79" stroke-width="1" stroke-dasharray="5 7"/>
+      <path d="M460 751H700M597 617V830M501 658L694 830" stroke-width="1.4" stroke-dasharray="6 7"/>
+      <circle cx="597" cy="751" r="6" fill="#D1B5EF" stroke="none"/>
+      <path d="M585 751H609M597 739V763" stroke-width="1.5"/>
+    </g>
+    <!-- three short callouts; decorative, not intended as actual measurements -->
+    <g font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="2.3" font-size="17" fill="#F7F6F2">
+      <text x="537" y="73">DESIGN</text>
+      <text x="571" y="610">BUILD</text>
+      <text x="474" y="800">TEST</text>
+    </g>
+    <g stroke="#BDE2DC" fill="#BDE2DC">
+      <path d="M515 129L543 91H645" stroke-width="1.5" fill="none"/>
+      <circle cx="515" cy="129" r="4"/>
+      <circle cx="562" cy="625" r="4"/>
+      <path d="M489 766L514 785H560" stroke-width="1.5" fill="none"/>
+      <circle cx="489" cy="766" r="4"/>
+    </g>
+    </g>
+  </g>
+</svg>

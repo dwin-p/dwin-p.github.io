@@ -113,15 +113,7 @@ const featuredProjects = [
 
 				<div class="hero-visual" aria-hidden="true">
 					<div class="visual-card">
-						<div class="circle mint"></div>
-						<div class="circle coral"></div>
-
-						<div class="system-lines">
-							<span>ROBOTICS</span>
-							<span>VISION</span>
-							<span>EMBEDDED</span>
-							<span>DESIGN</span>
-						</div>
+						<img src="/images/engineering-geometry.svg" alt="" width="700" height="830" decoding="async" />
 					</div>
 				</div>
 			</section>
@@ -346,10 +338,10 @@ const featuredProjects = [
 	.hero {
 		min-height: 74vh;
 		display: grid;
-		grid-template-columns: 1.05fr 0.95fr;
+		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 		align-items: center;
-		gap: 5rem;
-		padding: 6rem max(5vw, 2rem);
+		gap: clamp(2.5rem, 4vw, 5rem);
+		padding: 5.5rem max(5vw, 2rem);
 	}
 
 	.eyebrow {
@@ -369,10 +361,12 @@ const featuredProjects = [
 	}
 
 	h1 {
-		overflow-wrap: anywhere;
+		overflow-wrap: normal;
+		word-break: normal;
+		hyphens: none;
 		max-width: 850px;
 		margin-bottom: 2rem;
-		font-size: clamp(3rem, 5vw, 5.7rem);
+		font-size: clamp(2.75rem, 4.2vw, 4.7rem);
 		line-height: 0.98;
 		letter-spacing: -0.055em;
 	}
@@ -423,73 +417,25 @@ const featuredProjects = [
 	.visual-card {
 		position: relative;
 		width: min(100%, 590px);
-		aspect-ratio: 4 / 5;
+		aspect-ratio: 700 / 830;
 		overflow: hidden;
 		background: var(--ink);
 		border-radius: 2rem;
 	}
 
-	.visual-card::before {
-		content: "";
-		position: absolute;
-		top: 12%;
-		right: -10%;
-		width: 65%;
-		height: 23%;
-		background: var(--lavender);
-		border-radius: 999px 0 0 999px;
+	.visual-card img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
 	}
 
+	/* Older CSS generated decorative shapes that cover the illustration. */
+	.visual-card::before,
 	.visual-card::after {
-		content: "";
-		position: absolute;
-		bottom: -9%;
-		left: -8%;
-		width: 45%;
-		aspect-ratio: 1;
-		background: var(--coral);
-		border-radius: 50%;
-	}
-
-	.circle {
-		position: absolute;
-		border-radius: 50%;
-	}
-
-	.circle.mint {
-		top: 8%;
-		left: 10%;
-		width: 16%;
-		aspect-ratio: 1;
-		background: var(--mint);
-	}
-
-	.circle.coral {
-		bottom: 19%;
-		right: 14%;
-		width: 7%;
-		aspect-ratio: 1;
-		background: var(--coral);
-	}
-
-	.system-lines {
-		position: absolute;
-		z-index: 3;
-		top: 39%;
-		left: 10%;
-		display: grid;
-		gap: 0.75rem;
-	}
-
-	.system-lines span {
-		width: fit-content;
-		padding: 0.7rem 1.2rem;
-		border: 1px solid rgba(255, 255, 255, 0.7);
-		border-radius: 999px;
-		color: white;
-		font-size: clamp(0.75rem, 1vw, 1rem);
-		font-weight: 800;
-		letter-spacing: 0.12em;
+		content: none !important;
+		display: none !important;
 	}
 
 	.section {
@@ -743,7 +689,7 @@ const featuredProjects = [
 		gap: 2rem;
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1050px) {
 		.site-header nav {
 			gap: 1rem;
 		}
@@ -754,13 +700,14 @@ const featuredProjects = [
 			padding-top: 4rem;
 		}
 
-		.hero-visual {
-			order: -1;
+		.visual-card {
+			max-width: 480px;
+			aspect-ratio: 700 / 830;
 		}
 
-		.visual-card {
-			max-width: 500px;
-			aspect-ratio: 5 / 3;
+		.visual-card img {
+			object-fit: contain;
+		object-position: center;
 		}
 
 		.project-grid,
@@ -799,8 +746,10 @@ const featuredProjects = [
 		}
 
 		h1 {
-			font-size: 3rem;
+			font-size: clamp(2.25rem, 8vw, 3rem);
 		}
+
+		.visual-card { max-width: 420px; }
 
 		footer {
 			align-items: flex-start;

@@ -1,43 +1,54 @@
-# Astro Starter Kit: Minimal
+# Daniel Winfield | Engineering Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+**Live website:** https://dwin-p.github.io/
+
+Personal engineering portfolio for Daniel Winfield, an M.S. candidate in Mechanical Engineering and Materials Science at Duke University. The site documents selected projects and research in mechanical design, robotics, mechatronics, embedded systems, computer vision, and materials testing.
+
+## Featured Projects
+
+- **Autonomous Chess-Playing Robot** - Computer vision, ROS 2 motion planning, and robotic manipulation.
+- **JellyGrip** - Biomimetic robotic end-effector design, CAD assemblies, and analytical evaluation.
+- **Advanced Materials Laboratory** - Polymer/composite specimen fabrication, mechanical testing, and characterization.
+- **PEBBLE** - Raspberry Pi study companion integrating sensors, physical controls, software, and enclosure CAD.
+- **ThirdEye** - Computer vision for automated eyelid measurements and mobile prototype development.
+- **Survive It** - Interactive Raspberry Pi disaster-survival game with physical hardware and controls.
+
+## Research
+
+- Thermal diffusion in architected digital composites (Duke University)
+- Computational materials for quantum technologies (Tuskegee University)
+- Hybrid fiber-reinforced polymer composites (Tuskegee University)
+
+## Website Technology
+
+- [Astro](https://astro.build/)
+- HTML and CSS
+- GitHub Pages and GitHub Actions for deployment
+
+## Run Locally
+
+Requires **Node.js 22.12.0 or newer**.
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Open the local address printed by Astro (typically `http://localhost:4321`).
 
-## 🚀 Project Structure
+To build and preview the production site:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
+npm run preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The site deploys automatically to GitHub Pages when changes are pushed to the `main` branch using the workflow in `.github/workflows/deploy.yml`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Contact
 
-Any static assets, like images, can be placed in the `public/` directory.
+- [LinkedIn](https://www.linkedin.com/in/daniel-b-winfield/)
+- [GitHub](https://github.com/dwin-p)
+- [Portfolio website](https://dwin-p.github.io/)
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Project pages describe the scope of the work, methods, individual contributions, and outcomes. Some project source code and research materials are not included in this website repository.
