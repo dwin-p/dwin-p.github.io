@@ -30,18 +30,18 @@ const featuredProjects = [
     {
         title: "PEBBLE – Intelligent Study Companion",
         slug: "pebble",
-        published: false,
+        published: true,
         description:
-            "Raspberry Pi-based embedded system combining sensing, machine learning, computer vision, voice interaction, and real-time feedback.",
-        tags: ["Embedded Systems", "Python", "Machine Learning"],
-        image: "/images/projects/pebble/pebble.jpg",
+            "Individually designed and built a Raspberry Pi study companion, integrating a sensor-driven timer, voice interaction, physical controls, and a custom enclosure.",
+        tags: ["Embedded Systems", "Python", "Enclosure CAD"],
+        image: "/images/projects/pebble/bench-prototype.jpg",
     },
     {
         title: "ThirdEye",
         slug: "thirdeye",
-        published: false,
+        published: true,
         description:
-            "Computer-vision system for automated eyelid measurement using semantic segmentation and a Raspberry Pi-based mobile prototype.",
+            "Team-developed eyelid measurement prototype, with my work focused on DeepLabV3 segmentation and a Raspberry Pi Android testing device.",
         tags: ["Computer Vision", "PyTorch", "Raspberry Pi"],
         image: "/images/projects/thirdeye/thirdeye.jpg",
     },
@@ -140,7 +140,7 @@ const featuredProjects = [
 											<img
 												src={project.image}
 												alt={`${project.title} project`}
-                                                class={`project-image ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : ""}`}
+                                                class={`project-image ${project.slug === "thirdeye" ? "thirdeye-image" : project.slug === "jellygrip" ? "jellygrip-image" : project.slug === "advanced-materials" ? "materials-image" : project.slug === "pebble" ? "pebble-image" : ""}`}
 												loading="lazy"
 											/>
 										) : null
@@ -556,8 +556,10 @@ const featuredProjects = [
 	}
 
 	.project-image img.thirdeye-image {
-		object-position: center top;
-		transform: scale(1);
+		object-fit: contain;
+		object-position: center;
+		transform: none;
+        background: #eef1fc;
 	}
     .project-image img.jellygrip-image {
         object-fit: contain;
@@ -568,6 +570,12 @@ const featuredProjects = [
     .project-image img.materials-image {
         object-position: center 45%;
         transform: none;
+    }
+    .project-image img.pebble-image {
+        object-fit: cover;
+        object-position: center;
+        transform: none;
+        background: #242629;
     }
 
 	.project-image-1 {
