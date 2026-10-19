@@ -1,4 +1,5 @@
 ---
+import SiteBrand from "../../components/SiteBrand.astro";
 const sketches = [
     { file: "grasp-configurations.png", title: "Grasp configurations", alt: "Hand-drawn JellyGrip finger configurations for round and rectangular objects, with hinge and inflation-pad concepts", caption: "Exploring finger articulation, opening width, and contact arrangements for different object shapes.", width: 1440, height: 1122 },
     { file: "finger-concept.png", title: "Finger and pad geometry", alt: "Original sketches of finger segments, proposed materials, and inflatable contact pads", caption: "Separating the structural finger segments from the compliant pads and considering how the pads would fit within the fingers.", width: 1440, height: 1116 },
@@ -41,7 +42,7 @@ const risks = [
     <body id="top">
         <a class="skip-link" href="#main">Skip to content</a>
         <header class="site-header">
-            <a class="logo" href="/">Daniel Winfield</a>
+            <SiteBrand />
             <nav aria-label="Main navigation">
                 <a href="/#projects">Projects</a>
                 <a href="/#research">Research</a>

@@ -1,0 +1,63 @@
+<a class="logo site-brand" href="/">
+    <img src="/favicon.svg" width="36" height="36" alt="" decoding="async" />
+    <span>Daniel Winfield</span>
+</a>
+
+<style>
+    .site-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        flex-shrink: 0;
+        color: inherit;
+        font-size: 1rem;
+        font-weight: 750;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .site-brand img {
+        display: block;
+        width: 36px;
+        height: 36px;
+        flex: 0 0 36px;
+        border-radius: 7px;
+    }
+
+    .site-brand:focus-visible {
+        outline: 3px solid #4778bd;
+        outline-offset: 5px;
+        border-radius: 7px;
+    }
+
+    @media (max-width: 650px) {
+        .site-brand {
+            gap: 0.5rem;
+        }
+
+        .site-brand img {
+            width: 30px;
+            height: 30px;
+            flex-basis: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        :global(header.site-header) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem 1.3rem;
+        }
+
+        :global(header.site-header nav) {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.1rem;
+            max-width: 100%;
+            font-size: 0.85rem;
+        }
+    }
+</style>
