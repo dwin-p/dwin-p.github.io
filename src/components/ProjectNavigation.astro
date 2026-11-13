@@ -1,0 +1,20 @@
+---
+interface Props { slug: string; }
+const { slug } = Astro.props;
+const featured = [{slug:"chess-robot",title:"Chess Robot"},{slug:"pebble",title:"PEBBLE"},{slug:"jellygrip",title:"JellyGrip"},{slug:"thirdeye",title:"ThirdEye"},{slug:"surviveit",title:"Survive It"},{slug:"advanced-materials",title:"Advanced Materials"}];
+const current = [{slug:"continuum-manipulator",title:"Continuum Manipulator"},{slug:"gripper-wrist",title:"Compliant Gripper & Wrist"},{slug:"y-zipper",title:"Y-Zipper Mechanism"}];
+const ongoing = current.some(p => p.slug === slug);
+const list = ongoing ? current : featured;
+const index = list.findIndex(p => p.slug === slug);
+const previous = list[index - 1]; const next = list[index + 1];
+---
+<nav class="shared-project-navigation" aria-label="More projects">
+{previous && <a href={`/projects/${previous.slug}/`}><span>Previous project</span><strong>← {previous.title}</strong></a>}
+<a href={ongoing ? "/#current-projects" : "/#projects"}><span>Back to</span><strong>{ongoing ? "Current Projects" : "Featured Projects"} ↑</strong></a>
+{next && <a href={`/projects/${next.slug}/`}><span>Next project</span><strong>{next.title} →</strong></a>}
+</nav>
+<style>
+.shared-project-navigation { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding: 3rem max(5vw,2rem); border-top: 1px solid #dcd8e0; }
+a { display: grid; gap: .4rem; color: #251a37; text-decoration: none; } span { color: #68636f; font-size: .8rem; } strong { font-size: 1.05rem; } a:hover strong { text-decoration: underline; text-underline-offset: .3em; } a:focus-visible { outline: 3px solid #4778bd; outline-offset: 5px; }
+@media(max-width:650px) { .shared-project-navigation { flex-direction: column; padding: 2rem 1.3rem; } }
+</style>

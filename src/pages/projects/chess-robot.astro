@@ -1,38 +1,8 @@
 ---
-import SiteBrand from "../../components/SiteBrand.astro";
-const features = [
-	{
-		title: "Top-Down Vision System",
-		description:
-			"ArUco-based board detection and homography correction provide consistent, distortion-free images for downstream perception.",
-	},
-	{
-		title: "High-Accuracy Piece Recognition",
-		description:
-			"Custom-trained YOLOv8 model for chess-piece detection and classification, achieving approximately 99.5% mAP@0.5 across piece classes.",
-	},
-	{
-		title: "Intelligent Game Play",
-		description:
-			"Move generation uses Stockfish with legal-move enforcement through python-chess.",
-	},
-	{
-		title: "ROS 2 Integration",
-		description:
-			"Modular ROS 2 components connect perception, game logic, motion planning, and hardware control.",
-	},
-	{
-		title: "Robotic Manipulation",
-		description:
-			"MoveIt-based motion planning enables pick-and-place actions using a custom suction-style end effector.",
-	},
-	{
-		title: "Full Autonomy",
-		description:
-			"The integrated system can complete full games against a human opponent with minimal human intervention.",
-	},
-];
-
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHead from "../../components/SiteHead.astro";
+import ProjectNavigation from "../../components/ProjectNavigation.astro";
 const contributions = [
 	"Trained the custom YOLOv8 model for chess-piece detection, including dataset preparation, augmentation, and performance evaluation.",
 	"Collected and curated real-world images and video used for testing and validation.",
@@ -40,10 +10,9 @@ const contributions = [
 ];
 
 const takeaways = [
-	"Realized the importance of robust data pipelines for reliable real-world vision performance.",
-	"Learned that hardware imperfections such as camera angle, lighting, and 3D-printed changes can directly impact software design.",
-	"Gained a deeper appreciation for system-level thinking in robotics — every module affects the next.",
-	"Found that integration and debugging often take more time than individual components.",
+ "Evaluate the detector with imagery from the physical board, where camera position and lighting differ from the original dataset.",
+ "Check the conversion from detected pieces to a usable board state as part of system integration.",
+ "Use the demonstration to show how perception, game logic, and manipulation work together, while reporting model evaluation separately."
 ];
 ---
 
@@ -54,24 +23,17 @@ const takeaways = [
 		<meta name="viewport" content="width=device-width" />
 		<meta
 			name="description"
-			content="Autonomous Chess-Playing Robot project by Daniel Winfield."
+			content="Daniel Winfield’s chess-robot work in YOLOv8 training, dataset preparation, and vision evaluation within a five-person robotic-system team."
 		/>
 		<title>Autonomous Chess-Playing Robot | Daniel Winfield</title>
-	</head>
+	<SiteHead title={"Autonomous Chess-Playing Robot | Daniel Winfield"} description={"Daniel Winfield’s chess-robot work in YOLOv8 training, dataset preparation, and vision evaluation within a five-person robotic-system team."} path={"/projects/chess-robot/"} />
+</head>
 
-	<body>
-		<header class="site-header">
-			<SiteBrand />
+	<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+		<SiteHeader section="projects" />
 
-			<nav>
-				<a href="/#projects">Projects</a>
-				<a href="/#research">Research</a>
-				<a href="/#about">About</a>
-				<a href="/#contact">Contact</a>
-			</nav>
-		</header>
-
-		<main>
+		<main id="main">
 			<!-- HERO -->
 			<section class="project-hero">
 				<div class="hero-copy">
@@ -89,7 +51,7 @@ const takeaways = [
 						<span>Duke University</span>
 						<span>Fall 2025</span>
 						<span>Five-person team</span>
-					</div>
+					</div><p class="status">Built and demonstrated · My focus: vision-model development and evaluation</p><a class="button primary" href="#contributions">My contributions ↓</a>
 				</div>
 
 				<div class="hero-image">
@@ -99,9 +61,10 @@ const takeaways = [
 					/>
 				</div>
 			</section>
+<nav class="page-index" aria-label="On this page"><a href="#contributions">My contributions</a><a href="#demo">Demo</a><a href="#vision">Vision</a><a href="#results">Evaluation</a><a href="#manipulation">Manipulation</a></nav>
 
 			<!-- OVERVIEW -->
-			<section class="section overview">
+			<section id="overview" class="section overview">
 				<div class="section-label">
 					<p class="eyebrow">01</p>
 					<h2>Project Overview</h2>
@@ -131,11 +94,47 @@ const takeaways = [
 					</p>
 				</div>
 			</section>
+<section id="contributions" class="section contributions-section">
+                <div class="contributions-grid">
+                    <div class="contributions-heading">
+                        <div>
+                            <p class="eyebrow">02</p>
+                            <h2>My Contributions</h2>
+                        </div>
+
+                        <figure class="team-photo">
+                            <img
+                                src="/images/projects/chess-robot/team.jpg"
+                                alt="Five-person team with the autonomous chess-playing robot"
+                                loading="lazy"
+                            />
+                            <figcaption>
+                                <strong>Project Team</strong>
+                                <span>Five-person team behind the autonomous chess-playing robot.</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="contributions-list">
+                        {
+                            contributions.map((contribution, index) => (
+                                <div class="contribution">
+                                    <span>
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+
+                                    <p>{contribution}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
 
 			<!-- SYSTEM PIPELINE -->
-			<section class="pipeline">
+			<section id="system" class="pipeline">
 				<div class="pipeline-heading">
-					<p class="eyebrow">02</p>
+					<p class="eyebrow">03</p>
 					<h2>From Vision to Physical Action</h2>
 					<p>
 						The project connected several independent subsystems
@@ -195,10 +194,10 @@ const takeaways = [
 			</section>
 
 			<!-- GAME DEMO -->
-			<section class="section demo-section">
+			<section id="demo" class="section demo-section">
 				<div class="section-heading">
 					<div>
-						<p class="eyebrow">03</p>
+						<p class="eyebrow">04</p>
 						<h2>System Demonstration</h2>
 					</div>
 
@@ -227,38 +226,10 @@ const takeaways = [
 			</section>
 
 			<!-- KEY FEATURES -->
-			<section class="section features-section">
-				<div class="section-heading">
-					<div>
-						<p class="eyebrow">04</p>
-						<h2>Key Features</h2>
-					</div>
-
-					<p>
-						The system combines perception, reasoning, and physical
-						interaction into one robotic application.
-					</p>
-				</div>
-
-				<div class="feature-grid">
-					{
-						features.map((feature, index) => (
-							<article class="feature-card">
-								<span class="feature-number">
-									{String(index + 1).padStart(2, "0")}
-								</span>
-
-								<h3>{feature.title}</h3>
-
-								<p>{feature.description}</p>
-							</article>
-						))
-					}
-				</div>
-			</section>
+			
 
 			<!-- COMPUTER VISION -->
-			<section class="section vision-section">
+			<section id="vision" class="section vision-section">
 				<div class="section-heading">
 					<div>
 						<p class="eyebrow">05</p>
@@ -319,7 +290,7 @@ const takeaways = [
 			</section>
 
 			<!-- MODEL RESULTS -->
-			<section class="results-section">
+			<section id="results" class="results-section">
 				<div class="results-inner">
 					<div class="section-heading light-heading">
 						<div>
@@ -341,10 +312,10 @@ const takeaways = [
 						/>
 					</div>
 				</div>
-			</section>
+			<p class="media-note">The recorded evaluation reached approximately 99.5% mAP@0.5 across piece classes. The plot separates detector precision, recall, mAP, and training/validation losses; this model-evaluation metric is separate from physical move-execution success.</p></section>
 
 			<!-- ROBOTIC MANIPULATION -->
-			<section class="section manipulation-section">
+			<section id="manipulation" class="section manipulation-section">
 				<div class="section-heading">
 					<div>
 						<p class="eyebrow">07</p>
@@ -403,7 +374,7 @@ const takeaways = [
 			</section>
 
 			<!-- FULL SYSTEM -->
-			<section class="section setup-section">
+			<section id="setup" class="section setup-section">
 				<div class="section-heading">
 					<div>
 						<p class="eyebrow">08</p>
@@ -437,48 +408,13 @@ const takeaways = [
 			</section>
 
 			<!-- CONTRIBUTIONS -->
-            <section class="section contributions-section">
-                <div class="contributions-grid">
-                    <div class="contributions-heading">
-                        <div>
-                            <p class="eyebrow">09</p>
-                            <h2>My Contributions</h2>
-                        </div>
-
-                        <figure class="team-photo">
-                            <img
-                                src="/images/projects/chess-robot/team.jpg"
-                                alt="Five-person team with the autonomous chess-playing robot"
-                                loading="lazy"
-                            />
-                            <figcaption>
-                                <strong>Project Team</strong>
-                                <span>Five-person team behind the autonomous chess-playing robot.</span>
-                            </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="contributions-list">
-                        {
-                            contributions.map((contribution, index) => (
-                                <div class="contribution">
-                                    <span>
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
-
-                                    <p>{contribution}</p>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </section>
+            
 
 			<!-- TAKEAWAYS -->
-			<section class="takeaways">
+			<section id="lessons" class="takeaways">
 				<div class="takeaways-inner">
 					<div>
-						<p class="eyebrow">10</p>
+						<p class="eyebrow">09</p>
 						<h2>Key Takeaways</h2>
 					</div>
 
@@ -496,41 +432,16 @@ const takeaways = [
 			</section>
 
 			<!-- NAVIGATION -->
-			<section class="project-navigation">
-				<a href="/projects/jellygrip/">
-					<span>Next Project</span>
-					<strong>JellyGrip →</strong>
-				</a>
-
-				<a href="/#projects">
-					<span>Back to</span>
-					<strong>All Projects ↑</strong>
-				</a>
-			</section>
+			<ProjectNavigation slug="chess-robot" />
 		</main>
 
-		<footer>
-			<p>Daniel Winfield</p>
-
-			<div>
-                <a href="mailto:dwinfield284@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a>
-				<a
-					href="https://github.com/dwin-p"
-					target="_blank"
-					rel="noreferrer"
-				>
-					GitHub
-				</a>
-
-				<a href="/#projects">Projects</a>
-			</div>
-		</footer>
+		<SiteFooter />
 	</body>
 </html>
 
 <style>
-	:root {
+
+:root {
 		--ink: #251a37;
 		--paper: #f7f6f2;
 		--white: #ffffff;
@@ -542,15 +453,15 @@ const takeaways = [
 		--dark: #17131f;
 	}
 
-	* {
+* {
 		box-sizing: border-box;
 	}
 
-	html {
+html {
 		scroll-behavior: smooth;
 	}
 
-	body {
+body {
 		margin: 0;
 		background: var(--paper);
 		color: var(--ink);
@@ -565,54 +476,25 @@ const takeaways = [
 		line-height: 1.6;
 	}
 
-	a {
+a {
 		color: inherit;
 		text-decoration: none;
 	}
 
-	img,
-	video {
+img, video {
 		max-width: 100%;
 	}
 
-	.site-header {
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1.25rem max(5vw, 2rem);
-		background: rgba(247, 246, 242, 0.94);
-		border-bottom: 1px solid var(--line);
-		backdrop-filter: blur(12px);
-	}
 
-	.logo {
-		font-weight: 750;
-		letter-spacing: -0.02em;
-	}
 
-	nav {
-		display: flex;
-		gap: 2rem;
-		font-size: 0.95rem;
-		font-weight: 600;
-	}
 
-	nav a:hover,
-	footer a:hover,
-	.project-navigation a:hover {
-		opacity: 0.6;
-	}
 
-	main,
-	footer {
+main {
 		max-width: 1500px;
 		margin: 0 auto;
 	}
 
-	.eyebrow {
+.eyebrow {
 		margin: 0 0 1rem;
 		color: var(--blue);
 		font-size: 0.78rem;
@@ -621,35 +503,30 @@ const takeaways = [
 		text-transform: uppercase;
 	}
 
-	h1,
-	h2,
-	h3,
-	p {
+h1, h2, h3, p {
 		margin-top: 0;
 	}
 
-	h1 {
+h1 {
 		margin-bottom: 2rem;
 		font-size: clamp(3.5rem, 6vw, 6.8rem);
 		line-height: 0.94;
 		letter-spacing: -0.06em;
 	}
 
-	h2 {
+h2 {
 		margin-bottom: 0;
-		font-size: clamp(2.5rem, 4vw, 4.5rem);
+		font-size: var(--heading-section-size);
 		line-height: 1;
 		letter-spacing: -0.045em;
 	}
 
-	h3 {
+h3 {
 		line-height: 1.15;
 		letter-spacing: -0.025em;
 	}
-
-	/* HERO */
-
-	.project-hero {
+/* HERO */
+.project-hero {
 		display: grid;
 		grid-template-columns: 0.9fr 1.1fr;
 		gap: 5rem;
@@ -657,24 +534,24 @@ const takeaways = [
 		padding: 6rem max(5vw, 2rem) 7rem;
 	}
 
-	.hero-copy {
+.hero-copy {
 		max-width: 650px;
 	}
 
-	.hero-intro {
+.hero-intro {
 		max-width: 600px;
 		margin-bottom: 2rem;
 		color: var(--muted);
 		font-size: 1.2rem;
 	}
 
-	.project-meta {
+.project-meta {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.6rem;
 	}
 
-	.project-meta span {
+.project-meta span {
 		padding: 0.45rem 0.8rem;
 		background: var(--white);
 		border: 1px solid var(--line);
@@ -683,59 +560,57 @@ const takeaways = [
 		font-weight: 700;
 	}
 
-	.hero-image {
+.hero-image {
 		overflow: hidden;
 		aspect-ratio: 4 / 3;
 		border-radius: 1.75rem;
 		background: var(--ink);
 	}
 
-	.hero-image img {
+.hero-image img {
 		width: 100%;
 		height: 100%;
 		display: block;
 		object-fit: cover;
 		object-position: center 55%;
 	}
-
-	/* GENERAL SECTIONS */
-
-	.section {
+/* GENERAL SECTIONS */
+.section {
 		padding: 7rem max(5vw, 2rem);
 		border-top: 1px solid var(--line);
 	}
 
-    .features-section {
+.features-section {
         padding-bottom: 4rem;
     }
 
-    .vision-section {
+.vision-section {
         padding-top: 5rem;
     }
 
-	.overview {
+.overview {
 		display: grid;
 		grid-template-columns: 0.75fr 1.25fr;
 		gap: 6rem;
 	}
 
-	.section-label h2 {
+.section-label h2 {
 		max-width: 500px;
 	}
 
-	.overview-content {
+.overview-content {
 		max-width: 800px;
 		color: var(--muted);
 		font-size: 1.08rem;
 	}
 
-	.overview-content .lead {
+.overview-content .lead {
 		color: var(--ink);
 		font-size: 1.45rem;
 		line-height: 1.4;
 	}
 
-	.section-heading {
+.section-heading {
 		display: grid;
 		grid-template-columns: 1fr 0.8fr;
 		gap: 4rem;
@@ -743,66 +618,64 @@ const takeaways = [
 		margin-bottom: 3rem;
 	}
 
-	.section-heading > p {
+.section-heading > p {
 		margin-bottom: 0.25rem;
 		color: var(--muted);
 		font-size: 1.05rem;
 	}
-
-	/* PIPELINE */
-
-	.pipeline {
+/* PIPELINE */
+.pipeline {
 		padding: 7rem max(5vw, 2rem);
 		background: var(--ink);
 		color: white;
 	}
 
-	.pipeline-heading {
+.pipeline-heading {
 		max-width: 850px;
 		margin-bottom: 4rem;
 	}
 
-	.pipeline-heading .eyebrow {
+.pipeline-heading .eyebrow {
 		color: var(--mint);
 	}
 
-	.pipeline-heading > p:last-child {
+.pipeline-heading > p:last-child {
 		margin-top: 1.5rem;
 		color: rgba(255, 255, 255, 0.7);
 		font-size: 1.1rem;
 	}
 
-	.pipeline-grid {
+.pipeline-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.pipeline-grid article {
+.pipeline-grid article {
 		padding: 2.5rem;
 	}
 
-	.pipeline-grid article + article {
+.pipeline-grid article + article {
 		border-left: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.pipeline-grid span {
+.pipeline-grid span {
 		color: var(--mint);
 		font-size: 0.8rem;
 		font-weight: 800;
 	}
 
-	.pipeline-grid h3 {
+.pipeline-grid h3 {
 		margin-top: 2rem;
 		font-size: 1.6rem;
 	}
 
-	.pipeline-grid p {
+.pipeline-grid p {
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	.pipeline-board {
+.pipeline-board {
 		display: grid;
 		grid-template-columns: 1.2fr 0.8fr;
 		gap: 4rem;
@@ -810,41 +683,37 @@ const takeaways = [
 		margin-top: 4rem;
 	}
 
-	.pipeline-board img {
+.pipeline-board img {
 		width: 100%;
 		display: block;
 		border-radius: 1.25rem;
 	}
 
-	.pipeline-board h3 {
+.pipeline-board h3 {
 		font-size: 2rem;
 	}
 
-	.pipeline-board p:not(.eyebrow) {
+.pipeline-board p:not(.eyebrow) {
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	.pipeline-board .eyebrow {
+.pipeline-board .eyebrow {
 		color: var(--mint);
 	}
-
-    /* VIDEOS */
-
-    .video-container,
-    .setup-video,
-    .small-video {
+/* VIDEOS */
+.video-container, .setup-video, .small-video {
         overflow: hidden;
         background: #111;
         border-radius: 1.5rem;
     }
 
-    .video-wrapper {
+.video-wrapper {
         position: relative;
         width: 100%;
         aspect-ratio: 16 / 9;
     }
 
-    .video-wrapper iframe {
+.video-wrapper iframe {
         position: absolute;
         inset: 0;
         width: 100%;
@@ -853,64 +722,57 @@ const takeaways = [
         display: block;
     }
 
-    .setup-video video,
-    .small-video video {
+.setup-video video, .small-video video {
         display: block;
         width: 100%;
         margin: 0 auto;
     }
-	
 
-	.media-note,
-	.video-caption {
+.media-note, .video-caption {
 		margin: 1rem 0 0;
 		color: var(--muted);
 		font-size: 0.9rem;
 	}
-
-	/* FEATURES */
-
-	.feature-grid {
+/* FEATURES */
+.feature-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		border-top: 1px solid var(--line);
 	}
 
-	.feature-card {
+.feature-card {
 		padding: 2.5rem;
 		border-bottom: 1px solid var(--line);
 	}
 
-	.feature-card:nth-child(odd) {
+.feature-card:nth-child(odd) {
 		border-right: 1px solid var(--line);
 	}
 
-	.feature-number {
+.feature-number {
 		color: var(--blue);
 		font-size: 0.8rem;
 		font-weight: 800;
 	}
 
-	.feature-card h3 {
+.feature-card h3 {
 		margin: 1.5rem 0 0.75rem;
 		font-size: 1.5rem;
 	}
 
-	.feature-card p {
+.feature-card p {
 		max-width: 650px;
 		margin-bottom: 0;
 		color: var(--muted);
 	}
-
-	/* COMPUTER VISION */
-
-	.vision-grid {
+/* COMPUTER VISION */
+.vision-grid {
 		display: grid;
 		grid-template-columns: 1.25fr 0.75fr;
 		gap: 1.5rem;
 	}
 
-	.vision-grid figure {
+.vision-grid figure {
 		margin: 0;
 		overflow: hidden;
 		background: var(--white);
@@ -918,81 +780,77 @@ const takeaways = [
 		border-radius: 1.25rem;
 	}
 
-	.vision-grid .vision-main {
+.vision-grid .vision-main {
 		grid-row: span 2;
 	}
 
-	.vision-grid img {
+.vision-grid img {
 		width: 100%;
 		height: 300px;
 		display: block;
 		object-fit: cover;
 	}
 
-	.vision-grid .vision-main img {
+.vision-grid .vision-main img {
 		height: 100%;
 		min-height: 650px;
 		object-fit: contain;
 		background: white;
 	}
 
-	.vision-grid figcaption {
+.vision-grid figcaption {
 		display: grid;
 		gap: 0.2rem;
 		padding: 1rem 1.2rem 1.25rem;
 	}
 
-	.vision-grid figcaption strong {
+.vision-grid figcaption strong {
 		font-size: 0.95rem;
 	}
 
-	.vision-grid figcaption span {
+.vision-grid figcaption span {
 		color: var(--muted);
 		font-size: 0.82rem;
 	}
-
-	/* RESULTS */
-
-	.results-section {
+/* RESULTS */
+.results-section {
 		padding: 7rem max(5vw, 2rem);
 		background: var(--dark);
 		color: white;
 	}
 
-	.results-inner {
+.results-inner {
 		max-width: 1500px;
 		margin: 0 auto;
 	}
 
-	.light-heading .eyebrow {
+.light-heading .eyebrow {
 		color: var(--mint);
 	}
 
-	.light-heading > p {
+.light-heading > p {
 		color: rgba(255, 255, 255, 0.7);
 	}
 
-	.results-image {
+.results-image {
 		overflow: hidden;
 		background: white;
 		border-radius: 1.25rem;
 	}
 
-	.results-image img {
+.results-image img {
 		width: 100%;
 		display: block;
 	}
-
-	/* MANIPULATION */
-
-	.manipulation-grid {
+/* MANIPULATION */
+.manipulation-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 3rem;
 		align-items: start;
 	}
 
-	.manipulation-image {
+.manipulation-image {
 		margin: 0;
 		overflow: hidden;
 		background: var(--white);
@@ -1000,7 +858,7 @@ const takeaways = [
 		border-radius: 1.25rem;
 	}
 
-	.manipulation-image img {
+.manipulation-image img {
         width: 100%;
         height: 420px;
         display: block;
@@ -1008,35 +866,35 @@ const takeaways = [
         object-position: center 42%;
     }
 
-	.manipulation-image figcaption {
+.manipulation-image figcaption {
 		display: grid;
 		gap: 0.2rem;
 		padding: 1rem 1.2rem 1.25rem;
 	}
 
-	.manipulation-image figcaption span {
+.manipulation-image figcaption span {
 		color: var(--muted);
 		font-size: 0.82rem;
 	}
 
-	.manipulation-copy {
+.manipulation-copy {
 		padding-top: 0.5rem;
 	}
 
-	.manipulation-copy .lead {
+.manipulation-copy .lead {
 		font-size: 1.35rem;
 		line-height: 1.45;
 	}
 
-	.manipulation-copy > p:not(.lead) {
+.manipulation-copy > p:not(.lead) {
 		color: var(--muted);
 	}
 
-	.small-video {
+.small-video {
 		margin-top: 2rem;
 	}
 
-	.gif-demo {
+.gif-demo {
 		display: grid;
 		grid-template-columns: 0.7fr 1.3fr;
 		gap: 3rem;
@@ -1046,51 +904,47 @@ const takeaways = [
 		border-top: 1px solid var(--line);
 	}
 
-	.gif-demo h3 {
+.gif-demo h3 {
 		font-size: 2rem;
 	}
 
-	.gif-demo p:not(.eyebrow) {
+.gif-demo p:not(.eyebrow) {
 		color: var(--muted);
 	}
 
-	.gif-demo img {
+.gif-demo img {
 		width: 100%;
 		display: block;
 		border-radius: 1.25rem;
 	}
-
-	/* SETUP */
-
-	.setup-section {
+/* SETUP */
+.setup-section {
 		background: var(--white);
 	}
 
-	.setup-video {
+.setup-video {
 		border-radius: 1.5rem;
 	}
-
-	/* CONTRIBUTIONS */
-
-	.contributions-section {
+/* CONTRIBUTIONS */
+.contributions-section {
 		background: var(--mint);
 		border-top: 0;
 	}
 
-	.contributions-grid {
+.contributions-grid {
 		display: grid;
 		grid-template-columns: 0.8fr 1.2fr;
 		gap: 6rem;
 	}
 
-    .contributions-heading {
+.contributions-heading {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 2.5rem;
     }
 
-    .team-photo {
+.team-photo {
         width: 100%;
         max-width: 420px;
         margin: 0;
@@ -1100,36 +954,36 @@ const takeaways = [
         border-radius: 1.25rem;
     }
 
-    .team-photo img {
+.team-photo img {
         width: 100%;
         height: auto;
         display: block;
     }
 
-    .team-photo figcaption {
+.team-photo figcaption {
         display: grid;
         gap: 0.35rem;
         padding: 1rem 1.2rem 1.25rem;
     }
 
-    .team-photo figcaption strong {
+.team-photo figcaption strong {
         display: block;
     }
 
-    .team-photo figcaption strong {
+.team-photo figcaption strong {
         font-size: 0.95rem;
     }
 
-    .team-photo figcaption span {
+.team-photo figcaption span {
         color: var(--muted);
         font-size: 0.82rem;
     }
 
-	.contributions-list {
+.contributions-list {
 		border-top: 1px solid rgba(37, 26, 55, 0.25);
 	}
 
-	.contribution {
+.contribution {
 		display: grid;
 		grid-template-columns: 3rem 1fr;
 		gap: 1rem;
@@ -1137,25 +991,23 @@ const takeaways = [
 		border-bottom: 1px solid rgba(37, 26, 55, 0.25);
 	}
 
-	.contribution > span {
+.contribution > span {
 		color: var(--blue);
 		font-size: 0.8rem;
 		font-weight: 800;
 	}
 
-	.contribution p {
+.contribution p {
 		margin-bottom: 0;
 	}
-
-	/* TAKEAWAYS */
-
-	.takeaways {
+/* TAKEAWAYS */
+.takeaways {
 		padding: 7rem max(5vw, 2rem);
 		background: var(--blue);
 		color: white;
 	}
 
-	.takeaways-inner {
+.takeaways-inner {
 		max-width: 1500px;
 		margin: 0 auto;
 		display: grid;
@@ -1163,15 +1015,15 @@ const takeaways = [
 		gap: 6rem;
 	}
 
-	.takeaways .eyebrow {
+.takeaways .eyebrow {
 		color: var(--mint);
 	}
 
-	.takeaway-list {
+.takeaway-list {
 		border-top: 1px solid rgba(255, 255, 255, 0.25);
 	}
 
-	.takeaway {
+.takeaway {
 		display: grid;
 		grid-template-columns: 2rem 1fr;
 		gap: 1rem;
@@ -1179,168 +1031,95 @@ const takeaways = [
 		border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 	}
 
-	.takeaway span {
+.takeaway span {
 		color: var(--mint);
 		font-weight: 800;
 	}
 
-	.takeaway p {
+.takeaway p {
 		margin-bottom: 0;
 	}
+/* NAVIGATION */
 
-	/* NAVIGATION */
 
-	.project-navigation {
-		display: flex;
-		justify-content: space-between;
-		gap: 2rem;
-		padding: 3rem max(5vw, 2rem);
-		border-top: 1px solid var(--line);
-	}
 
-	.project-navigation a {
-		display: grid;
-		gap: 0.3rem;
-	}
 
-	.project-navigation a:last-child {
-		text-align: right;
-	}
+/* FOOTER */
 
-	.project-navigation span {
-		color: var(--muted);
-		font-size: 0.8rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-	}
 
-	.project-navigation strong {
-		font-size: 1.15rem;
-	}
-
-	/* FOOTER */
-
-	footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 2rem max(5vw, 2rem);
-		border-top: 1px solid var(--line);
-		font-weight: 650;
-	}
-
-	footer p {
-		margin: 0;
-	}
-
-	footer div {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2rem;
-	}
 
 	/* RESPONSIVE */
 
 	@media (max-width: 1000px) {
-		.project-hero,
-		.overview,
-		.contributions-grid,
-		.takeaways-inner {
+
+.project-hero, .overview, .contributions-grid, .takeaways-inner {
 			grid-template-columns: 1fr;
 			gap: 3rem;
 		}
 
-		.project-hero {
+.project-hero {
 			padding-top: 4rem;
 		}
 
-		.pipeline-grid {
+.pipeline-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.pipeline-grid article + article {
+.pipeline-grid article + article {
 			border-top: 1px solid rgba(255, 255, 255, 0.2);
 			border-left: 0;
 		}
 
-		.pipeline-board,
-		.manipulation-grid,
-		.gif-demo {
+.pipeline-board, .manipulation-grid, .gif-demo {
 			grid-template-columns: 1fr;
 		}
 
-		.section-heading {
+.section-heading {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
 		}
 
-		.vision-grid {
+.vision-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.vision-grid .vision-main {
+.vision-grid .vision-main {
 			grid-row: auto;
 		}
 
-		.vision-grid .vision-main img {
+.vision-grid .vision-main img {
 			min-height: 400px;
 		}
 	}
 
 	@media (max-width: 650px) {
-		.site-header {
-			align-items: flex-start;
-			gap: 1rem;
-		}
 
-		nav {
-			display: grid;
-			grid-template-columns: repeat(2, auto);
-			gap: 0.35rem 1rem;
-		}
 
-		.project-hero,
-		.section,
-		.pipeline,
-		.results-section,
-		.takeaways,
-		.project-navigation {
+
+.project-hero, .section, .pipeline, .results-section, .takeaways {
 			padding-left: 1.3rem;
 			padding-right: 1.3rem;
 		}
 
-		h1 {
+h1 {
 			font-size: 3.5rem;
 		}
 
-		.feature-grid {
+.feature-grid {
 			grid-template-columns: 1fr;
 		}
 
-		.feature-card:nth-child(odd) {
+.feature-card:nth-child(odd) {
 			border-right: 0;
 		}
 
-		.vision-grid img,
-		.vision-grid .vision-main img {
+.vision-grid img, .vision-grid .vision-main img {
 			height: auto;
 			min-height: 0;
 			object-fit: contain;
 		}
 
-		.project-navigation,
-		footer {
-			align-items: flex-start;
-			flex-direction: column;
-		}
 
-		.project-navigation a:last-child {
-			text-align: left;
-		}
 
-		footer div {
-			flex-wrap: wrap;
-		}
 	}
 </style>

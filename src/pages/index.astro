@@ -1,5 +1,7 @@
 ---
-import SiteBrand from "../components/SiteBrand.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHead from "../components/SiteHead.astro";
 const featuredProjects = [
     {
         title: "Autonomous Chess-Playing Robot",
@@ -17,7 +19,7 @@ const featuredProjects = [
         date: "Spring 2026",
         published: true,
         description:
-            "Individually designed and built a Raspberry Pi study companion, integrating a sensor-driven timer, voice interaction, physical controls, and a custom enclosure.",
+            "Individually designed and built a Raspberry Pi study companion, integrating a sensor-driven timer, voice interaction, physical controls, and enclosure CAD.",
         tags: ["Embedded Systems", "Python", "Enclosure CAD"],
         image: "/images/projects/pebble/bench-prototype.jpg",
     },
@@ -74,25 +76,17 @@ const featuredProjects = [
 			content="Engineering portfolio of Daniel Winfield, Mechanical Engineering M.S. student at Duke University."
 		/>
 		<title>Daniel Winfield | Engineering Portfolio</title>
-	</head>
+	<SiteHead title={"Daniel Winfield | Engineering Portfolio"} description={"Engineering portfolio of Daniel Winfield, Mechanical Engineering M.S. student at Duke University."} path={"/"} />
+</head>
 
 	<body id="top">
         <a class="skip-link" href="#main">Skip to content</a>
-		<header class="site-header">
-			<SiteBrand />
-
-			<nav aria-label="Main navigation">
-				<a href="#projects">Projects</a>
-				<a href="#research">Research</a>
-				<a href="#about">About</a>
-				<a href="#contact">Contact</a>
-			</nav>
-		</header>
+		<SiteHeader />
 
 		<main id="main">
 			<section class="hero">
 				<div class="hero-copy">
-					<p class="eyebrow">Mechanical Engineering M.S. @ Duke University</p>
+					<p class="eyebrow">Mechanical Engineering M.S. · Duke University</p>
 
 					<h1>
 						Engineering at the intersection of{" "}
@@ -192,11 +186,10 @@ const featuredProjects = [
 				</div>
 			</section>
 
-            <section class="section" id="current-projects">
-                <div class="section-heading"><div><p class="eyebrow">In Progress · Fall 2026</p><h2>Current Projects</h2></div><p>Ongoing work in mechanical design, prototyping, and experimental development.</p></div>
-                <div class="project-grid">
-<article class="project-card"><div class="project-content"><p class="project-date">Fall 2026 – Present · In progress</p><h3>Continuum Manipulator</h3><p>Developing a single-section, three-tendon continuum manipulator to investigate how payload and motion affect lifting behavior.</p><a class="project-link" href="/projects/continuum-manipulator/">View progress <span aria-hidden="true">→</span></a></div></article>
-<article class="project-card"><div class="project-content"><p class="project-date">August 2026 – Present · In progress</p><h3>Y-Zipper Mechanism</h3><p>Exploring how three flexible strips can combine into a rigid beam for a compact retractable mechanism.</p><a class="project-link" href="/projects/y-zipper/">View progress <span aria-hidden="true">→</span></a></div></article>
+            <section class="section" id="current-projects"><div class="section-heading"><div><p class="eyebrow">In Progress · Fall 2026</p><h2>Current Projects</h2></div><p>Ongoing mechanical design and experimental development, with completed steps distinguished from planned testing.</p></div><div class="project-grid current-grid">
+<article class="project-card"><div class="project-content"><p class="project-date">Fall 2026 – Present · In progress</p><h3>Continuum Manipulator</h3><p>Developing a single-section, three-tendon manipulator and an evaluation approach for load-dependent lifting behavior.</p><a class="project-link" href="/projects/continuum-manipulator/">View progress <span aria-hidden="true">→</span></a></div></article>
+<article class="project-card"><div class="current-cad"><img src="/images/projects/gripper-wrist/01_three_finger_prototype.png" alt="Design-stage CAD of the compliant gripper and wrist" width="1500" height="1100" loading="lazy" /></div><div class="project-content"><p class="project-date">Fall 2026 – Present · Prototype CAD</p><h3>Compliant Gripper &amp; Wrist</h3><p>Iterating servo linkages, finger supports, and wrist/encoder interfaces around measured hardware.</p><a class="project-link" href="/projects/gripper-wrist/">View progress <span aria-hidden="true">→</span></a></div></article>
+<article class="project-card"><div class="project-content"><p class="project-date">August 2026 – Present · In progress</p><h3>Y-Zipper Mechanism</h3><p>Evaluating printed flexible-to-rigid strips and exploring packaging and actuation for a compact retractable mechanism.</p><a class="project-link" href="/projects/y-zipper/">View progress <span aria-hidden="true">→</span></a></div></article>
 </div></section>
 			<section class="research section" id="research">
 				<div class="research-intro">
@@ -207,10 +200,10 @@ const featuredProjects = [
 				<div class="research-grid">
 					<article>
 						<p class="research-number">01</p>
-						<h3>Thermal Diffusion in Architected Digital Composites</h3>
+						<h3>Motion Tracking &amp; Thermal Studies</h3>
 						<p class="research-meta">Ni Lab, Duke University · 2026–Present · Ongoing</p>
 						<p>
-							Designed mold geometry and fabricated a liquid-metal digital-composite sample, with thermal testing pending and earlier work in motion tracking and Python analysis.
+							2D tracking, stereo reconstruction, and fabrication of cavity-size variants for digital-composite heating studies.
 						</p>
 						<a class="research-link" href="/research/thermal-diffusion/">View research <span aria-hidden="true">→</span></a>
 					</article>
@@ -263,27 +256,13 @@ const featuredProjects = [
 			</section>
 		</main>
 
-		<footer id="contact">
-			<p>Daniel Winfield</p>
-
-			<div class="footer-links">
-                <a href="mailto:dwinfield284@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a>
-				<a
-					href="https://github.com/dwin-p"
-					target="_blank"
-					rel="noreferrer"
-				>
-					GitHub
-				</a>
-				<a href="#top">Back to top ↑</a>
-			</div>
-		</footer>
+		<SiteFooter />
 	</body>
 </html>
 
 <style>
-	:root {
+
+:root {
 		--ink: #251a37;
 		--paper: #f7f6f2;
 		--white: #ffffff;
@@ -295,16 +274,16 @@ const featuredProjects = [
 		--lavender: #d1b5ef;
 	}
 
-	* {
+* {
 		box-sizing: border-box;
 	}
 
-	html {
+html {
 		scroll-behavior: smooth;
         scroll-padding-top: 7rem;
 	}
 
-	body {
+body {
 		margin: 0;
 		background: var(--paper);
 		color: var(--ink);
@@ -314,52 +293,29 @@ const featuredProjects = [
 		line-height: 1.6;
 	}
 
-	a {
+a {
 		color: inherit;
 		text-decoration: none;
 	}
 
-    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
-    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
-    .skip-link:focus { top: 1rem; }
-    .project-status { margin: 0; color: var(--muted); font-size: .85rem; }
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
 
-	.site-header {
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1.25rem max(5vw, 2rem);
-		background: rgba(247, 246, 242, 0.93);
-		border-bottom: 1px solid var(--line);
-		backdrop-filter: blur(12px);
-	}
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
 
-	.logo {
-		font-weight: 750;
-		letter-spacing: -0.02em;
-	}
+.skip-link:focus { top: 1rem; }
 
-	nav {
-		display: flex;
-		gap: 2rem;
-		font-size: 0.95rem;
-		font-weight: 600;
-	}
+.project-status { margin: 0; color: var(--muted); font-size: .85rem; }
 
-	nav a:hover {
-		opacity: 0.6;
-	}
 
-	main,
-	footer {
+
+
+
+main {
 		max-width: 1500px;
 		margin: 0 auto;
 	}
 
-	.hero {
+.hero {
 		min-height: 74vh;
 		display: grid;
 		grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
@@ -368,7 +324,7 @@ const featuredProjects = [
 		padding: 5.5rem max(5vw, 2rem);
 	}
 
-	.eyebrow {
+.eyebrow {
 		margin: 0 0 1.25rem;
 		font-size: 0.78rem;
 		font-weight: 800;
@@ -377,14 +333,11 @@ const featuredProjects = [
 		color: var(--blue);
 	}
 
-	h1,
-	h2,
-	h3,
-	p {
+h1, h2, h3, p {
 		margin-top: 0;
 	}
 
-	h1 {
+h1 {
 		overflow-wrap: normal;
 		word-break: normal;
 		hyphens: none;
@@ -395,50 +348,39 @@ const featuredProjects = [
 		letter-spacing: -0.055em;
 	}
 
-	h1 span {
+h1 span {
 		color: var(--blue);
 	}
 
-	.hero-description {
+.hero-description {
 		max-width: 720px;
 		margin-bottom: 2.5rem;
 		font-size: clamp(1.05rem, 1.4vw, 1.3rem);
 		color: var(--muted);
 	}
 
-	.hero-actions {
+.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1rem;
 	}
 
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 145px;
-		padding: 0.85rem 1.25rem;
-		border: 1px solid var(--ink);
-		border-radius: 999px;
-		font-weight: 700;
-	}
-
-	.button.primary {
+.button.primary {
 		background: var(--ink);
 		color: var(--white);
 	}
 
-	.button.secondary:hover {
+.button.secondary:hover {
 		background: var(--ink);
 		color: var(--white);
 	}
 
-	.hero-visual {
+.hero-visual {
 		display: flex;
 		justify-content: center;
 	}
 
-	.visual-card {
+.visual-card {
 		position: relative;
 		width: min(100%, 590px);
 		aspect-ratio: 700 / 830;
@@ -447,27 +389,25 @@ const featuredProjects = [
 		border-radius: 2rem;
 	}
 
-	.visual-card img {
+.visual-card img {
 		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
 		object-position: center;
 	}
-
-	/* Older CSS generated decorative shapes that cover the illustration. */
-	.visual-card::before,
-	.visual-card::after {
+/* Older CSS generated decorative shapes that cover the illustration. */
+.visual-card::before, .visual-card::after {
 		content: none !important;
 		display: none !important;
 	}
 
-	.section {
+.section {
 		padding: 7rem max(5vw, 2rem);
 		border-top: 1px solid var(--line);
 	}
 
-	.section-heading {
+.section-heading {
 		display: grid;
 		grid-template-columns: 1fr 0.8fr;
 		gap: 4rem;
@@ -475,33 +415,33 @@ const featuredProjects = [
 		margin-bottom: 3rem;
 	}
 
-	h2 {
+h2 {
 		margin-bottom: 0;
-		font-size: clamp(2.4rem, 4vw, 4.5rem);
+		font-size: var(--heading-section-size);
 		line-height: 1.05;
 		letter-spacing: -0.04em;
 	}
 
-	.section-heading > p {
+.section-heading > p {
 		margin-bottom: 0.5rem;
 		color: var(--muted);
 		font-size: 1.05rem;
 	}
 
-	.project-grid {
+.project-grid {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1.5rem;
 	}
 
-	.project-card {
+.project-card {
 		overflow: hidden;
 		background: var(--white);
 		border: 1px solid var(--line);
 		border-radius: 1.35rem;
 	}
 
-	.project-image {
+.project-image {
 		position: relative;
 		display: flex;
 		align-items: flex-end;
@@ -513,7 +453,7 @@ const featuredProjects = [
 		letter-spacing: -0.05em;
 	}
 
-	.project-image img {
+.project-image img {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -524,19 +464,19 @@ const featuredProjects = [
 		object-position: center 60%;
 	}
 
-	.project-image > span {
+.project-image > span {
 		position: absolute;
 		left: 1.5rem;
 		bottom: 1.5rem;
 		z-index: 2;
 	}
 
-	.project-image > span {
+.project-image > span {
 		position: relative;
 		z-index: 2;
 	}
 
-	.project-image .image-number {
+.project-image .image-number {
 		padding: 0.15rem 0.55rem;
 		border-radius: 0.4rem;
 		background: rgba(37, 26, 55, 0.78);
@@ -545,7 +485,7 @@ const featuredProjects = [
 		letter-spacing: 0;
 	}
 
-	.project-image img.thirdeye-image {
+.project-image img.thirdeye-image {
 		inset: 0;
 		width: min(70%, 300px);
 		height: auto;
@@ -554,69 +494,76 @@ const featuredProjects = [
 		object-fit: contain;
 		object-position: center;
 	}
-    .project-image img.jellygrip-image {
+
+.project-image img.jellygrip-image {
         object-fit: contain;
         object-position: center;
         transform: none;
         background: var(--white);
     }
-    .project-image img.materials-image {
+
+.project-image img.materials-image {
         object-position: center 45%;
         transform: none;
     }
-    .project-image img.pebble-image {
+
+.project-image img.pebble-image {
         object-fit: cover;
         object-position: center;
         transform: none;
         background: #242629;
     }
 
-	.project-image-chess-robot {
+.project-image-chess-robot {
 		background: var(--blue);
 		color: white;
 	}
 
-	.project-image-jellygrip {
+.project-image-jellygrip {
 		background: var(--mint);
 	}
 
-	.project-image-advanced-materials {
+.project-image-advanced-materials {
 		background: var(--lavender);
 	}
-    .project-image-pebble { background: var(--lavender); }
-    .project-image-thirdeye { background: var(--white); }
-    .project-image-surviveit { background: var(--paper); }
-    .project-image img.surviveit-image { object-fit: contain; object-position: center; }
 
-	.project-content {
+.project-image-pebble { background: var(--lavender); }
+
+.project-image-thirdeye { background: var(--white); }
+
+.project-image-surviveit { background: var(--paper); }
+
+.project-image img.surviveit-image { object-fit: contain; object-position: center; }
+
+.project-content {
 		padding: 1.6rem;
 	}
 
-	.project-date {
+.project-date {
 		margin: 0 0 0.6rem;
 		font-size: 0.8rem;
 		font-weight: 650;
 		letter-spacing: 0.02em;
 	}
 
-	.project-content h3 {
+.project-content h3 {
 		margin-bottom: 0.75rem;
 		font-size: 1.4rem;
 		line-height: 1.15;
 	}
 
-	.project-content > p {
+.project-content > p {
 		color: var(--muted);
 	}
 
-	.tags {
+.tags {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.45rem;
 		margin: 1.3rem 0;
 	}
 
-	.tags span {
+.tags span {
 		padding: 0.35rem 0.7rem;
 		background: var(--paper);
 		border-radius: 999px;
@@ -624,169 +571,161 @@ const featuredProjects = [
 		font-weight: 700;
 	}
 
-	.project-link {
+.project-link {
 		display: inline-flex;
 		gap: 0.5rem;
 		align-items: center;
 		font-weight: 750;
 	}
 
-	.project-link:hover span {
+.project-link:hover span {
 		transform: translateX(4px);
 	}
 
-	.project-link span {
+.project-link span {
 		transition: 160ms ease;
 	}
 
-	.research {
+.research {
 		background: var(--ink);
 		color: white;
 	}
 
-	.research .eyebrow {
+.research .eyebrow {
 		color: var(--mint);
 	}
 
-	.research-intro {
+.research-intro {
 		max-width: 900px;
 		margin-bottom: 4rem;
 	}
 
-	.research-grid {
+.research-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.research-grid article {
+.research-grid article {
 		padding: 2rem 1.75rem;
 		display: flex;
 		flex-direction: column;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.research-grid article:not(:last-child) {
+.research-grid article:not(:last-child) {
 		border-right: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.research-number {
+.research-number {
 		color: var(--mint);
 		font-size: 0.8rem;
 		font-weight: 800;
 	}
 
-	.research-grid h3 {
+.research-grid h3 {
 		font-size: 1.5rem;
 	}
 
-	.research-grid article > p:not(.research-number) {
+.research-grid article > p:not(.research-number) {
 		color: rgba(255, 255, 255, 0.72);
 	}
-	.research-grid .research-meta { font-size: .8rem; }
-	.research-link { color: var(--mint); font-weight: 750; margin-top: auto; padding-top: .8rem; }
-	.research-link:hover { text-decoration: underline; text-underline-offset: .3em; }
-	.research-link:focus-visible { outline: 3px solid var(--mint); outline-offset: 5px; }
+
+.research-grid .research-meta { font-size: .8rem; }
+
+.research-link { color: var(--mint); font-weight: 750; margin-top: auto; padding-top: .8rem; }
+
+.research-link:hover { text-decoration: underline; text-underline-offset: .3em; }
+
+.research-link:focus-visible { outline: 3px solid var(--mint); outline-offset: 5px; }
 	@media (max-width: 1100px) {
-		.research-grid { grid-template-columns: minmax(0, 1fr); }
-		.research-grid article { padding: 2rem 0; }
-		.research-grid article:not(:last-child) { border-right: 0; }
-		.research-grid article > p { max-width: 80ch; }
+
+.research-grid { grid-template-columns: minmax(0, 1fr); }
+
+.research-grid article { padding: 2rem 0; }
+
+.research-grid article:not(:last-child) { border-right: 0; }
+
+.research-grid article > p { max-width: 80ch; }
 	}
 
-	.about {
+.about {
 		display: grid;
 		grid-template-columns: 1fr 0.8fr;
 		gap: 6rem;
 	}
 
-	.about-copy {
+.about-copy {
 		font-size: 1.15rem;
 		color: var(--muted);
 	}
 
-	footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 2rem max(5vw, 2rem);
-		border-top: 1px solid var(--line);
-		font-weight: 650;
-	}
 
-	.footer-links {
-		display: flex;
-        flex-wrap: wrap;
-		gap: 2rem;
-	}
 
 	@media (max-width: 1050px) {
-		.site-header nav {
-			gap: 1rem;
-		}
 
-		.hero {
+
+.hero {
 			grid-template-columns: 1fr;
 			gap: 3rem;
 			padding-top: 4rem;
 		}
 
-		.visual-card {
+.visual-card {
 			max-width: 480px;
 			aspect-ratio: 700 / 830;
 		}
 
-		.visual-card img {
+.visual-card img {
 			object-fit: contain;
 		object-position: center;
 		}
 
-		.project-grid,
-		.research-grid,
-		.section-heading,
-		.about {
+.project-grid, .research-grid, .section-heading, .about {
 			grid-template-columns: 1fr;
 		}
 
-		.research-grid article:first-child {
+.research-grid article:first-child {
 			border-right: 0;
 		}
 
-		.section-heading,
-		.about {
+.section-heading, .about {
 			gap: 2rem;
 		}
 	}
 
 	@media (max-width: 650px) {
-		.site-header {
-			align-items: flex-start;
-			gap: 1rem;
-		}
 
-		nav {
-			display: grid;
-			grid-template-columns: repeat(2, auto);
-			gap: 0.35rem 1rem;
-		}
 
-		.hero,
-		.section {
+
+.hero, .section {
 			padding-left: 1.3rem;
 			padding-right: 1.3rem;
 		}
 
-		h1 {
+h1 {
 			font-size: clamp(2.25rem, 8vw, 3rem);
 		}
 
-		.visual-card { max-width: 420px; }
+.visual-card { max-width: 420px; }
 
-		footer {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 1rem;
-		}
 	}
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) {
+
+html { scroll-behavior: auto; } }
+
+.current-grid { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: stretch; }
+
+.current-grid .project-card { display: flex; flex-direction: column; }
+
+.current-grid .project-content { display: flex; flex-direction: column; flex: 1; }
+
+.current-grid .project-link { margin-top: auto; padding-top: 1rem; }
+
+.current-cad img { width: 100%; height: 170px; object-fit: contain; background: #f5f7fa; display: block; }
+@media(max-width:1000px) {
+
+.current-grid { grid-template-columns: minmax(0,1fr); }
+
+.current-cad img { height: 240px; } }
 </style>

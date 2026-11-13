@@ -1,5 +1,8 @@
 ---
-import SiteBrand from "../../components/SiteBrand.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHead from "../../components/SiteHead.astro";
+import ProjectNavigation from "../../components/ProjectNavigation.astro";
 const sketches = [
     { file: "grasp-configurations.png", title: "Grasp configurations", alt: "Hand-drawn JellyGrip finger configurations for round and rectangular objects, with hinge and inflation-pad concepts", caption: "Exploring finger articulation, opening width, and contact arrangements for different object shapes.", width: 1440, height: 1122 },
     { file: "finger-concept.png", title: "Finger and pad geometry", alt: "Original sketches of finger segments, proposed materials, and inflatable contact pads", caption: "Separating the structural finger segments from the compliant pads and considering how the pads would fit within the fingers.", width: 1440, height: 1116 },
@@ -38,18 +41,11 @@ const risks = [
         <meta name="viewport" content="width=device-width" />
         <meta name="description" content="JellyGrip: Daniel Winfield's senior capstone work on a biomimetic robotic end effector, including gripping-finger design, CAD integration, and theoretical analysis." />
         <title>JellyGrip | Daniel Winfield</title>
-    </head>
+    <SiteHead title={"JellyGrip | Daniel Winfield"} description={"JellyGrip: Daniel Winfield's senior capstone work on a biomimetic robotic end effector, including gripping-finger design, CAD integration, and theoretical analysis."} path={"/projects/jellygrip/"} />
+</head>
     <body id="top">
         <a class="skip-link" href="#main">Skip to content</a>
-        <header class="site-header">
-            <SiteBrand />
-            <nav aria-label="Main navigation">
-                <a href="/#projects">Projects</a>
-                <a href="/#research">Research</a>
-                <a href="/#about">About</a>
-                <a href="/#contact">Contact</a>
-            </nav>
-        </header>
+        <SiteHeader section="projects" />
         <main id="main">
             <section class="project-hero">
                 <div>
@@ -143,90 +139,177 @@ const risks = [
                     <p>The finger design and its actuation mechanism must be developed together. CAD establishes geometry and integration, while physical testing is needed to determine whether the intended compliant behavior produces a reliable grasp.</p>
                 </div>
             </section>
-            <section class="project-navigation" aria-label="More projects">
-                <a href="/projects/advanced-materials/"><span>Explore another project</span><strong>Advanced Materials Laboratory →</strong></a>
-                <a href="/#projects"><span>Back to</span><strong>All Projects ↑</strong></a>
-            </section>
+            <ProjectNavigation slug="jellygrip" />
         </main>
-        <footer><p>Daniel Winfield</p><div><a href="mailto:dwinfield284@gmail.com">Email</a><a href="https://www.linkedin.com/in/daniel-b-winfield/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/dwin-p" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+        <SiteFooter />
     </body>
 </html>
 
 <style>
-    :root { --ink: #251a37; --paper: #f7f6f2; --white: #fff; --muted: #68636f; --line: #dcd8e0; --mint: #bddfd6; --blue: #4778bd; --lavender: #d1b5ef; }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
-    .skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
-    .skip-link:focus { top: 1rem; }
-    .site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247, 246, 242, .94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
-    .logo { font-weight: 750; letter-spacing: -.02em; }
-    nav { display: flex; gap: 2rem; font-size: .95rem; font-weight: 600; }
-    nav a:hover, footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
-    main, footer { max-width: 1500px; margin: 0 auto; }
-    h1, h2, h3, h4, p { margin-top: 0; }
-    h1 { font-size: clamp(3.5rem, 7vw, 7rem); line-height: .94; letter-spacing: -.06em; margin-bottom: 1rem; }
-    h2 { font-size: clamp(2.4rem, 4vw, 4.5rem); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 0; }
-    h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -.025em; }
-    .eyebrow { margin-bottom: 1rem; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .project-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: 4rem max(5vw, 2rem) 4.5rem; }
-    .subtitle { font-size: 1.45rem; font-weight: 650; margin-bottom: 1.5rem; }
-    .hero-intro { color: var(--muted); font-size: 1.2rem; }
-    .project-meta { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .project-meta span { padding: .45rem .8rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; font-weight: 700; }
-    .status { margin: 1.25rem 0; color: var(--muted); font-size: .9rem; }
-    .text-link { font-weight: 750; border-bottom: 1px solid var(--ink); }
-    .hero-media { margin: 0; overflow: hidden; border-radius: 1.75rem; background: var(--white); border: 1px solid var(--line); }
-    .hero-image-link { display: block; }
-    .hero-image-link:focus-visible, .sketch-grid a:focus-visible, .cad-grid a:focus-visible { outline-offset: -4px; }
-    .hero-media img { display: block; width: 100%; height: clamp(360px, 40vw, 520px); object-fit: cover; object-position: center; }
-    .hero-media figcaption { display: grid; gap: .3rem; padding: 1rem 1.25rem; font-size: .85rem; }
-    .hero-media figcaption span { color: var(--muted); }
-    .section { padding: 6rem max(5vw, 2rem); border-top: 1px solid var(--line); }
-    .split { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; }
-    .copy { color: var(--muted); font-size: 1.08rem; min-width: 0; }
-    .copy .lead { color: var(--ink); font-size: 1.4rem; line-height: 1.4; }
-    .copy h3 { color: var(--ink); margin-top: 2rem; }
-    .target { display: grid; gap: .5rem; padding: 1.5rem; margin-top: 2rem; background: var(--mint); color: var(--ink); border-radius: 1rem; }
-    .target span { font-size: .9rem; }
-    .section-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
-    .section-heading > p { color: var(--muted); margin-bottom: .25rem; font-size: 1.05rem; }
-    .dark { background: var(--ink); color: var(--white); }
-    .dark .eyebrow { color: var(--mint); }
-    .dark .copy, .dark .section-heading > p { color: rgba(255,255,255,.8); }
-    .dark .copy .lead, .dark .copy h3 { color: var(--white); }
-    .contribution-list > div { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,.25); }
-    .contribution-list span { color: var(--mint); font-weight: 750; }
-    .contribution-list p { margin: 0; max-width: 850px; font-size: 1.15rem; }
-    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .process-grid article { border-top: 1px solid var(--line); padding-top: 1.5rem; }
-    .process-grid article > p:last-child { color: var(--muted); }
-    .media-note { color: var(--muted); font-size: .9rem; margin-top: 2rem; }
-    .sketch-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 1.5rem; }
-    .sketch-grid .main-sketch { grid-row: span 2; }
-    .sketch-grid figure, .cad-grid figure { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: 1.25rem; overflow: hidden; min-width: 0; }
-    .sketch-grid a, .cad-grid a { display: block; }
-    .sketch-grid img { display: block; width: 100%; height: auto; object-fit: contain; }
-    .sketch-grid figcaption, .cad-grid figcaption { display: grid; gap: .3rem; padding: 1.25rem; }
-    .sketch-grid figcaption span, .cad-grid figcaption span { font-size: .85rem; color: var(--muted); }
-    .cad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
-    .cad-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
-    .decision-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
-    .decision-grid article { border-top: 1px solid var(--line); padding: 2rem 0; }
-    .decision-grid p { color: var(--muted); margin-bottom: 0; }
-    .risk-list article { border-top: 1px solid var(--line); padding: 1.25rem 0; }
-    .risk-list h4 { color: var(--ink); margin-bottom: .5rem; }
-    .risk-list p { margin-bottom: 0; font-size: 1rem; }
-    .project-navigation { display: flex; justify-content: space-between; gap: 2rem; padding: 3rem max(5vw, 2rem); }
-    .project-navigation a { display: grid; gap: .5rem; }
-    .project-navigation span { font-size: .8rem; color: var(--muted); }
-    .project-navigation strong { font-size: 1.2rem; }
-    footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 2rem max(5vw, 2rem); border-top: 1px solid var(--line); font-weight: 650; }
-    footer p { margin-bottom: 0; }
-    footer > div { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-    @media (max-width: 900px) { nav { gap: 1rem; } .project-hero, .split, .section-heading { grid-template-columns: 1fr; gap: 2.5rem; } .project-hero { padding-top: 4rem; } .hero-media { max-width: 550px; width: 100%; } .process-grid { grid-template-columns: 1fr; gap: 1rem; } .sketch-grid { grid-template-columns: 1fr 1fr; } .sketch-grid .main-sketch { grid-row: auto; grid-column: span 2; } .cad-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 650px) { .site-header { align-items: flex-start; padding: 1rem 1.3rem; } nav { display: grid; grid-template-columns: repeat(2, auto); gap: .35rem 1rem; } .project-hero, .section { padding-left: 1.3rem; padding-right: 1.3rem; padding-bottom: 4rem; } .section { padding-top: 4rem; } .decision-grid, .sketch-grid, .cad-grid { grid-template-columns: 1fr; } .sketch-grid .main-sketch { grid-column: auto; } .project-navigation, footer { flex-direction: column; padding-left: 1.3rem; padding-right: 1.3rem; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+:root { --ink: #251a37; --paper: #f7f6f2; --white: #fff; --muted: #68636f; --line: #dcd8e0; --mint: #bddfd6; --blue: #4778bd; --lavender: #d1b5ef; }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: var(--white); }
+
+.skip-link:focus { top: 1rem; }
+
+
+
+
+
+main { max-width: 1500px; margin: 0 auto; }
+
+h1, h2, h3, h4, p { margin-top: 0; }
+
+h1 { font-size: clamp(3.5rem, 7vw, 7rem); line-height: .94; letter-spacing: -.06em; margin-bottom: 1rem; }
+
+h2 { font-size: var(--heading-section-size); line-height: 1.05; letter-spacing: -.045em; margin-bottom: 0; }
+
+h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -.025em; }
+
+.eyebrow { margin-bottom: 1rem; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+
+.project-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: 4rem max(5vw, 2rem) 4.5rem; }
+
+.subtitle { font-size: 1.45rem; font-weight: 650; margin-bottom: 1.5rem; }
+
+.hero-intro { color: var(--muted); font-size: 1.2rem; }
+
+.project-meta { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+.project-meta span { padding: .45rem .8rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-size: .78rem; font-weight: 700; }
+
+.status { margin: 1.25rem 0; color: var(--muted); font-size: .9rem; }
+
+.text-link { font-weight: 750; border-bottom: 1px solid var(--ink); }
+
+.hero-media { margin: 0; overflow: hidden; border-radius: 1.75rem; background: var(--white); border: 1px solid var(--line); }
+
+.hero-image-link { display: block; }
+
+.hero-image-link:focus-visible, .sketch-grid a:focus-visible, .cad-grid a:focus-visible { outline-offset: -4px; }
+
+.hero-media img { display: block; width: 100%; height: clamp(360px, 40vw, 520px); object-fit: cover; object-position: center; }
+
+.hero-media figcaption { display: grid; gap: .3rem; padding: 1rem 1.25rem; font-size: .85rem; }
+
+.hero-media figcaption span { color: var(--muted); }
+
+.section { padding: 6rem max(5vw, 2rem); border-top: 1px solid var(--line); }
+
+.split { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; }
+
+.copy { color: var(--muted); font-size: 1.08rem; min-width: 0; }
+
+.copy .lead { color: var(--ink); font-size: 1.4rem; line-height: 1.4; }
+
+.copy h3 { color: var(--ink); margin-top: 2rem; }
+
+.target { display: grid; gap: .5rem; padding: 1.5rem; margin-top: 2rem; background: var(--mint); color: var(--ink); border-radius: 1rem; }
+
+.target span { font-size: .9rem; }
+
+.section-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+
+.section-heading > p { color: var(--muted); margin-bottom: .25rem; font-size: 1.05rem; }
+
+.dark { background: var(--ink); color: var(--white); }
+
+.dark .eyebrow { color: var(--mint); }
+
+.dark .copy, .dark .section-heading > p { color: rgba(255,255,255,.8); }
+
+.dark .copy .lead, .dark .copy h3 { color: var(--white); }
+
+.contribution-list > div { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,.25); }
+
+.contribution-list span { color: var(--mint); font-weight: 750; }
+
+.contribution-list p { margin: 0; max-width: 850px; font-size: 1.15rem; }
+
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+.process-grid article { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+
+.process-grid article > p:last-child { color: var(--muted); }
+
+.media-note { color: var(--muted); font-size: .9rem; margin-top: 2rem; }
+
+.sketch-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 1.5rem; }
+
+.sketch-grid .main-sketch { grid-row: span 2; }
+
+.sketch-grid figure, .cad-grid figure { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: 1.25rem; overflow: hidden; min-width: 0; }
+
+.sketch-grid a, .cad-grid a { display: block; }
+
+.sketch-grid img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+.sketch-grid figcaption, .cad-grid figcaption { display: grid; gap: .3rem; padding: 1.25rem; }
+
+.sketch-grid figcaption span, .cad-grid figcaption span { font-size: .85rem; color: var(--muted); }
+
+.cad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+
+.cad-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
+
+.decision-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
+
+.decision-grid article { border-top: 1px solid var(--line); padding: 2rem 0; }
+
+.decision-grid p { color: var(--muted); margin-bottom: 0; }
+
+.risk-list article { border-top: 1px solid var(--line); padding: 1.25rem 0; }
+
+.risk-list h4 { color: var(--ink); margin-bottom: .5rem; }
+
+.risk-list p { margin-bottom: 0; font-size: 1rem; }
+
+
+
+
+
+
+
+    @media (max-width: 900px) {
+
+
+.project-hero, .split, .section-heading { grid-template-columns: 1fr; gap: 2.5rem; }
+
+.project-hero { padding-top: 4rem; }
+
+.hero-media { max-width: 550px; width: 100%; }
+
+.process-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+.sketch-grid { grid-template-columns: 1fr 1fr; }
+
+.sketch-grid .main-sketch { grid-row: auto; grid-column: span 2; }
+
+.cad-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 650px) {
+
+
+
+.project-hero, .section { padding-left: 1.3rem; padding-right: 1.3rem; padding-bottom: 4rem; }
+
+.section { padding-top: 4rem; }
+
+.decision-grid, .sketch-grid, .cad-grid { grid-template-columns: 1fr; }
+
+.sketch-grid .main-sketch { grid-column: auto; }
+ }
+    @media (prefers-reduced-motion: reduce) {
+
+html { scroll-behavior: auto; } }
 </style>

@@ -1,0 +1,13 @@
+:root { --heading-section-size: clamp(2.1rem,3.6vw,3.6rem); --button-radius: .65rem; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .8rem 1.1rem; border: 1px solid #dcd8e0; border-radius: var(--button-radius); background: #fff; color: #251a37; font-size: .9rem; line-height: 1.4; font-weight: 700; text-align: center; text-decoration: none; }
+.button.primary { background: #251a37; color: #fff; border-color: #251a37; }
+.button:hover { border-color: #4778bd; } .button.primary:hover { background: #4778bd; border-color: #4778bd; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #4778bd; outline-offset: 5px; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: .75rem 1rem; background: #fff; color: #251a37; }
+.skip-link:focus { top: 1rem; }
+.page-index { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding: 1.5rem max(5vw,2rem); border-top: 1px solid #dcd8e0; font-size: .85rem; font-weight: 700; }
+.page-index a:hover { text-decoration: underline; text-underline-offset: .3em; }
+.status { margin: 1.2rem 0; color: #68636f; font-size: .9rem; }
+html { scroll-padding-top: 8rem; }
+@media(max-width:650px) { .page-index { padding: 1.25rem 1.3rem; gap: .65rem 1.3rem; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }

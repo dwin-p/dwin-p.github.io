@@ -1,0 +1,17 @@
+---
+import SiteBrand from "./SiteBrand.astro";
+interface Props { section?: "projects" | "research"; }
+const { section } = Astro.props;
+---
+<header class="site-header"><SiteBrand /><nav aria-label="Main navigation">
+<a href="/#projects" aria-current={section === "projects" ? "location" : undefined}>Projects</a>
+<a href="/#research" aria-current={section === "research" ? "location" : undefined}>Research</a>
+<a href="/#about">About</a><a href="/#contact">Contact</a></nav></header>
+<style>
+.site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247,246,242,.96); border-bottom: 1px solid #dcd8e0; backdrop-filter: blur(12px); }
+nav { display: flex; flex-wrap: wrap; gap: .5rem 2rem; font-size: .95rem; font-weight: 600; }
+nav a { color: #251a37; text-decoration: none; padding: .25rem 0; }
+nav a:hover, nav a[aria-current] { text-decoration: underline; text-underline-offset: .3em; }
+nav a:focus-visible { outline: 3px solid #4778bd; outline-offset: 5px; }
+@media(max-width:700px) { .site-header { align-items: flex-start; flex-direction: column; padding: 1rem 1.3rem; gap: .65rem; } nav { gap: .4rem 1.2rem; font-size: .85rem; } }
+</style>
