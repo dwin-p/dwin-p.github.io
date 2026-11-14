@@ -1,0 +1,22 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHead from "../components/SiteHead.astro";
+interface Props { title: string; description: string; path: string; section?: "projects" | "research" | "about"; }
+const { title, description, path, section } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
+  <title>{title}</title><meta name="description" content={description} />
+  <SiteHead title={title} description={description} path={path} />
+  <link rel="stylesheet" href="/styles/overview.css" />
+ </head>
+ <body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <SiteHeader section={section} />
+  <main id="main"><slot /></main>
+  <SiteFooter />
+ </body>
+</html>

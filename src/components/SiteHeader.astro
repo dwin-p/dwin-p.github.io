@@ -1,12 +1,14 @@
 ---
 import SiteBrand from "./SiteBrand.astro";
-interface Props { section?: "projects" | "research"; }
+interface Props { section?: "projects" | "research" | "about"; }
 const { section } = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/$/, "");
+const current = (name: string) => section === name ? (pathname === `/${name}` ? "page" : "location") : undefined;
 ---
 <header class="site-header"><SiteBrand /><nav aria-label="Main navigation">
-<a href="/#projects" aria-current={section === "projects" ? "location" : undefined}>Projects</a>
-<a href="/#research" aria-current={section === "research" ? "location" : undefined}>Research</a>
-<a href="/#about">About</a><a href="/#contact">Contact</a></nav></header>
+<a href="/projects/" aria-current={current("projects")}>Projects</a>
+<a href="/research/" aria-current={current("research")}>Research</a>
+<a href="/about/" aria-current={current("about")}>About</a><a href="#contact">Contact</a></nav></header>
 <style>
 .site-header { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem max(5vw, 2rem); background: rgba(247,246,242,.96); border-bottom: 1px solid #dcd8e0; backdrop-filter: blur(12px); }
 nav { display: flex; flex-wrap: wrap; gap: .5rem 2rem; font-size: .95rem; font-weight: 600; }

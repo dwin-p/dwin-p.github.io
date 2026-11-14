@@ -1,0 +1,11 @@
+---
+import OverviewLayout from "../../layouts/OverviewLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import projects from "../../data/projects.json";
+---
+<OverviewLayout title="Projects | Daniel Winfield" description="Explore Daniel Winfield’s robotics, mechanical design, embedded systems, and materials projects, including current prototype development." path="/projects/" section="projects">
+ <section class="overview-hero"><p class="eyebrow">Engineering Portfolio</p><h1>Projects</h1><p class="overview-intro">Mechanical design, robotics, and embedded systems—from early concepts and CAD to integrated hardware and experimental testing.</p><nav class="overview-jumps" aria-label="Project groups"><a href="#featured-projects">Featured projects ↓</a><a href="#current-projects">Current projects ↓</a></nav></section>
+ <section class="section" id="featured-projects"><div class="section-heading"><div><p class="eyebrow">01 · Selected Work</p><h2>Featured Projects</h2></div><p>Coursework, team projects, and individual builds. Each case study explains my contributions, the development process, and the results.</p></div><div class="project-grid">{projects.featured.map(project => <ProjectCard project={project} />)}</div></section>
+ <section class="section" id="current-projects"><div class="section-heading"><div><p class="eyebrow">02 · In Progress</p><h2>Current Projects</h2></div><p>Ongoing mechanical design and prototype development, with completed steps and planned testing identified in each case study.</p></div><div class="project-grid current-grid">{projects.current.map(project => <ProjectCard project={project} />)}</div></section>
+ <section class="section about"><div><p class="eyebrow">Related Work</p><h2>Looking for research?</h2></div><div class="about-copy"><p>Explore my work in motion tracking, digital composites, computational materials, and experimental characterization.</p><a class="project-link" href="/research/">View research <span aria-hidden="true">→</span></a></div></section>
+</OverviewLayout>

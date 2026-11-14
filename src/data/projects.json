@@ -1,0 +1,115 @@
+{
+  "featured": [
+    {
+      "title": "Autonomous Chess-Playing Robot",
+      "slug": "chess-robot",
+      "date": "Fall 2025",
+      "description": "Autonomous robotic chess system integrating computer vision, game intelligence, ROS 2 motion planning, and a Kinova Gen3 Lite.",
+      "tags": [
+        "Robotics",
+        "Computer Vision",
+        "ROS 2"
+      ],
+      "image": "/images/projects/chess-robot/chess-robot.jpg"
+    },
+    {
+      "title": "PEBBLE – Intelligent Study Companion",
+      "slug": "pebble",
+      "date": "Spring 2026",
+      "description": "Individually designed and built a Raspberry Pi study companion, integrating a sensor-driven timer, voice interaction, physical controls, and enclosure CAD.",
+      "tags": [
+        "Embedded Systems",
+        "Python",
+        "Enclosure CAD"
+      ],
+      "image": "/images/projects/pebble/bench-prototype.jpg"
+    },
+    {
+      "title": "JellyGrip – Biomimetic End Effector",
+      "slug": "jellygrip",
+      "date": "Fall 2024",
+      "description": "Senior capstone design exploring three-finger adaptive gripping through finger design, CAD integration, and theoretical analysis.",
+      "tags": [
+        "Mechanical Design",
+        "CAD",
+        "Biomimicry"
+      ],
+      "image": "/images/projects/jellygrip/assembly.png"
+    },
+    {
+      "title": "ThirdEye",
+      "slug": "thirdeye",
+      "date": "Fall 2025",
+      "description": "Team-developed eyelid measurement prototype, with my work focused on DeepLabV3 segmentation and a Raspberry Pi Android testing device.",
+      "tags": [
+        "Computer Vision",
+        "PyTorch",
+        "Raspberry Pi"
+      ],
+      "image": "https://sites.duke.edu/memscapstone/files/2025/11/ThirdEye-Logo-300x165.png"
+    },
+    {
+      "title": "Survive It – Interactive Survival Game",
+      "slug": "surviveit",
+      "date": "Spring 2026",
+      "description": "Group-built Raspberry Pi game combining sensors, narrated choices, displays, physical controls, and servo flags, with my work focused on hardware integration and assembly.",
+      "tags": [
+        "Embedded Systems",
+        "Hardware Integration",
+        "Python"
+      ],
+      "image": "/images/projects/surviveit/home-screen.png"
+    },
+    {
+      "title": "Advanced Materials Laboratory",
+      "slug": "advanced-materials",
+      "date": "Spring 2024",
+      "description": "Polymer specimen fabrication and materials testing, spanning mechanical response, thermal analysis, microscopy, and experimental planning.",
+      "tags": [
+        "Materials Testing",
+        "3D Printing",
+        "Data Analysis"
+      ],
+      "image": "/images/projects/advanced-materials/tensile-machine.jpg"
+    }
+  ],
+  "current": [
+    {
+      "title": "Continuum Manipulator",
+      "slug": "continuum-manipulator",
+      "date": "Fall 2026 – Present",
+      "status": "In progress",
+      "description": "Developing a single-section, three-tendon manipulator and an evaluation approach for load-dependent lifting behavior.",
+      "tags": [
+        "Robotics",
+        "Mechanical Design",
+        "Experimental Planning"
+      ]
+    },
+    {
+      "title": "Compliant Gripper & Wrist",
+      "slug": "gripper-wrist",
+      "date": "Fall 2026 – Present",
+      "status": "Prototype CAD",
+      "description": "Iterating servo linkages, compliant finger supports, and wrist/encoder interfaces around measured hardware. Physical fit and motion checks are the next step.",
+      "tags": [
+        "Mechanical Design",
+        "CAD",
+        "Hardware Integration"
+      ],
+      "image": "/images/projects/gripper-wrist/01_three_finger_prototype.png"
+    },
+    {
+      "title": "Y-Zipper Mechanism",
+      "slug": "y-zipper",
+      "date": "August 2026 – Present",
+      "status": "In progress",
+      "description": "Evaluating printed flexible-to-rigid strips and exploring packaging and actuation for a compact retractable mechanism.",
+      "tags": [
+        "Mechanisms",
+        "3D Printing",
+        "Prototyping"
+      ]
+    }
+  ]
+}

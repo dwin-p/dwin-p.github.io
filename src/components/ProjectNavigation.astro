@@ -1,8 +1,8 @@
 ---
 interface Props { slug: string; }
 const { slug } = Astro.props;
-const featured = [{slug:"chess-robot",title:"Chess Robot"},{slug:"pebble",title:"PEBBLE"},{slug:"jellygrip",title:"JellyGrip"},{slug:"thirdeye",title:"ThirdEye"},{slug:"surviveit",title:"Survive It"},{slug:"advanced-materials",title:"Advanced Materials"}];
-const current = [{slug:"continuum-manipulator",title:"Continuum Manipulator"},{slug:"gripper-wrist",title:"Compliant Gripper & Wrist"},{slug:"y-zipper",title:"Y-Zipper Mechanism"}];
+import projects from "../data/projects.json";
+const { featured, current } = projects;
 const ongoing = current.some(p => p.slug === slug);
 const list = ongoing ? current : featured;
 const index = list.findIndex(p => p.slug === slug);
@@ -10,7 +10,7 @@ const previous = list[index - 1]; const next = list[index + 1];
 ---
 <nav class="shared-project-navigation" aria-label="More projects">
 {previous && <a href={`/projects/${previous.slug}/`}><span>Previous project</span><strong>← {previous.title}</strong></a>}
-<a href={ongoing ? "/#current-projects" : "/#projects"}><span>Back to</span><strong>{ongoing ? "Current Projects" : "Featured Projects"} ↑</strong></a>
+<a href={ongoing ? "/projects/#current-projects" : "/projects/#featured-projects"}><span>Back to</span><strong>{ongoing ? "Current Projects" : "Featured Projects"} ↑</strong></a>
 {next && <a href={`/projects/${next.slug}/`}><span>Next project</span><strong>{next.title} →</strong></a>}
 </nav>
 <style>
