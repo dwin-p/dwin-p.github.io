@@ -1,23 +1,23 @@
 [
   {
-    "title": "Motion Tracking & Thermal Studies",
+    "title": "3D Reconstruction and Voxel Heating in Digital Composites",
     "slug": "thermal-diffusion",
     "lab": "Ni Lab · Duke University",
     "date": "2026 – Present",
     "status": "Ongoing",
-    "summary": "Developing 2D tracking and stereo reconstruction workflows for soft robotic motion, alongside fabrication of cavity-size variants for digital-composite heating studies.",
+    "summary": "Measuring soft robotic motion through marker tracking and 3D reconstruction, and fabricating silicone specimens with different internal cavity sizes for heating studies.",
     "contribution": "Marker tracking, camera calibration, fixture evaluation, mold CAD, and specimen fabrication.",
-    "evidence": "Tracking comparisons, stereo fixture results, and a research poster. New-specimen thermal testing remains pending.",
-    "image": "/images/research/ni-lab/fixture-reconstruction.png",
-    "alt": "Reconstructed three-dimensional coordinates of the stereo evaluation fixture"
+    "evidence": "Motion-tracking comparisons, stereo reconstruction results, fabrication photographs, and the research poster. Thermal testing of the new specimens is pending.",
+    "image": "/images/research/ni-lab/tail-tracking.png",
+    "alt": "Soft robotic tail with fluorescent markers mounted for motion tracking"
   },
   {
-    "title": "Computational Materials for Quantum Technologies",
+    "title": "Point Defects in Cubic Beryllium Sulfide",
     "slug": "bes-defects",
     "lab": "Tuskegee University",
     "date": "2024 – 2025",
     "status": "APS presentation · March 2025",
-    "summary": "First-principles investigation of point defects in cubic beryllium sulfide using DFT, GW, and BSE methods to study electronic structure, stability, and optical excitations.",
+    "summary": "Investigating how atomic-scale defects affect the stability, electronic structure, and optical response of cubic beryllium sulfide through first-principles calculations.",
     "contribution": "Analysis of defect structures and electronic and optical behavior, interpretation of results, and research presentation.",
     "evidence": "Defect visualizations, optical spectra, and the research poster.",
     "image": "/images/research/bes-defects/beryllium-vacancy.jpeg",
@@ -29,9 +29,9 @@
     "lab": "Tuskegee University",
     "date": "Spring 2023",
     "status": "Completed study",
-    "summary": "Fabrication and characterization of jute, E-glass, and hybrid epoxy composites through tensile, flexural, and dynamic mechanical testing.",
+    "summary": "Comparing how jute, E-glass, and combined fiber reinforcement affect epoxy composites through specimen fabrication and tensile, flexural, and dynamic mechanical testing.",
     "contribution": "Laminate fabrication, specimen preparation, mechanical and dynamic testing, and analysis of material response.",
-    "evidence": "Specimen photographs and DMA comparisons across the three composite systems.",
+    "evidence": "Specimen photographs and dynamic mechanical analysis comparisons across the three composite systems.",
     "image": "/images/research/hybrid-composites/composite-specimens.jpeg",
     "alt": "Composite specimens from the jute, glass, and hybrid study"
   }

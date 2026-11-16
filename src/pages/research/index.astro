@@ -5,7 +5,10 @@ import research from "../../data/research.json";
 <OverviewLayout title="Research | Daniel Winfield" description="Daniel Winfield’s research in motion tracking, digital composites, computational materials, and experimental characterization at Duke and Tuskegee." path="/research/" section="research">
  <section class="overview-hero"><p class="eyebrow">Experimental & Computational Research</p><h1>Research</h1><p class="overview-intro">Understanding physical systems through measurement, fabrication, and analysis. These studies span soft robotics, polymer composites, and point defects in crystalline materials.</p></section>
  {research.map((item,index) => <section class="section research-entry" id={item.slug}>
-  <figure><img src={item.image} alt={item.alt} loading="lazy" /></figure>
-  <div><p class="eyebrow">{String(index+1).padStart(2,"0")} · {item.lab}</p><h2>{item.title}</h2><p class="entry-date">{item.date} · {item.status}</p><p>{item.summary}</p><dl><dt>My contributions</dt><dd>{item.contribution}</dd><dt>Explore the work</dt><dd>{item.evidence}</dd></dl><a class="button primary" href={`/research/${item.slug}/`} aria-label={`View ${item.title}`}>View research →</a></div>
+  <figure class="research-image-frame" style="margin:0;padding:0;border:0;border-radius:1.1rem;background:transparent;overflow:hidden;width:100%;max-width:360px;aspect-ratio:1 / 1;height:auto;justify-self:center;">
+   <img src={item.image} alt={item.alt} loading="lazy" style={`display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;border-radius:0;object-position:center ${item.slug === 'thermal-diffusion' ? '42%' : '46%'};`} />
+  </figure>
+  <div><p class="eyebrow">{String(index+1).padStart(2,"0")} · {item.lab}</p><h2>{item.title}</h2>{item.slug === "thermal-diffusion" && <p class="research-subtitle">Motion measurement and specimen fabrication for soft robotics.</p>}<p class="entry-date">{item.date} · {item.status}</p><p>{item.summary}</p><dl><dt>My contributions</dt><dd>{item.contribution}</dd><dt>Explore the work</dt><dd>{item.evidence}</dd></dl><a class="button primary" href={`/research/${item.slug}/`} aria-label={`View ${item.title}`}>View research →</a></div>
  </section>)}
 </OverviewLayout>
+
